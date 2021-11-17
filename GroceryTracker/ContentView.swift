@@ -5,11 +5,11 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $selectedByDefault) {
-            Text("Hello, Board!")
+            Text("Hello, Stats!")
                 .padding()
                 .tag(0)
                 .tabItem {
-                    Label("BOARD", systemImage: "house")
+                    Label("STATS", systemImage: "chart.bar")
                 }
             
             FoodSectionView()
