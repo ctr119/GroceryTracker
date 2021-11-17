@@ -4,10 +4,12 @@ struct FoodSectionView: View {
     @State private var searchText = ""
     
     var body: some View {
-        VStack {
-            FoodListView(searchText: searchText)
-            
-            SearchBarView(text: $searchText)
+        NavigationView {
+            VStack {
+                FoodListView(searchText: searchText)
+                
+                SearchBarView(text: $searchText)
+            }
         }
         .padding(EdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0))
     }

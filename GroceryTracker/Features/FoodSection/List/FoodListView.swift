@@ -9,13 +9,15 @@ struct FoodListView: View {
         FoodModel(id: 2, name: "Potato")
     ]
     
+    @State private var selectedFood: FoodModel? = nil
+    
     var body: some View {
-        NavigationView {
-            List(getData()) { foodModel in
+        List(getData()) { foodModel in
+            NavigationLink(destination: FoodDetailsView(model: foodModel)) {
                 BasicFoodRow(model: foodModel)
             }
-            .navigationBarHidden(true)
         }
+        .navigationBarHidden(true)
     }
         
     private func getData() -> [FoodModel] {
