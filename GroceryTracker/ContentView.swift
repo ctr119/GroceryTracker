@@ -1,16 +1,30 @@
-//
-//  ContentView.swift
-//  GroceryTracker
-//
-//  Created by Barrios, Victor on 14/11/21.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selectedByDefault = 1
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        TabView(selection: $selectedByDefault) {
+            Text("Hello, Board!")
+                .padding()
+                .tag(0)
+                .tabItem {
+                    Label("BOARD", systemImage: "house")
+                }
+            
+            FoodSectionView()
+                .tag(1)
+                .tabItem {
+                    Label("FOOD", systemImage: "magnifyingglass")
+                }
+            
+            Text("Hello, Tickets!")
+                .padding()
+                .tag(2)
+                .tabItem {
+                    Label("MY TICKETS", systemImage: "menucard")
+                }
+        }
     }
 }
 

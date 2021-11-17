@@ -14,6 +14,11 @@
 		3E526E062741412300826E60 /* GroceryTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E052741412300826E60 /* GroceryTrackerTests.swift */; };
 		3E526E102741412300826E60 /* GroceryTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E0F2741412300826E60 /* GroceryTrackerUITests.swift */; };
 		3E526E122741412300826E60 /* GroceryTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E112741412300826E60 /* GroceryTrackerUITestsLaunchTests.swift */; };
+		3E526E222744258900826E60 /* FoodSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E212744258900826E60 /* FoodSectionView.swift */; };
+		3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E252744261400826E60 /* BasicFoodRow.swift */; };
+		3E526E28274426A100826E60 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E27274426A100826E60 /* FoodModel.swift */; };
+		3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E2A2744DE2700826E60 /* SearchBarView.swift */; };
+		3E526E312745051B00826E60 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E302745051B00826E60 /* FoodListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		3E526E0B2741412300826E60 /* GroceryTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GroceryTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526E0F2741412300826E60 /* GroceryTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerUITests.swift; sourceTree = "<group>"; };
 		3E526E112741412300826E60 /* GroceryTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3E526E212744258900826E60 /* FoodSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSectionView.swift; sourceTree = "<group>"; };
+		3E526E252744261400826E60 /* BasicFoodRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicFoodRow.swift; sourceTree = "<group>"; };
+		3E526E27274426A100826E60 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		3E526E2A2744DE2700826E60 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		3E526E302745051B00826E60 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +104,10 @@
 		3E526DF32741412200826E60 /* GroceryTracker */ = {
 			isa = PBXGroup;
 			children = (
-				3E526DF42741412200826E60 /* GroceryTrackerApp.swift */,
 				3E526DF62741412200826E60 /* ContentView.swift */,
+				3E526DF42741412200826E60 /* GroceryTrackerApp.swift */,
 				3E526DF82741412300826E60 /* Assets.xcassets */,
+				3E526E20274414EA00826E60 /* Features */,
 				3E526DFA2741412300826E60 /* Preview Content */,
 			);
 			path = GroceryTracker;
@@ -125,6 +136,50 @@
 				3E526E112741412300826E60 /* GroceryTrackerUITestsLaunchTests.swift */,
 			);
 			path = GroceryTrackerUITests;
+			sourceTree = "<group>";
+		};
+		3E526E1F274414CC00826E60 /* FoodSection */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E27274426A100826E60 /* FoodModel.swift */,
+				3E526E212744258900826E60 /* FoodSectionView.swift */,
+				3E526E23274425A700826E60 /* List */,
+			);
+			path = FoodSection;
+			sourceTree = "<group>";
+		};
+		3E526E20274414EA00826E60 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E1F274414CC00826E60 /* FoodSection */,
+				3E526E292744DC7300826E60 /* UIElements */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		3E526E23274425A700826E60 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E302745051B00826E60 /* FoodListView.swift */,
+				3E526E24274425AE00826E60 /* Rows */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		3E526E24274425AE00826E60 /* Rows */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E252744261400826E60 /* BasicFoodRow.swift */,
+			);
+			path = Rows;
+			sourceTree = "<group>";
+		};
+		3E526E292744DC7300826E60 /* UIElements */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E2A2744DE2700826E60 /* SearchBarView.swift */,
+			);
+			path = UIElements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +312,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
+				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
+				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
 				3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */,
+				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
+				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
