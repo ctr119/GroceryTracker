@@ -65,14 +65,25 @@ struct FloatingButton: View {
                         .foregroundColor(tintColor)
                         .padding(.bottom, 7)
                 }
-                .background(backgroundColor)
+                .buttonStyle(FloatingButtonStyle(buttonBackgroundColor: backgroundColor,
+                                                 buttonCornerRadius: buttonCornerRadius))
+            }
+        }
+    }
+    
+    private struct FloatingButtonStyle: ButtonStyle {
+        let buttonBackgroundColor: Color
+        let buttonCornerRadius: CGFloat
+        
+        func makeBody(configuration: FloatingButtonStyle.Configuration) -> some View {
+            configuration.label
+                .background(configuration.isPressed ? buttonBackgroundColor.opacity(0.6) : buttonBackgroundColor)
                 .cornerRadius(buttonCornerRadius)
                 .padding()
                 .shadow(color: .black.opacity(0.3),
                         radius: 3,
                         x: 3,
                         y: 3)
-            }
         }
     }
 }
