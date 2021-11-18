@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedByDefault = 1
+    @State private var selectedByDefault = 2
     
     var body: some View {
         TabView(selection: $selectedByDefault) {
@@ -18,8 +18,7 @@ struct ContentView: View {
                     Label("FOOD", systemImage: "magnifyingglass")
                 }
             
-            Text("Hello, Tickets!")
-                .padding()
+            TicketsSectionView()
                 .tag(2)
                 .tabItem {
                     Label("MY TICKETS", systemImage: "menucard")

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665427467B29008D9FCE /* TicketsSectionView.swift */; };
+		3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665627468D24008D9FCE /* FloatingButton.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E15665427467B29008D9FCE /* TicketsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSectionView.swift; sourceTree = "<group>"; };
+		3E15665627468D24008D9FCE /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E15665327467A9C008D9FCE /* TicketsSection */ = {
+			isa = PBXGroup;
+			children = (
+				3E15665427467B29008D9FCE /* TicketsSectionView.swift */,
+			);
+			path = TicketsSection;
+			sourceTree = "<group>";
+		};
 		3E526DE82741412200826E60 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				3E526E1F274414CC00826E60 /* FoodSection */,
+				3E15665327467A9C008D9FCE /* TicketsSection */,
 				3E526E292744DC7300826E60 /* UIElements */,
 			);
 			path = Features;
@@ -187,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				3E526E2A2744DE2700826E60 /* SearchBarView.swift */,
+				3E15665627468D24008D9FCE /* FloatingButton.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -343,6 +357,7 @@
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
+				3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
 				3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */,
@@ -350,6 +365,7 @@
 				3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
+				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,
 				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
