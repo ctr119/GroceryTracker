@@ -20,6 +20,9 @@
 		3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E2A2744DE2700826E60 /* SearchBarView.swift */; };
 		3E526E312745051B00826E60 /* FoodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E302745051B00826E60 /* FoodListView.swift */; };
 		3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E332745072300826E60 /* FoodDetailsView.swift */; };
+		3E526E382745178400826E60 /* FoodGroceryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E372745178400826E60 /* FoodGroceryListView.swift */; };
+		3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E392745179B00826E60 /* FoodGroceryModel.swift */; };
+		3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E3B274517D900826E60 /* FoodGroceryRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 		3E526E2A2744DE2700826E60 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		3E526E302745051B00826E60 /* FoodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListView.swift; sourceTree = "<group>"; };
 		3E526E332745072300826E60 /* FoodDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetailsView.swift; sourceTree = "<group>"; };
+		3E526E372745178400826E60 /* FoodGroceryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGroceryListView.swift; sourceTree = "<group>"; };
+		3E526E392745179B00826E60 /* FoodGroceryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGroceryModel.swift; sourceTree = "<group>"; };
+		3E526E3B274517D900826E60 /* FoodGroceryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGroceryRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,7 +151,7 @@
 			children = (
 				3E526E27274426A100826E60 /* FoodModel.swift */,
 				3E526E212744258900826E60 /* FoodSectionView.swift */,
-				3E526E322745071200826E60 /* Detail */,
+				3E526E322745071200826E60 /* Details */,
 				3E526E23274425A700826E60 /* List */,
 			);
 			path = FoodSection;
@@ -185,12 +191,23 @@
 			path = UIElements;
 			sourceTree = "<group>";
 		};
-		3E526E322745071200826E60 /* Detail */ = {
+		3E526E322745071200826E60 /* Details */ = {
 			isa = PBXGroup;
 			children = (
 				3E526E332745072300826E60 /* FoodDetailsView.swift */,
+				3E526E362745175F00826E60 /* FoodGroceryList */,
 			);
-			path = Detail;
+			path = Details;
+			sourceTree = "<group>";
+		};
+		3E526E362745175F00826E60 /* FoodGroceryList */ = {
+			isa = PBXGroup;
+			children = (
+				3E526E372745178400826E60 /* FoodGroceryListView.swift */,
+				3E526E392745179B00826E60 /* FoodGroceryModel.swift */,
+				3E526E3B274517D900826E60 /* FoodGroceryRowView.swift */,
+			);
+			path = FoodGroceryList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,10 +341,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
+				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
 				3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */,
+				3E526E382745178400826E60 /* FoodGroceryListView.swift in Sources */,
+				3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
 				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,

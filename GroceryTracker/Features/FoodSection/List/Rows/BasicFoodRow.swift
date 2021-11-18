@@ -5,7 +5,7 @@ struct BasicFoodRow: View {
     
     var body: some View {
         Text(model.name)
-            .padding(16)
+            .padding()
     }
 }
 
