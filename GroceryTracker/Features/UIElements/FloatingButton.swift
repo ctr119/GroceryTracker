@@ -25,7 +25,9 @@ struct FloatingButton: View {
     private let backgroundColor: Color
     private let tintColor: Color
     
-    init(text: String, style: FloatingButton.Style) {
+    private let buttonsAction: () -> Void
+    
+    init(text: String, style: FloatingButton.Style, action: @escaping () -> Void) {
         self.text = text
         
         var config: Configuration
@@ -45,6 +47,8 @@ struct FloatingButton: View {
         
         backgroundColor = config.background
         tintColor = config.tint
+        
+        buttonsAction = action
     }
     
     var body: some View {
@@ -54,9 +58,7 @@ struct FloatingButton: View {
             HStack {
                 Spacer()
                 
-                Button {
-                    
-                } label: {
+                Button(action: buttonsAction) {
                     Text(text)
                         .font(.system(size: buttonFontSize))
                         .frame(width: buttonWidth,
@@ -90,6 +92,8 @@ struct FloatingButton: View {
 
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButton(text: "+", style: .basic)
+        FloatingButton(text: "+", style: .basic, action: {
+            
+        })
     }
 }

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665427467B29008D9FCE /* TicketsSectionView.swift */; };
 		3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665627468D24008D9FCE /* FloatingButton.swift */; };
+		3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665927470869008D9FCE /* TicketScannerView.swift */; };
+		3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665B2747C13C008D9FCE /* TextRecogniser.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 /* Begin PBXFileReference section */
 		3E15665427467B29008D9FCE /* TicketsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSectionView.swift; sourceTree = "<group>"; };
 		3E15665627468D24008D9FCE /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
+		3E15665927470869008D9FCE /* TicketScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScannerView.swift; sourceTree = "<group>"; };
+		3E15665B2747C13C008D9FCE /* TextRecogniser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecogniser.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -97,8 +101,18 @@
 			isa = PBXGroup;
 			children = (
 				3E15665427467B29008D9FCE /* TicketsSectionView.swift */,
+				3E15665827470854008D9FCE /* TicketScanner */,
 			);
 			path = TicketsSection;
+			sourceTree = "<group>";
+		};
+		3E15665827470854008D9FCE /* TicketScanner */ = {
+			isa = PBXGroup;
+			children = (
+				3E15665927470869008D9FCE /* TicketScannerView.swift */,
+				3E15665B2747C13C008D9FCE /* TextRecogniser.swift */,
+			);
+			path = TicketScanner;
 			sourceTree = "<group>";
 		};
 		3E526DE82741412200826E60 = {
@@ -357,12 +371,14 @@
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
+				3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */,
 				3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
 				3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */,
 				3E526E382745178400826E60 /* FoodGroceryListView.swift in Sources */,
 				3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */,
+				3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,
@@ -530,6 +546,7 @@
 				DEVELOPMENT_TEAM = Y9YC9S6PVM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to scan your shopping tickets and read items data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -559,6 +576,7 @@
 				DEVELOPMENT_TEAM = Y9YC9S6PVM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Needed to scan your shopping tickets and read items data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
