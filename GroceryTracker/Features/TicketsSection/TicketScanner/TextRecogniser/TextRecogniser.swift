@@ -7,7 +7,11 @@ protocol TextRecogniser {
 }
 
 struct TextRecogniserImplementation: TextRecogniser {
-    private let maxRecognitionCandidates = 1
+    private let analyser: Analyser
+    
+    init(analyser: Analyser) {
+        self.analyser = analyser
+    }
     
     func text(from images: [CGImage]) -> String {
         var entireRecognisedText: String = ""
@@ -16,12 +20,9 @@ struct TextRecogniserImplementation: TextRecogniser {
             guard error == nil else { return }
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
-            observations
-                .compactMap { $0.topCandidates(self.maxRecognitionCandidates).first?.string }
-                .forEach {
-                    print("Candidate: \($0)")
-                    entireRecognisedText += "\($0)\n"
-                }
+            let analysis = analyser.analyse(observations: observations)
+            print("# Analysis\n----------\n\n" + analysis)
+            entireRecognisedText += analysis
         }
         recogniseTextRequest.recognitionLevel = .accurate
         recogniseTextRequest.usesLanguageCorrection = true

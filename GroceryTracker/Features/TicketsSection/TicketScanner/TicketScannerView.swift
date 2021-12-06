@@ -16,7 +16,7 @@ struct TicketScannerView: UIViewControllerRepresentable {
     
     func makeCoordinator() -> Coordinator {
         Coordinator(recognisedText: $recognisedText,
-                    textRecogniser: TextRecogniserImplementation(),
+                    textRecogniser: TextRecogniserImplementation(analyser: TicketAnalyser()),
                     parent: self)
     }
     
