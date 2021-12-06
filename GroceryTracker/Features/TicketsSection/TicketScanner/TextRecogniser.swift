@@ -3,13 +3,13 @@ import VisionKit
 import Vision
 
 protocol TextRecogniser {
-    func recognise(from images: [CGImage]) -> String
+    func text(from images: [CGImage]) -> String
 }
 
 struct TextRecogniserImplementation: TextRecogniser {
     private let maxRecognitionCandidates = 1
     
-    func recognise(from images: [CGImage]) -> String {
+    func text(from images: [CGImage]) -> String {
         var entireRecognisedText: String = ""
         
         let recogniseTextRequest = VNRecognizeTextRequest { request, error in
@@ -24,6 +24,10 @@ struct TextRecogniserImplementation: TextRecogniser {
                 }
         }
         recogniseTextRequest.recognitionLevel = .accurate
+        recogniseTextRequest.usesLanguageCorrection = true
+        recogniseTextRequest.recognitionLanguages = [
+            "es", "en"
+        ]
         
         images.forEach {
             let requestHandler = VNImageRequestHandler(cgImage: $0, options: [:])

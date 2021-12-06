@@ -35,7 +35,8 @@ struct TicketScannerView: UIViewControllerRepresentable {
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             let images = scan.getImages()
-            recognisedText.wrappedValue = textRecogniser.recognise(from: images)
+            // TODO: in the end, the text should be managed and stored in a DB, not passed to the UI
+            recognisedText.wrappedValue = textRecogniser.text(from: images)
             parent.presentationMode.wrappedValue.dismiss()
         }
     }
