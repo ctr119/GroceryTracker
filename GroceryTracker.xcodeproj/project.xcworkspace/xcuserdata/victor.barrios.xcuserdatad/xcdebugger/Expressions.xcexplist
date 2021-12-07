@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "TicketAnalyser.analyse(observations:):TicketAnalyser.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "candidate.string">
+            </PersistentString>
+            <PersistentString
+               value = "candidate.string.isUppercased()">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
