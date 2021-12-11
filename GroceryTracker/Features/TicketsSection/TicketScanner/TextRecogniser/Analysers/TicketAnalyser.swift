@@ -2,18 +2,19 @@ import Foundation
 import VisionKit
 import Vision
 
-private struct TextItem {
-    let text: String
-    let minX: CGFloat
-}
-
 struct TicketAnalyser: Analyser {
+    
+    private struct TextItem {
+        let text: String
+        let minX: CGFloat
+    }
+    
     // The current observation's baseline is within 1% of the previous observation's baseline, it must belong to the current value.
-    let observationBaselineThreshold = 0.01
+    private let observationBaselineThreshold = 0.01
     
     func analyse(observations: [VNRecognizedTextObservation]) -> String {
-        var entryRows: [String] = []
-        var currentEntry: [TextItem] = []
+        var ticketRows: [String] = []
+        var currentTicketRow: [TextItem] = []
         var previousObservation: VNRecognizedTextObservation?
         let sortedObservations = observations.sorted(by: { lhs, rhs in
             lhs.boundingBox.minY > rhs.boundingBox.minY
@@ -28,26 +29,26 @@ struct TicketAnalyser: Analyser {
             
             if let previous = previousObservation {
                if abs(observation.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold {
-                   if let index: Int = currentEntry.firstIndex(where: { $0.minX > textItem.minX }) {
-                       currentEntry.insert(textItem, at: index)
+                   if let index: Int = currentTicketRow.firstIndex(where: { $0.minX > textItem.minX }) {
+                       currentTicketRow.insert(textItem, at: index)
                    } else {
-                       currentEntry.append(textItem)
+                       currentTicketRow.append(textItem)
                    }
                    
                } else {
-                   let row = currentEntry.map { $0.text }.joined(separator: "\t")
-                   entryRows.append(row)
-                   currentEntry.removeAll()
+                   let row = currentTicketRow.map { $0.text }.joined(separator: "\t")
+                   ticketRows.append(row)
+                   currentTicketRow.removeAll()
                }
             } 
             
-            if currentEntry.isEmpty {
-                currentEntry.append(textItem)
+            if currentTicketRow.isEmpty {
+                currentTicketRow.append(textItem)
             }
             
             previousObservation = observation
         }
         
-        return entryRows.joined(separator: "\n")
+        return ticketRows.joined(separator: "\n")
     }
 }
