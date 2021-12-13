@@ -29,16 +29,9 @@ struct TicketAnalyser: Analyser {
             
             if let previous = previousObservation {
                if abs(observation.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold {
-                   if let index: Int = currentTicketRow.firstIndex(where: { $0.minX > textItem.minX }) {
-                       currentTicketRow.insert(textItem, at: index)
-                   } else {
-                       currentTicketRow.append(textItem)
-                   }
-                   
+                   add(textItem: textItem, intoCurrentRow: &currentTicketRow)
                } else {
-                   let row = currentTicketRow.map { $0.text }.joined(separator: "\t")
-                   ticketRows.append(row)
-                   currentTicketRow.removeAll()
+                   saveCurrentRow(row: &currentTicketRow, into: &ticketRows)
                }
             } 
             
@@ -49,6 +42,25 @@ struct TicketAnalyser: Analyser {
             previousObservation = observation
         }
         
+        // Store the latest row available
+        if !currentTicketRow.isEmpty {
+            saveCurrentRow(row: &currentTicketRow, into: &ticketRows)
+        }
+        
         return ticketRows.joined(separator: "\n")
+    }
+    
+    private func add(textItem: TextItem, intoCurrentRow row: inout [TextItem]) {
+        if let index: Int = row.firstIndex(where: { $0.minX > textItem.minX }) {
+            row.insert(textItem, at: index)
+        } else {
+            row.append(textItem)
+        }
+    }
+    
+    private func saveCurrentRow(row: inout [TextItem], into rows: inout [String]) {
+        let rowString = row.map { $0.text }.joined(separator: "\t")
+        rows.append(rowString)
+        row.removeAll()
     }
 }
