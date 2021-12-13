@@ -15,28 +15,25 @@ struct TicketScannerView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(recognisedText: $recognisedText,
-                    textRecogniser: TextRecogniserImplementation(analyser: TicketAnalyser()),
-                    parent: self)
+        let viewModel = TicketScannerViewModel(recognisedText: $recognisedText,
+                                               textRecogniser: TextRecogniserImplementation(analyser: TicketAnalyser()))
+        
+        return Coordinator(viewModel: viewModel, parent: self)
     }
     
     class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
-        private var recognisedText: Binding<String>
-        private let textRecogniser: TextRecogniser
+        private let viewModel: TicketScannerViewModel
         private let parent: TicketScannerView
         
-        init(recognisedText: Binding<String>,
-             textRecogniser: TextRecogniser,
+        init(viewModel: TicketScannerViewModel,
              parent: TicketScannerView) {
-            self.recognisedText = recognisedText
-            self.textRecogniser = textRecogniser
+            self.viewModel = viewModel
             self.parent = parent
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            let images = scan.getImages()
             // TODO: in the end, the text should be managed and stored in a DB, not passed to the UI
-            recognisedText.wrappedValue = textRecogniser.text(from: images)
+            viewModel.recogniseText(from: scan.getImages())
             parent.presentationMode.wrappedValue.dismiss()
         }
     }

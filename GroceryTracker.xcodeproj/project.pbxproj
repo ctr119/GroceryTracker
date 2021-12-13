@@ -31,6 +31,7 @@
 		3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF5275EA1D1006A60AC /* Analyser.swift */; };
 		3E933DF8275EC23C006A60AC /* SimpleListAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */; };
 		3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DFA275FF4B1006A60AC /* StringExtension.swift */; };
+		3ECF8DFB27655542006077BC /* TicketScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		3E933DF5275EA1D1006A60AC /* Analyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyser.swift; sourceTree = "<group>"; };
 		3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListAnalyser.swift; sourceTree = "<group>"; };
 		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScannerViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				3E15665927470869008D9FCE /* TicketScannerView.swift */,
-				3E933DF1275E0C9F006A60AC /* TextRecogniser */,
+				3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */,
 			);
 			path = TicketScanner;
 			sourceTree = "<group>";
@@ -149,6 +151,7 @@
 				3E526DF62741412200826E60 /* ContentView.swift */,
 				3E526DF42741412200826E60 /* GroceryTrackerApp.swift */,
 				3E526DF82741412300826E60 /* Assets.xcassets */,
+				3ECF8DF9276551F9006077BC /* Domain */,
 				3E526E20274414EA00826E60 /* Features */,
 				3E526DFA2741412300826E60 /* Preview Content */,
 			);
@@ -272,6 +275,14 @@
 				3E933DFA275FF4B1006A60AC /* StringExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3ECF8DF9276551F9006077BC /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				3E933DF1275E0C9F006A60AC /* TextRecogniser */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,6 +420,7 @@
 				3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */,
+				3ECF8DFB27655542006077BC /* TicketScannerViewModel.swift in Sources */,
 				3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
