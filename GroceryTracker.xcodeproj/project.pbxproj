@@ -32,6 +32,7 @@
 		3E933DF8275EC23C006A60AC /* SimpleListAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */; };
 		3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DFA275FF4B1006A60AC /* StringExtension.swift */; };
 		3ECF8DFB27655542006077BC /* TicketScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */; };
+		3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFD2767F514006077BC /* NewTicketView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListAnalyser.swift; sourceTree = "<group>"; };
 		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScannerViewModel.swift; sourceTree = "<group>"; };
+		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				3E15665427467B29008D9FCE /* TicketsSectionView.swift */,
+				3ECF8DFC2767F4FA006077BC /* NewTicket */,
 				3E15665827470854008D9FCE /* TicketScanner */,
 			);
 			path = TicketsSection;
@@ -285,6 +288,14 @@
 			path = Domain;
 			sourceTree = "<group>";
 		};
+		3ECF8DFC2767F4FA006077BC /* NewTicket */ = {
+			isa = PBXGroup;
+			children = (
+				3ECF8DFD2767F514006077BC /* NewTicketView.swift */,
+			);
+			path = NewTicket;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -431,6 +442,7 @@
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
 				3E933DF8275EC23C006A60AC /* SimpleListAnalyser.swift in Sources */,
+				3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */,
 				3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */,
 				3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,

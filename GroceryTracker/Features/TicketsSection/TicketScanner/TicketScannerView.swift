@@ -4,7 +4,8 @@ import VisionKit
 struct TicketScannerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var recognisedText: String
+    @Binding var newScannedTicketModel: TicketsSectionView.NewScannedTicketModel?
+    @State private var recognisedText: String = ""
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentViewController = VNDocumentCameraViewController()
@@ -32,9 +33,10 @@ struct TicketScannerView: UIViewControllerRepresentable {
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            // TODO: in the end, the text should be managed and stored in a DB, not passed to the UI
             viewModel.recogniseText(from: scan.getImages())
             parent.presentationMode.wrappedValue.dismiss()
+            parent.newScannedTicketModel = TicketsSectionView.NewScannedTicketModel(id: UUID(),
+                                                                                    text: parent.recognisedText)
         }
     }
 }
