@@ -1,11 +1,6 @@
 import SwiftUI
 
-struct TicketsSectionView: View {
-    struct NewScannedTicketModel: Identifiable {
-        let id: UUID
-        let text: String
-    }
-    
+struct TicketsSectionView: View {    
     @State private var newScannedTicketModel: NewScannedTicketModel?
     @State private var shouldOpenScanner = false
     

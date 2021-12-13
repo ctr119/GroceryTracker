@@ -4,8 +4,7 @@ import VisionKit
 struct TicketScannerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var newScannedTicketModel: TicketsSectionView.NewScannedTicketModel?
-    @State private var recognisedText: String = ""
+    @Binding var newScannedTicketModel: NewScannedTicketModel?
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentViewController = VNDocumentCameraViewController()
@@ -16,7 +15,7 @@ struct TicketScannerView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        let viewModel = TicketScannerViewModel(recognisedText: $recognisedText,
+        let viewModel = TicketScannerViewModel(scannedTicketModel: $newScannedTicketModel,
                                                textRecogniser: TextRecogniserImplementation(analyser: TicketAnalyser()))
         
         return Coordinator(viewModel: viewModel, parent: self)
@@ -35,8 +34,6 @@ struct TicketScannerView: UIViewControllerRepresentable {
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             viewModel.recogniseText(from: scan.getImages())
             parent.presentationMode.wrappedValue.dismiss()
-            parent.newScannedTicketModel = TicketsSectionView.NewScannedTicketModel(id: UUID(),
-                                                                                    text: parent.recognisedText)
         }
     }
 }
