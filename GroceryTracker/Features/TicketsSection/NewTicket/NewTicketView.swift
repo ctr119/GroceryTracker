@@ -1,18 +1,17 @@
 import SwiftUI
 
 struct NewTicketView: View {
-    // @Binding var ticketModel: NewScannedTicketModel?
-    var ticketModel: ScannedTicketModel
+    let viewModel: NewTicketViewModel
     
     var body: some View {
         ScrollView {
             VStack {
-                ForEach((0...ticketModel.pages.count-1), id: \.self) { pageIndex in
-                    ForEach((0...ticketModel.pages[pageIndex].getRows().count-1), id: \.self) { rowIndex in
+                ForEach((0...viewModel.getPagesCount()-1), id: \.self) { pageIndex in
+                    ForEach((0...viewModel.getRowsCount(of: pageIndex)-1), id: \.self) { rowIndex in
                         
                         let bind = Binding(
-                            get: { ticketModel.pages[pageIndex].row(at: rowIndex) },
-                            set: { ticketModel.pages[pageIndex].set(row: $0, at: rowIndex) }
+                            get: { viewModel.getRow(at: rowIndex, ofPage: pageIndex) },
+                            set: { viewModel.updateRow(at: rowIndex, ofPage: pageIndex, with: $0) }
                         )
                         NewTicketItemRow(itemRow: bind)
                     }
@@ -34,6 +33,6 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(ticketModel: model)
+        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model))
     }
 }

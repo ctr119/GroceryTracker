@@ -16,7 +16,7 @@ struct TicketsSectionView: View {
             TicketScannerView(scannedTicketModel: $scannedTicketModel)
         }
         .sheet(item: $scannedTicketModel) { ticketModel in
-            NewTicketView(ticketModel: ticketModel)
+            NewTicketView(viewModel: NewTicketViewModel(ticketModel: ticketModel))
         }
     }
 }
