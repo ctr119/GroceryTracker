@@ -4,7 +4,7 @@ import Vision
 protocol Analyser {
     var maxRecognitionCandidates: Int { get }
     
-    func analyse(observations: [VNRecognizedTextObservation]) -> String
+    func analyse(observations: [VNRecognizedTextObservation]) -> TextPage
 }
 
 extension Analyser {

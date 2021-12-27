@@ -12,8 +12,9 @@ struct TicketAnalyser: Analyser {
     // The current observation's baseline is within 1% of the previous observation's baseline, it must belong to the current value.
     private let observationBaselineThreshold = 0.01
     
-    func analyse(observations: [VNRecognizedTextObservation]) -> String {
-        var ticketRows: [String] = []
+    func analyse(observations: [VNRecognizedTextObservation]) -> TextPage {
+        var page = TextPage()
+        
         var currentTicketRow: [TextItem] = []
         var previousObservation: VNRecognizedTextObservation?
         let sortedObservations = observations.sorted(by: { lhs, rhs in
@@ -31,7 +32,7 @@ struct TicketAnalyser: Analyser {
                if abs(observation.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold {
                    add(textItem: textItem, intoCurrentRow: &currentTicketRow)
                } else {
-                   saveCurrentRow(row: &currentTicketRow, into: &ticketRows)
+                   saveCurrentRow(row: &currentTicketRow, into: &page)
                }
             } 
             
@@ -44,10 +45,10 @@ struct TicketAnalyser: Analyser {
         
         // Store the latest row available
         if !currentTicketRow.isEmpty {
-            saveCurrentRow(row: &currentTicketRow, into: &ticketRows)
+            saveCurrentRow(row: &currentTicketRow, into: &page)
         }
         
-        return ticketRows.joined(separator: "\n")
+        return page
     }
     
     private func add(textItem: TextItem, intoCurrentRow row: inout [TextItem]) {
@@ -58,9 +59,8 @@ struct TicketAnalyser: Analyser {
         }
     }
     
-    private func saveCurrentRow(row: inout [TextItem], into rows: inout [String]) {
-        let rowString = row.map { $0.text }.joined(separator: "\t")
-        rows.append(rowString)
+    private func saveCurrentRow(row: inout [TextItem], into page: inout TextPage) {
+        page.addRow(row.map { $0.text })
         row.removeAll()
     }
 }

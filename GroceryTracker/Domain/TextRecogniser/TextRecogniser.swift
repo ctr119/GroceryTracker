@@ -3,7 +3,7 @@ import VisionKit
 import Vision
 
 protocol TextRecogniser {
-    func text(from images: [CGImage]) -> String
+    func text(from images: [CGImage]) -> [TextPage]
 }
 
 struct TextRecogniserImplementation: TextRecogniser {
@@ -13,16 +13,15 @@ struct TextRecogniserImplementation: TextRecogniser {
         self.analyser = analyser
     }
     
-    func text(from images: [CGImage]) -> String {
-        var entireRecognisedText: String = ""
+    func text(from images: [CGImage]) -> [TextPage] {
+        var pages: [TextPage] = []
         
         let recogniseTextRequest = VNRecognizeTextRequest { request, error in
             guard error == nil else { return }
             guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
-            let analysis = analyser.analyse(observations: observations)
-            print("# Analysis\n----------\n\n" + analysis)
-            entireRecognisedText += analysis
+            let resultsPage = analyser.analyse(observations: observations)
+            pages.append(resultsPage)
         }
         recogniseTextRequest.recognitionLevel = .accurate
         recogniseTextRequest.usesLanguageCorrection = true
@@ -35,6 +34,6 @@ struct TextRecogniserImplementation: TextRecogniser {
             try? requestHandler.perform([recogniseTextRequest])
         }
         
-        return entireRecognisedText
+        return pages
     }
 }

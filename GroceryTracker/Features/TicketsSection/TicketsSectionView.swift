@@ -6,7 +6,7 @@ struct TicketsSectionView: View {
     
     var body: some View {
         ZStack {
-            Text(newScannedTicketModel?.text ?? "Empty")
+            Text("Empty")
             
             FloatingButton(text: "+", style: .basic) {
                 shouldOpenScanner = true
@@ -16,7 +16,7 @@ struct TicketsSectionView: View {
             TicketScannerView(newScannedTicketModel: $newScannedTicketModel)
         }
         .sheet(item: $newScannedTicketModel) { ticketModel in
-            NewTicketView()
+            NewTicketView(ticketModel: ticketModel)
         }
     }
 }

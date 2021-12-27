@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E095D85277524A8000AF87E /* NewTicketItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E095D84277524A8000AF87E /* NewTicketItemRow.swift */; };
+		3E095D8827752BD7000AF87E /* TextPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E095D8727752BD7000AF87E /* TextPage.swift */; };
+		3E095D8A2777BE9D000AF87E /* NewTicketViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E095D892777BE9D000AF87E /* NewTicketViewModel.swift */; };
+		3E095D8C277923E8000AF87E /* NewScannedTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E095D8B277923E8000AF87E /* NewScannedTicketModel.swift */; };
 		3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665427467B29008D9FCE /* TicketsSectionView.swift */; };
 		3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665627468D24008D9FCE /* FloatingButton.swift */; };
 		3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665927470869008D9FCE /* TicketScannerView.swift */; };
@@ -53,6 +57,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E095D84277524A8000AF87E /* NewTicketItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketItemRow.swift; sourceTree = "<group>"; };
+		3E095D8727752BD7000AF87E /* TextPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextPage.swift; sourceTree = "<group>"; };
+		3E095D892777BE9D000AF87E /* NewTicketViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketViewModel.swift; sourceTree = "<group>"; };
+		3E095D8B277923E8000AF87E /* NewScannedTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewScannedTicketModel.swift; sourceTree = "<group>"; };
 		3E15665427467B29008D9FCE /* TicketsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketsSectionView.swift; sourceTree = "<group>"; };
 		3E15665627468D24008D9FCE /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		3E15665927470869008D9FCE /* TicketScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScannerView.swift; sourceTree = "<group>"; };
@@ -122,6 +130,7 @@
 		3E15665827470854008D9FCE /* TicketScanner */ = {
 			isa = PBXGroup;
 			children = (
+				3E095D8B277923E8000AF87E /* NewScannedTicketModel.swift */,
 				3E15665927470869008D9FCE /* TicketScannerView.swift */,
 				3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */,
 			);
@@ -256,6 +265,7 @@
 		3E933DF1275E0C9F006A60AC /* TextRecogniser */ = {
 			isa = PBXGroup;
 			children = (
+				3E095D8727752BD7000AF87E /* TextPage.swift */,
 				3E15665B2747C13C008D9FCE /* TextRecogniser.swift */,
 				3E933DF2275E0CAC006A60AC /* Analysers */,
 			);
@@ -291,7 +301,9 @@
 		3ECF8DFC2767F4FA006077BC /* NewTicket */ = {
 			isa = PBXGroup;
 			children = (
+				3E095D84277524A8000AF87E /* NewTicketItemRow.swift */,
 				3ECF8DFD2767F514006077BC /* NewTicketView.swift */,
+				3E095D892777BE9D000AF87E /* NewTicketViewModel.swift */,
 			);
 			path = NewTicket;
 			sourceTree = "<group>";
@@ -426,12 +438,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E095D8C277923E8000AF87E /* NewScannedTicketModel.swift in Sources */,
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
 				3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */,
+				3E095D8A2777BE9D000AF87E /* NewTicketViewModel.swift in Sources */,
 				3ECF8DFB27655542006077BC /* TicketScannerViewModel.swift in Sources */,
+				3E095D85277524A8000AF87E /* NewTicketItemRow.swift in Sources */,
 				3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,
@@ -441,6 +456,7 @@
 				3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
+				3E095D8827752BD7000AF87E /* TextPage.swift in Sources */,
 				3E933DF8275EC23C006A60AC /* SimpleListAnalyser.swift in Sources */,
 				3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */,
 				3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */,
