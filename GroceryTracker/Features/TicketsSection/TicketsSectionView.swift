@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct TicketsSectionView: View {    
-    @State private var newScannedTicketModel: NewScannedTicketModel?
+    @State private var scannedTicketModel: ScannedTicketModel?
     @State private var shouldOpenScanner = false
     
     var body: some View {
@@ -13,9 +13,9 @@ struct TicketsSectionView: View {
             }
         }
         .sheet(isPresented: $shouldOpenScanner) {
-            TicketScannerView(newScannedTicketModel: $newScannedTicketModel)
+            TicketScannerView(scannedTicketModel: $scannedTicketModel)
         }
-        .sheet(item: $newScannedTicketModel) { ticketModel in
+        .sheet(item: $scannedTicketModel) { ticketModel in
             NewTicketView(ticketModel: ticketModel)
         }
     }

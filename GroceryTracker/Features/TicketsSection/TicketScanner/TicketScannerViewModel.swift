@@ -2,11 +2,11 @@ import Foundation
 import SwiftUI
 
 struct TicketScannerViewModel {
-    @Binding var scannedTicketModel: NewScannedTicketModel?
+    @Binding var scannedTicketModel: ScannedTicketModel?
     let textRecogniser: TextRecogniser
     
     func recogniseText(from images: [CGImage]) {
         let textPages = textRecogniser.text(from: images)
-        scannedTicketModel = NewScannedTicketModel(id: UUID(), pages: textPages)
+        scannedTicketModel = ScannedTicketModel(id: UUID(), pages: textPages)
     }
 }

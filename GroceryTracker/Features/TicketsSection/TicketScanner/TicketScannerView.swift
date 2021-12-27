@@ -4,7 +4,7 @@ import VisionKit
 struct TicketScannerView: UIViewControllerRepresentable {
     @Environment(\.presentationMode) var presentationMode
     
-    @Binding var newScannedTicketModel: NewScannedTicketModel?
+    @Binding var scannedTicketModel: ScannedTicketModel?
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let documentViewController = VNDocumentCameraViewController()
@@ -15,7 +15,7 @@ struct TicketScannerView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-        let viewModel = TicketScannerViewModel(scannedTicketModel: $newScannedTicketModel,
+        let viewModel = TicketScannerViewModel(scannedTicketModel: $scannedTicketModel,
                                                textRecogniser: TextRecogniserImplementation(analyser: TicketAnalyser()))
         
         return Coordinator(viewModel: viewModel, parent: self)

@@ -1,5 +1,5 @@
 import SwiftUI
 
 struct NewTicketViewModel {
-    @Binding var ticketModel: NewScannedTicketModel?
+    @Binding var ticketModel: ScannedTicketModel?
 }

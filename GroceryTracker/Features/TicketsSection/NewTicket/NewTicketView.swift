@@ -2,7 +2,7 @@ import SwiftUI
 
 struct NewTicketView: View {
     // @Binding var ticketModel: NewScannedTicketModel?
-    var ticketModel: NewScannedTicketModel
+    var ticketModel: ScannedTicketModel
     
     var body: some View {
         ScrollView {
@@ -24,7 +24,7 @@ struct NewTicketView: View {
 }
 
 struct NewTicketView_Previews: PreviewProvider {
-    @State static var model: NewScannedTicketModel = NewScannedTicketModel(id: UUID(),
+    @State static var model: ScannedTicketModel = ScannedTicketModel(id: UUID(),
                                                                            pages: [getPage()])
     static func getPage() -> TextPage {
         let page = TextPage()
