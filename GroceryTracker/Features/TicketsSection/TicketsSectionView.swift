@@ -16,7 +16,12 @@ struct TicketsSectionView: View {
             TicketScannerView(scannedTicketModel: $scannedTicketModel)
         }
         .sheet(item: $scannedTicketModel) { ticketModel in
-            NewTicketView(ticketModel: ticketModel)
+            let viewModel = NewTicketViewModel(ticketModel: ticketModel,
+                                               pagesCount: nil,
+                                               rowsPerPageCount: nil,
+                                               modelForDismissal: $scannedTicketModel)
+            
+            NewTicketView(viewModel: viewModel)
         }
     }
 }

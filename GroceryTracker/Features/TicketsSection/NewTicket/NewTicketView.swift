@@ -3,33 +3,49 @@ import SwiftUI
 struct NewTicketView: View {
     @State private var pagesCount: Int = 1
     @State private var rowsPerPageCount: [Int] = [2]
+    @State private var groceryName: String = ""
     
-    let viewModel: NewTicketViewModel
+    private let viewModel: NewTicketViewModel
     
-    init(ticketModel: ScannedTicketModel) {
-        viewModel = NewTicketViewModel(ticketModel: ticketModel,
-                                       pagesCount: nil,
-                                       rowsPerPageCount: nil)
-        
-        viewModel.pagesCount = pagesCount
-        viewModel.rowsPerPageCount = rowsPerPageCount
+    init(viewModel: NewTicketViewModel) {
+        self.viewModel = viewModel
+        self.viewModel.pagesCount = pagesCount
+        self.viewModel.rowsPerPageCount = rowsPerPageCount
     }
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach((0...pagesCount-1), id: \.self) { pageIndex in
-                    ForEach((0...rowsPerPageCount[pageIndex]-1), id: \.self) { rowIndex in
-                        
-                        let bind = Binding(
-                            get: { viewModel.getRow(at: rowIndex, ofPage: pageIndex) },
-                            set: { viewModel.updateRow(at: rowIndex, ofPage: pageIndex, with: $0) }
-                        )
-                        NewTicketItemRow(itemRow: bind)
+        VStack {
+            CustomTextField(placeHolder: "Grocery's Name",
+                            value: $groceryName,
+                            lineColor: .gray,
+                            lineHeight: 1)
+            
+            Divider()
+            
+            ScrollView {
+                VStack {
+                    ForEach((0...pagesCount-1), id: \.self) { pageIndex in
+                        ForEach((0...rowsPerPageCount[pageIndex]-1), id: \.self) { rowIndex in
+                            
+                            let bind = Binding(
+                                get: { viewModel.getRow(at: rowIndex, ofPage: pageIndex) },
+                                set: { viewModel.updateRow(at: rowIndex, ofPage: pageIndex, with: $0) }
+                            )
+                            NewTicketItemRow(itemRow: bind)
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
+            
+            Divider()
+            
+            
+            SaveBottomBar {
+                viewModel.saveTicket(groceryName: groceryName)
+            } cancelAction: {
+                viewModel.cancelTicket()
+            }
         }
         .onAppear {
             viewModel.displayInformation()
@@ -38,7 +54,7 @@ struct NewTicketView: View {
 }
 
 struct NewTicketView_Previews: PreviewProvider {
-    @State static var model: ScannedTicketModel = ScannedTicketModel(id: UUID(),
+    @State static var model: ScannedTicketModel? = ScannedTicketModel(id: UUID(),
                                                                            pages: [getPage()])
     static func getPage() -> TextPage {
         let page = TextPage()
@@ -48,6 +64,9 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(ticketModel: model)
+        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!,
+                                                    pagesCount: nil,
+                                                    rowsPerPageCount: nil,
+                                                    modelForDismissal: $model))
     }
 }

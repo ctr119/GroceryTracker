@@ -35,6 +35,7 @@
 		3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF5275EA1D1006A60AC /* Analyser.swift */; };
 		3E933DF8275EC23C006A60AC /* SimpleListAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */; };
 		3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DFA275FF4B1006A60AC /* StringExtension.swift */; };
+		3E9CEBDC277EF46E000FFD4F /* SaveBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */; };
 		3EA0FB34277A5CBD00F16834 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */; };
 		3ECF8DFB27655542006077BC /* TicketScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */; };
 		3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFD2767F514006077BC /* NewTicketView.swift */; };
@@ -89,6 +90,7 @@
 		3E933DF5275EA1D1006A60AC /* Analyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyser.swift; sourceTree = "<group>"; };
 		3E933DF7275EC23C006A60AC /* SimpleListAnalyser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleListAnalyser.swift; sourceTree = "<group>"; };
 		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBottomBar.swift; sourceTree = "<group>"; };
 		3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketScannerViewModel.swift; sourceTree = "<group>"; };
 		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				3E526E2A2744DE2700826E60 /* SearchBarView.swift */,
 				3E15665627468D24008D9FCE /* FloatingButton.swift */,
 				3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */,
+				3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */,
 			);
 			path = UIElements;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				3E095D8C277923E8000AF87E /* ScannedTicketModel.swift in Sources */,
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
+				3E9CEBDC277EF46E000FFD4F /* SaveBottomBar.swift in Sources */,
 				3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E15665A27470869008D9FCE /* TicketScannerView.swift in Sources */,
