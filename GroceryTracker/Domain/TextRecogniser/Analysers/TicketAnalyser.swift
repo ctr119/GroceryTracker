@@ -42,7 +42,6 @@ struct TicketAnalyser: Analyser {
             previousObservation = obs
         }
         
-        // Store the latest row available
         if !currentTicketRow.isEmpty {
             page.addRow(currentTicketRow.map { $0.text })
         }
