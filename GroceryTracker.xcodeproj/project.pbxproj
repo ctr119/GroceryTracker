@@ -126,19 +126,19 @@
 			children = (
 				3E15665427467B29008D9FCE /* TicketsSectionView.swift */,
 				3ECF8DFC2767F4FA006077BC /* NewTicket */,
-				3E15665827470854008D9FCE /* TicketScanner */,
+				3E15665827470854008D9FCE /* Scanner */,
 			);
 			path = TicketsSection;
 			sourceTree = "<group>";
 		};
-		3E15665827470854008D9FCE /* TicketScanner */ = {
+		3E15665827470854008D9FCE /* Scanner */ = {
 			isa = PBXGroup;
 			children = (
 				3E095D8B277923E8000AF87E /* ScannedTicketModel.swift */,
 				3E15665927470869008D9FCE /* TicketScannerView.swift */,
 				3ECF8DFA27655542006077BC /* TicketScannerViewModel.swift */,
 			);
-			path = TicketScanner;
+			path = Scanner;
 			sourceTree = "<group>";
 		};
 		3E526DE82741412200826E60 = {
