@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-struct TicketScannerViewModel {
+struct ScannerViewModel {
     @Binding var scannedTicketModel: ScannedTicketModel?
     let textRecogniser: TextRecogniser
     
