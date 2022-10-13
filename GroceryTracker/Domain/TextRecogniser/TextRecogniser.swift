@@ -17,8 +17,7 @@ struct TextRecogniserImplementation: TextRecogniser {
         var pages: [TextPage] = []
         
         let recogniseTextRequest = VNRecognizeTextRequest { request, error in
-            guard error == nil else { return }
-            guard let observations = request.results as? [VNRecognizedTextObservation] else { return }
+            guard error == nil, let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
             let resultsPage = analyser.analyse(observations: observations)
             pages.append(resultsPage)

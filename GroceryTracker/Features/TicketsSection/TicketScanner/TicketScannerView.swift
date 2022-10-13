@@ -32,8 +32,11 @@ struct TicketScannerView: UIViewControllerRepresentable {
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            viewModel.recogniseText(from: scan.getImages())
-            parent.presentationMode.wrappedValue.dismiss()
+            controller.dismiss(animated: true) {
+                DispatchQueue.global(qos: .userInitiated).async {
+                    self.viewModel.recogniseText(from: scan.getImages())
+                }
+            }
         }
     }
 }

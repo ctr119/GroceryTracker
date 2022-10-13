@@ -15,10 +15,8 @@ struct TicketsSectionView: View {
         .sheet(isPresented: $shouldOpenScanner) {
             TicketScannerView(scannedTicketModel: $scannedTicketModel)
         }
-        .sheet(item: $scannedTicketModel) { ticketModel in
+        .fullScreenCover(item: $scannedTicketModel) { ticketModel in
             let viewModel = NewTicketViewModel(ticketModel: ticketModel,
-                                               pagesCount: nil,
-                                               rowsPerPageCount: nil,
                                                modelForDismissal: $scannedTicketModel)
             
             NewTicketView(viewModel: viewModel)

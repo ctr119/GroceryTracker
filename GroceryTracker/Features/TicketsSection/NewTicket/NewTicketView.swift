@@ -1,16 +1,14 @@
 import SwiftUI
 
 struct NewTicketView: View {
-    @State private var pagesCount: Int = 1
-    @State private var rowsPerPageCount: [Int] = [2]
     @State private var groceryName: String = ""
     
     private let viewModel: NewTicketViewModel
     
     init(viewModel: NewTicketViewModel) {
         self.viewModel = viewModel
-        self.viewModel.pagesCount = pagesCount
-        self.viewModel.rowsPerPageCount = rowsPerPageCount
+        
+        self.viewModel.displayInformation()
     }
     
     var body: some View {
@@ -24,8 +22,8 @@ struct NewTicketView: View {
             
             ScrollView {
                 VStack {
-                    ForEach((0...pagesCount-1), id: \.self) { pageIndex in
-                        ForEach((0...rowsPerPageCount[pageIndex]-1), id: \.self) { rowIndex in
+                    ForEach((0...viewModel.pagesCount-1), id: \.self) { pageIndex in
+                        ForEach((0...viewModel.rowsPerPageCount[pageIndex]-1), id: \.self) { rowIndex in
                             
                             let bind = Binding(
                                 get: { viewModel.getRow(at: rowIndex, ofPage: pageIndex) },
@@ -47,9 +45,6 @@ struct NewTicketView: View {
                 viewModel.cancelTicket()
             }
         }
-        .onAppear {
-            viewModel.displayInformation()
-        }
     }
 }
 
@@ -65,8 +60,6 @@ struct NewTicketView_Previews: PreviewProvider {
     
     static var previews: some View {
         NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!,
-                                                    pagesCount: nil,
-                                                    rowsPerPageCount: nil,
                                                     modelForDismissal: $model))
     }
 }

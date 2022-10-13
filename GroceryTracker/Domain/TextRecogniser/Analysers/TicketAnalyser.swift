@@ -9,43 +9,42 @@ struct TicketAnalyser: Analyser {
         let minX: CGFloat
     }
     
-    // The current observation's baseline is within 1% of the previous observation's baseline, it must belong to the current value.
-    private let observationBaselineThreshold = 0.01
+    // The current observation's baseline is within 1.8% of the previous observation's baseline,
+    // it must belong to the current value.
+    private let observationBaselineThreshold = 0.018
     
     func analyse(observations: [VNRecognizedTextObservation]) -> TextPage {
-        var page = TextPage()
+        let page = TextPage()
         
         var currentTicketRow: [TextItem] = []
         var previousObservation: VNRecognizedTextObservation?
-        let sortedObservations = observations.sorted(by: { lhs, rhs in
-            lhs.boundingBox.minY > rhs.boundingBox.minY
-        })
         
-        for observation in sortedObservations {
-            guard let candidate = observation.topCandidates(maxRecognitionCandidates).first,
-                  (candidate.string.isUppercased()
-                   || candidate.string.contains("kg")) else { continue }
+        for obs in observations {
+            guard let candidate = obs.topCandidates(maxRecognitionCandidates).first else { continue }
             
-            let textItem = TextItem(text: candidate.string, minX: observation.boundingBox.minX)
+            let textItem = TextItem(text: candidate.string, minX: obs.boundingBox.minX)
             
             if let previous = previousObservation {
-               if abs(observation.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold {
-                   add(textItem: textItem, intoCurrentRow: &currentTicketRow)
-               } else {
-                   saveCurrentRow(row: &currentTicketRow, into: &page)
-               }
-            } 
+                let belongsToSameBaseline = abs(obs.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold
+                
+                if belongsToSameBaseline {
+                    add(textItem: textItem, intoCurrentRow: &currentTicketRow)
+                } else {
+                    page.addRow(currentTicketRow.map { $0.text })
+                    currentTicketRow.removeAll()
+                }
+            }
             
             if currentTicketRow.isEmpty {
                 currentTicketRow.append(textItem)
             }
             
-            previousObservation = observation
+            previousObservation = obs
         }
         
         // Store the latest row available
         if !currentTicketRow.isEmpty {
-            saveCurrentRow(row: &currentTicketRow, into: &page)
+            page.addRow(currentTicketRow.map { $0.text })
         }
         
         return page
@@ -57,10 +56,5 @@ struct TicketAnalyser: Analyser {
         } else {
             row.append(textItem)
         }
-    }
-    
-    private func saveCurrentRow(row: inout [TextItem], into page: inout TextPage) {
-        page.addRow(row.map { $0.text })
-        row.removeAll()
     }
 }

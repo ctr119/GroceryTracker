@@ -1,28 +1,20 @@
 import SwiftUI
 
-struct NewTicketViewModel {
-    @Binding var pagesCount: Int?
-    @Binding var rowsPerPageCount: [Int]?
+class NewTicketViewModel {
+    private(set) var pagesCount: Int = 0
+    private(set) var rowsPerPageCount: [Int] = []
     @Binding var modelForDismissal: ScannedTicketModel?
     
     private var ticketModel: ScannedTicketModel
     
-    init(ticketModel: ScannedTicketModel,
-         pagesCount: Binding<Int?>?,
-         rowsPerPageCount: Binding<[Int]?>?,
-         modelForDismissal: Binding<ScannedTicketModel?>) {
+    init(ticketModel: ScannedTicketModel, modelForDismissal: Binding<ScannedTicketModel?>) {
         self.ticketModel = ticketModel
-        self._pagesCount = pagesCount ?? Binding.constant(nil)
-        self._rowsPerPageCount = rowsPerPageCount ?? Binding.constant(nil)
         self._modelForDismissal = modelForDismissal
     }
     
     func displayInformation() {
         pagesCount = ticketModel.pages.count
-                
-        for pIndex in 0..<ticketModel.pages.count {
-            rowsPerPageCount?[pIndex] = ticketModel.pages[pIndex].getRows().count
-        }
+        rowsPerPageCount = ticketModel.pages.map { $0.getRows().count }
     }
     
     func getRow(at index: Int, ofPage pageIndex: Int) -> [String] {

@@ -7,6 +7,9 @@ struct TicketScannerViewModel {
     
     func recogniseText(from images: [CGImage]) {
         let textPages = textRecogniser.text(from: images)
-        scannedTicketModel = ScannedTicketModel(id: UUID(), pages: textPages)
+        
+        DispatchQueue.main.async {
+            self.scannedTicketModel = ScannedTicketModel(id: UUID(), pages: textPages)
+        }
     }
 }
