@@ -5,6 +5,7 @@ struct CustomTextField: View {
     @Binding var value: String
     var label: String?
     
+    var textColor: Color = .black
     var lineColor: Color
     var lineHeight: CGFloat
     
@@ -12,11 +13,13 @@ struct CustomTextField: View {
         VStack {
             if let label = label {
                 Text(label)
+                    .foregroundColor(textColor)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .font(.footnote)
             }
             
             TextField(placeHolder, text: $value)
+                .foregroundColor(textColor)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
                 .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
@@ -36,6 +39,7 @@ struct CustomTextField_Previews: PreviewProvider {
         CustomTextField(placeHolder: "Placeholder",
                         value: $textValue,
                         label: "Label",
+                        textColor: .green,
                         lineColor: .blue,
                         lineHeight: 2)
     }

@@ -1,8 +1,7 @@
 import SwiftUI
 
-class NewTicketViewModel {
-    private(set) var pagesCount: Int = 0
-    private(set) var rowsPerPageCount: [Int] = []
+class NewTicketViewModel: ObservableObject {
+    @Published var rows: [TextPage.Row] = []
     @Binding var modelForDismissal: ScannedTicketModel?
     
     private var ticketModel: ScannedTicketModel
@@ -13,21 +12,7 @@ class NewTicketViewModel {
     }
     
     func onAppear() {
-        let rows = ticketModel.pages.flatMap { $0.finalRows }
-        // TODO: Continue
-    }
-    
-    func displayInformation() {
-        pagesCount = ticketModel.pages.count
-        rowsPerPageCount = ticketModel.pages.map { $0.getRows().count }
-    }
-    
-    func getRow(at index: Int, ofPage pageIndex: Int) -> [String] {
-        ticketModel.pages[pageIndex].row(at: index)
-    }
-    
-    func updateRow(at index: Int, ofPage pageIndex: Int, with newValue: [String]) {
-        ticketModel.pages[pageIndex].set(row: newValue, at: index)
+        rows = ticketModel.pages.flatMap { $0.finalRows }
     }
     
     func saveTicket(groceryName: String) {

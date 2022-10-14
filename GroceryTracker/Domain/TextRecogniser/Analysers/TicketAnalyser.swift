@@ -44,7 +44,7 @@ struct TicketAnalyser: Analyser {
         }
         
         if !currentTicketRow.isEmpty {
-            page.addRow(currentTicketRow.map { $0.text })
+            page.addRow(currentTicketRow.map { $0.text }, distribution: distribution)
         }
         
         return page

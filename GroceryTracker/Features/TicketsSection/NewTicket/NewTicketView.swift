@@ -2,35 +2,31 @@ import SwiftUI
 
 struct NewTicketView: View {
     @State private var groceryName: String = ""
-    
-    private let viewModel: NewTicketViewModel
+    @ObservedObject private var viewModel: NewTicketViewModel
     
     init(viewModel: NewTicketViewModel) {
         self.viewModel = viewModel
-        
-        self.viewModel.displayInformation()
     }
     
     var body: some View {
         VStack {
             CustomTextField(placeHolder: "Grocery's Name",
                             value: $groceryName,
-                            lineColor: .gray,
+                            textColor: .white,
+                            lineColor: .blue,
                             lineHeight: 1)
             
             Divider()
             
             ScrollView {
                 VStack {
-                    ForEach((0...viewModel.pagesCount-1), id: \.self) { pageIndex in
-                        ForEach((0...viewModel.rowsPerPageCount[pageIndex]-1), id: \.self) { rowIndex in
-                            
-                            let bind = Binding(
-                                get: { viewModel.getRow(at: rowIndex, ofPage: pageIndex) },
-                                set: { viewModel.updateRow(at: rowIndex, ofPage: pageIndex, with: $0) }
-                            )
-                            NewTicketItemRow(itemRow: bind)
+                    ForEach(0..<viewModel.rows.count, id: \.self) { rowIndex in
+                        let binding = Binding {
+                            viewModel.rows[rowIndex]
+                        } set: { newValue in
+                            viewModel.rows[rowIndex] = newValue
                         }
+                        TicketRowView(row: binding)
                     }
                 }
                 .padding()
@@ -38,12 +34,16 @@ struct NewTicketView: View {
             
             Divider()
             
-            
             SaveBottomBar {
                 viewModel.saveTicket(groceryName: groceryName)
             } cancelAction: {
                 viewModel.cancelTicket()
             }
+            .background(Color.white)
+        }
+        .background(Color.Custom.lightgray)
+        .onAppear {
+            viewModel.onAppear()
         }
     }
 }
@@ -53,8 +53,8 @@ struct NewTicketView_Previews: PreviewProvider {
                                                                            pages: [getPage()])
     static func getPage() -> TextPage {
         let page = TextPage()
-        page.addRow(["Lemon", "Juice"])
-        page.addRow(["Orange", "Juice", "Tasty"])
+        page.addRow(["Lemon", "1.00", "1.5", "1.5"], distribution: .defaultDistribution)
+        page.addRow(["Orange", "2.00", "3.5", "7.0"], distribution: .defaultDistribution)
         return page
     }
     
