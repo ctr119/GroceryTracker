@@ -17,6 +17,7 @@
 		3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */; };
 		3E17D7D228F95636006BF749 /* TicketRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D128F95636006BF749 /* TicketRowView.swift */; };
 		3E17D7D428F9A474006BF749 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D328F9A474006BF749 /* Color+Custom.swift */; };
+		3E17D7D628F9C5CF006BF749 /* ColumnsDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistribution.swift; sourceTree = "<group>"; };
 		3E17D7D128F95636006BF749 /* TicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketRowView.swift; sourceTree = "<group>"; };
 		3E17D7D328F9A474006BF749 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
+		3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionView.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */,
+				3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */,
 			);
 			path = ColumnsDistribution;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 				3E15665A27470869008D9FCE /* ScannerView.swift in Sources */,
 				3E095D8A2777BE9D000AF87E /* NewTicketViewModel.swift in Sources */,
 				3ECF8DFB27655542006077BC /* ScannerViewModel.swift in Sources */,
+				3E17D7D628F9C5CF006BF749 /* ColumnsDistributionView.swift in Sources */,
 				3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */,
 				3E526E312745051B00826E60 /* FoodListView.swift in Sources */,
 				3E526E28274426A100826E60 /* FoodModel.swift in Sources */,

@@ -28,6 +28,5 @@ struct SaveBottomBar_Previews: PreviewProvider {
         } cancelAction: {
             // Intentionally empty
         }
-
     }
 }

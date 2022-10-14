@@ -14,10 +14,10 @@ class TextPage: Identifiable {
     private(set) var rows: [Row] = []
     
     func addRow(_ row: [String], distribution: ColumnsDistribution) {
-        let newRow = Row(name: row[distribution.namePosition],
-                         units: row[distribution.unitsPosition],
-                         singlePrice: row[distribution.singlePricePosition],
-                         totalPrice: row[distribution.totalPricePosition])
+        let newRow = Row(name: row[distribution.nameColumn.position],
+                         units: row[distribution.unitsColumn.position],
+                         singlePrice: row[distribution.singlePriceColumn.position],
+                         totalPrice: row[distribution.totalPriceColumn.position])
         rows.append(newRow)
     }
 }
