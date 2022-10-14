@@ -15,6 +15,8 @@
 		3E15665727468D24008D9FCE /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665627468D24008D9FCE /* FloatingButton.swift */; };
 		3E15665A27470869008D9FCE /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665927470869008D9FCE /* ScannerView.swift */; };
 		3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E15665B2747C13C008D9FCE /* TextRecogniser.swift */; };
+		3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */; };
+		3E17D7D228F95636006BF749 /* TicketRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D128F95636006BF749 /* TicketRowView.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -67,6 +69,8 @@
 		3E15665627468D24008D9FCE /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		3E15665927470869008D9FCE /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		3E15665B2747C13C008D9FCE /* TextRecogniser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecogniser.swift; sourceTree = "<group>"; };
+		3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistribution.swift; sourceTree = "<group>"; };
+		3E17D7D128F95636006BF749 /* TicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketRowView.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -125,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				3E15665427467B29008D9FCE /* TicketsSectionView.swift */,
+				3E17D7C828F8B3EB006BF749 /* ColumnsDistribution */,
 				3ECF8DFC2767F4FA006077BC /* NewTicket */,
 				3E15665827470854008D9FCE /* Scanner */,
 			);
@@ -139,6 +144,14 @@
 				3ECF8DFA27655542006077BC /* ScannerViewModel.swift */,
 			);
 			path = Scanner;
+			sourceTree = "<group>";
+		};
+		3E17D7C828F8B3EB006BF749 /* ColumnsDistribution */ = {
+			isa = PBXGroup;
+			children = (
+				3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */,
+			);
+			path = ColumnsDistribution;
 			sourceTree = "<group>";
 		};
 		3E526DE82741412200826E60 = {
@@ -310,6 +323,7 @@
 				3E095D84277524A8000AF87E /* NewTicketItemRow.swift */,
 				3ECF8DFD2767F514006077BC /* NewTicketView.swift */,
 				3E095D892777BE9D000AF87E /* NewTicketViewModel.swift */,
+				3E17D7D128F95636006BF749 /* TicketRowView.swift */,
 			);
 			path = NewTicket;
 			sourceTree = "<group>";
@@ -448,6 +462,7 @@
 				3E095D8C277923E8000AF87E /* ScannedTicketModel.swift in Sources */,
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,
 				3E526E3A2745179B00826E60 /* FoodGroceryModel.swift in Sources */,
+				3E17D7D228F95636006BF749 /* TicketRowView.swift in Sources */,
 				3E9CEBDC277EF46E000FFD4F /* SaveBottomBar.swift in Sources */,
 				3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
@@ -469,6 +484,7 @@
 				3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */,
 				3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */,
 				3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */,
+				3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,
 				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,
 			);

@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(*, deprecated, renamed: "TicketRowView")
 struct NewTicketItemRow: View {
     @Binding var itemRow: [String]
     

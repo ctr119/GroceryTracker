@@ -1,7 +1,26 @@
 import Foundation
 
 class TextPage: Identifiable {
+    struct Row {
+        var name: String
+        var units: String
+        var singlePrice: String
+        var totalPrice: String
+    }
+    
     let id = UUID()
+    
+    var finalRows: [Row] = []
+    
+    func addRow(_ row: [String], distribution: ColumnsDistribution) {
+        let newRow = Row(name: row[distribution.namePosition],
+                         units: row[distribution.unitsPosition],
+                         singlePrice: row[distribution.singlePricePosition],
+                         totalPrice: row[distribution.totalPricePosition])
+        finalRows.append(newRow)
+    }
+    
+    // OLD
     
     private var rows: [[String]] = []
     
@@ -21,3 +40,16 @@ class TextPage: Identifiable {
         rows[index] = row
     }
 }
+
+// NON-USED...
+//extension String {
+//    func isNumber() -> Bool {
+//        Double(self) != nil
+//    }
+//}
+//// NON-USED...
+//extension Double {
+//    func hasDecimals() -> Bool {
+//        self.truncatingRemainder(dividingBy: 1) != 0
+//    }
+//}

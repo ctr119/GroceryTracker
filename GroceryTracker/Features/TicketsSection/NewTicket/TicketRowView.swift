@@ -1,20 +1,54 @@
-//
-//  TicketRowView.swift
-//  GroceryTracker
-//
-//  Created by Barrios, Victor on 14/10/22.
-//
-
 import SwiftUI
 
 struct TicketRowView: View {
+    @Binding var row: TextPage.Row
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            CustomTextField(placeHolder: "Name",
+                            value: $row.name,
+                            label: "Name",
+                            lineColor: .blue,
+                            lineHeight: 1)
+            
+            HStack {
+                CustomTextField(placeHolder: "Units",
+                                value: $row.units,
+                                label: "Units",
+                                lineColor: .blue,
+                                lineHeight: 1)
+                
+                CustomTextField(placeHolder: "Price",
+                                value: $row.singlePrice,
+                                label: "Price",
+                                lineColor: .blue,
+                                lineHeight: 1)
+                
+                CustomTextField(placeHolder: "Total",
+                                value: $row.totalPrice,
+                                label: "Total",
+                                lineColor: .blue,
+                                lineHeight: 1)
+            }
+        }
+        .padding()
+        .background(Color.white)
+        .cornerRadius(10)
     }
 }
 
 struct TicketRowView_Previews: PreviewProvider {
+    @State static var row = TextPage.Row(name: "Milk",
+                                         units: "1",
+                                         singlePrice: "4.5",
+                                         totalPrice: "4.5")
+    
     static var previews: some View {
-        TicketRowView()
+        ZStack {
+            Color.gray
+            
+            TicketRowView(row: $row)
+        }
+        .ignoresSafeArea()
     }
 }

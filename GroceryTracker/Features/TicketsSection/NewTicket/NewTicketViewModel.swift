@@ -12,6 +12,11 @@ class NewTicketViewModel {
         self._modelForDismissal = modelForDismissal
     }
     
+    func onAppear() {
+        let rows = ticketModel.pages.flatMap { $0.finalRows }
+        // TODO: Continue
+    }
+    
     func displayInformation() {
         pagesCount = ticketModel.pages.count
         rowsPerPageCount = ticketModel.pages.map { $0.getRows().count }

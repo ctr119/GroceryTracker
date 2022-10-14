@@ -12,6 +12,7 @@ struct TicketAnalyser: Analyser {
     // The current observation's baseline is within 1.8% of the previous observation's baseline,
     // it must belong to the current value.
     private let observationBaselineThreshold = 0.018
+    private let distribution = ColumnsDistribution.defaultDistribution
     
     func analyse(observations: [VNRecognizedTextObservation]) -> TextPage {
         let page = TextPage()
@@ -30,7 +31,7 @@ struct TicketAnalyser: Analyser {
                 if belongsToSameBaseline {
                     add(textItem: textItem, intoCurrentRow: &currentTicketRow)
                 } else {
-                    page.addRow(currentTicketRow.map { $0.text })
+                    page.addRow(currentTicketRow.map { $0.text }, distribution: distribution)
                     currentTicketRow.removeAll()
                 }
             }
