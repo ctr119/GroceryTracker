@@ -3,12 +3,19 @@ import SwiftUI
 struct CustomTextField: View {
     let placeHolder: String
     @Binding var value: String
+    var label: String?
     
     var lineColor: Color
     var lineHeight: CGFloat
     
     var body: some View {
         VStack {
+            if let label = label {
+                Text(label)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.footnote)
+            }
+            
             TextField(placeHolder, text: $value)
                 .textInputAutocapitalization(.never)
                 .disableAutocorrection(true)
@@ -28,6 +35,7 @@ struct CustomTextField_Previews: PreviewProvider {
     static var previews: some View {
         CustomTextField(placeHolder: "Placeholder",
                         value: $textValue,
+                        label: "Label",
                         lineColor: .blue,
                         lineHeight: 2)
     }
