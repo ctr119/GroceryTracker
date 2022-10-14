@@ -19,13 +19,13 @@ struct ColumnsDistributionView: View {
                         .onMove { source, destination in
                             columns.move(fromOffsets: source, toOffset: destination)
                         }
-                    } header: {
-                        Text("Ticket Columns Distribution")
                     } footer: {
-                        Text("Sort them according to yours by 'Drag & Drop'. The one on top will the first.")
+                        Text("Sort them according to your ticket. The one on top will the first.")
                     }
                     .headerProminence(.increased)
                 }
+                .navigationTitle("Ticket Columns Distribution")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     EditButton()
                 }
