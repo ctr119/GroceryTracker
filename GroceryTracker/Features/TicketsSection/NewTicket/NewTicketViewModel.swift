@@ -12,7 +12,7 @@ class NewTicketViewModel: ObservableObject {
     }
     
     func onAppear() {
-        rows = ticketModel.pages.flatMap { $0.finalRows }
+        rows = ticketModel.pages.flatMap { $0.rows }
     }
     
     func saveTicket(groceryName: String) {
