@@ -13,20 +13,20 @@ struct ColumnsDistribution {
         let name: String
         let position: Int
     }
-        
-    init(namePosition: Int,
-         unitsPosition: Int,
-         singlePricePosition: Int,
-         totalPricePosition: Int) {
-        
-        self.nameColumn = .init(name: "Name", position: namePosition)
-        self.unitsColumn = .init(name: "Units", position: unitsPosition)
-        self.singlePriceColumn = .init(name: "Price", position: singlePricePosition)
-        self.totalPriceColumn = .init(name: "Total", position: totalPricePosition)
-    }
     
     let nameColumn: Column
     let unitsColumn: Column
     let singlePriceColumn: Column
     let totalPriceColumn: Column
+    
+    init(namePosition: Int,
+         unitsPosition: Int,
+         singlePricePosition: Int,
+         totalPricePosition: Int) {
+        
+        self.nameColumn = Column(name: "Name", position: namePosition)
+        self.unitsColumn = Column(name: "Units", position: unitsPosition)
+        self.singlePriceColumn = Column(name: "Price", position: singlePricePosition)
+        self.totalPriceColumn = Column(name: "Total", position: totalPricePosition)
+    }
 }

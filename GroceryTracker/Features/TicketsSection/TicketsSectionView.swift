@@ -13,7 +13,8 @@ struct TicketsSectionView: View {
             }
         }
         .sheet(isPresented: $shouldOpenScanner) {
-            ScannerView(scannedTicketModel: $scannedTicketModel)
+            ColumnsDistributionView()
+//            ScannerView(scannedTicketModel: $scannedTicketModel)
         }
         .fullScreenCover(item: $scannedTicketModel) { ticketModel in
             let viewModel = NewTicketViewModel(ticketModel: ticketModel,
