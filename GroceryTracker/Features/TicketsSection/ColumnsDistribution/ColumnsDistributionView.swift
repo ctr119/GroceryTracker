@@ -1,21 +1,20 @@
 import SwiftUI
 
 struct ColumnsDistributionView: View {
-    @State private var columns: [ColumnsDistribution.Column] = [
-        ColumnsDistribution.defaultDistribution.nameColumn,
-        ColumnsDistribution.defaultDistribution.unitsColumn,
-        ColumnsDistribution.defaultDistribution.singlePriceColumn,
-        ColumnsDistribution.defaultDistribution.totalPriceColumn
+    @State private var columns: [ColumnsDistribution.Column.Kind] = [
+        .name, .units, .singlePrice, .totalPrice
     ]
+    
+    @Binding var columnsDistribution: ColumnsDistribution?
     
     var body: some View {
         VStack {
             NavigationView {
                 List {
                     Section {
-                        ForEach(columns, id: \.id) { column in
+                        ForEach(columns, id: \.self) { columnKind in
                             HStack {
-                                Text(column.name)
+                                Text(columnKind.rawValue)
                                 Spacer()
                                 Image(systemName: "line.3.horizontal")
                             }
@@ -35,16 +34,32 @@ struct ColumnsDistributionView: View {
             }
             
             SaveBottomBar {
-                // TODO
+                var dictionary: [ColumnsDistribution.Column.Kind : Int] = [:]
+                
+                for (index, colKind) in columns.enumerated() {
+                    dictionary[colKind] = index
+                }
+                
+                guard let namePosition = dictionary[.name],
+                      let unitsPosition = dictionary[.units],
+                      let singlePricePosition = dictionary[.singlePrice],
+                      let totalPricePosition = dictionary[.totalPrice] else { return }
+                
+                columnsDistribution = ColumnsDistribution(namePosition: namePosition,
+                                                          unitsPosition: unitsPosition,
+                                                          singlePricePosition: singlePricePosition,
+                                                          totalPricePosition: totalPricePosition)
             } cancelAction: {
-                // TODO
+                columnsDistribution = nil
             }
         }
     }
 }
 
 struct ColumnsDistributionView_Previews: PreviewProvider {
+    @State static var columnsDistribution: ColumnsDistribution? = ColumnsDistribution.defaultDistribution
+    
     static var previews: some View {
-        ColumnsDistributionView()
+        ColumnsDistributionView(columnsDistribution: $columnsDistribution)
     }
 }

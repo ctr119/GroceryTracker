@@ -1,20 +1,27 @@
 import SwiftUI
 
 struct TicketsSectionView: View {    
+    @State private var shouldRequestColumnDistribution = false
+    @State private var selectedColumnsDistribution: ColumnsDistribution?
     @State private var scannedTicketModel: ScannedTicketModel?
-    @State private var shouldOpenScanner = false
     
     var body: some View {
         ZStack {
             Text("Empty")
             
             FloatingButton(text: "+", style: .basic) {
-                shouldOpenScanner = true
+                shouldRequestColumnDistribution = true
             }
         }
-        .sheet(isPresented: $shouldOpenScanner) {
-            ColumnsDistributionView()
-//            ScannerView(scannedTicketModel: $scannedTicketModel)
+        .sheet(isPresented: $shouldRequestColumnDistribution,
+               onDismiss: {
+            shouldRequestColumnDistribution = false
+        }) {
+            ColumnsDistributionView(columnsDistribution: $selectedColumnsDistribution)
+        }
+        .sheet(item: $selectedColumnsDistribution) { columnsDistribution in
+            ScannerView(scannedTicketModel: $scannedTicketModel,
+                        columnsDistribution: columnsDistribution)
         }
         .fullScreenCover(item: $scannedTicketModel) { ticketModel in
             let viewModel = NewTicketViewModel(ticketModel: ticketModel,

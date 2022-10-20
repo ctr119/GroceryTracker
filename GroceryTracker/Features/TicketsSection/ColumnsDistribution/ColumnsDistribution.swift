@@ -1,18 +1,27 @@
 import Foundation
 
-struct ColumnsDistribution {
+struct ColumnsDistribution: Identifiable {
     static let defaultDistribution: ColumnsDistribution = .init(namePosition: 0,
                                                                 unitsPosition: 1,
                                                                 singlePricePosition: 2,
                                                                 totalPricePosition: 3)
     
     struct Column: Identifiable {
-        var id: String {
-            name
+        enum Kind: String {
+            case name = "Name"
+            case units = "Units"
+            case singlePrice = "Price"
+            case totalPrice = "Total"
         }
-        let name: String
+        
+        var id: String {
+            kind.rawValue
+        }
+        let kind: Kind
         let position: Int
     }
+    
+    let id = UUID()
     
     let nameColumn: Column
     let unitsColumn: Column
@@ -24,9 +33,9 @@ struct ColumnsDistribution {
          singlePricePosition: Int,
          totalPricePosition: Int) {
         
-        self.nameColumn = Column(name: "Name", position: namePosition)
-        self.unitsColumn = Column(name: "Units", position: unitsPosition)
-        self.singlePriceColumn = Column(name: "Price", position: singlePricePosition)
-        self.totalPriceColumn = Column(name: "Total", position: totalPricePosition)
+        self.nameColumn = Column(kind: .name, position: namePosition)
+        self.unitsColumn = Column(kind: .units, position: unitsPosition)
+        self.singlePriceColumn = Column(kind: .singlePrice, position: singlePricePosition)
+        self.totalPriceColumn = Column(kind: .totalPrice, position: totalPricePosition)
     }
 }
