@@ -18,6 +18,7 @@
 		3E17D7D228F95636006BF749 /* TicketRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D128F95636006BF749 /* TicketRowView.swift */; };
 		3E17D7D428F9A474006BF749 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D328F9A474006BF749 /* Color+Custom.swift */; };
 		3E17D7D628F9C5CF006BF749 /* ColumnsDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */; };
+		3E345526290486410082F304 /* ColumnsDistributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		3E17D7D128F95636006BF749 /* TicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketRowView.swift; sourceTree = "<group>"; };
 		3E17D7D328F9A474006BF749 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionView.swift; sourceTree = "<group>"; };
+		3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionViewModel.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			children = (
 				3E17D7C928F8B49A006BF749 /* ColumnsDistribution.swift */,
 				3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */,
+				3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */,
 			);
 			path = ColumnsDistribution;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 				3E526E382745178400826E60 /* FoodGroceryListView.swift in Sources */,
 				3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */,
 				3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */,
+				3E345526290486410082F304 /* ColumnsDistributionViewModel.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E526E2B2744DE2700826E60 /* SearchBarView.swift in Sources */,
 				3E095D8827752BD7000AF87E /* TextPage.swift in Sources */,

@@ -17,7 +17,7 @@ struct TicketsSectionView: View {
                onDismiss: {
             shouldRequestColumnDistribution = false
         }) {
-            ColumnsDistributionView()
+            ColumnsDistributionView.DI.inject()
         }
     }
 }

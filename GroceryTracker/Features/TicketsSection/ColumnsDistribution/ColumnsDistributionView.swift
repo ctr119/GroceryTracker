@@ -3,18 +3,19 @@ import SwiftUI
 struct ColumnsDistributionView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var columns: [ColumnsDistribution.Column.Kind] = [
-        .name, .units, .singlePrice, .totalPrice
-    ]
-    @State private var distribution: ColumnsDistribution?
     @State private var isShowingDetailView = false
+    @ObservedObject private var viewModel: ColumnsDistributionViewModel
+    
+    init(viewModel: ColumnsDistributionViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack {
             NavigationView {
                 VStack {
                     NavigationLink(isActive: $isShowingDetailView) {
-                        if let distribution = distribution {
+                        if let distribution = viewModel.getDistribution() {
                             ScannerView(columnsDistribution: distribution)
                                 .navigationBarHidden(true)
                         }
@@ -24,7 +25,11 @@ struct ColumnsDistributionView: View {
                     
                     columnsList
                     
-                    bottomBar
+                    SaveBottomBar {
+                        isShowingDetailView = true
+                    } cancelAction: {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }
             }
         }
@@ -33,7 +38,7 @@ struct ColumnsDistributionView: View {
     private var columnsList: some View {
         List {
             Section {
-                ForEach(columns, id: \.self) { columnKind in
+                ForEach(viewModel.columns, id: \.self) { columnKind in
                     HStack {
                         Text(columnKind.rawValue)
                         Spacer()
@@ -45,7 +50,7 @@ struct ColumnsDistributionView: View {
                 }
                 // NOTE: List doesn’t support the onDrop modifier
                 .onMove { source, destination in
-                    columns.move(fromOffsets: source, toOffset: destination)
+                    viewModel.columns.move(fromOffsets: source, toOffset: destination)
                 }
             } footer: {
                 Text("Distribute them according to your ticket by \"Drag & Drop\". The one on top will be the first.")
@@ -53,37 +58,18 @@ struct ColumnsDistributionView: View {
         }
         .navigationTitle("Ticket Columns")
     }
-    
-    private var bottomBar: some View {
-        SaveBottomBar {
-            var dictionary: [ColumnsDistribution.Column.Kind : Int] = [:]
+}
 
-            for (index, colKind) in columns.enumerated() {
-                dictionary[colKind] = index
-            }
-
-            guard let namePosition = dictionary[.name],
-                  let unitsPosition = dictionary[.units],
-                  let singlePricePosition = dictionary[.singlePrice],
-                  let totalPricePosition = dictionary[.totalPrice] else { return }
-            
-            distribution = ColumnsDistribution(namePosition: namePosition,
-                                               unitsPosition: unitsPosition,
-                                               singlePricePosition: singlePricePosition,
-                                               totalPricePosition: totalPricePosition)
-            
-            isShowingDetailView = true
-            
-        } cancelAction: {
-            presentationMode.wrappedValue.dismiss()
+extension ColumnsDistributionView {
+    enum DI {
+        static func inject() -> ColumnsDistributionView {
+            ColumnsDistributionView(viewModel: ColumnsDistributionViewModel())
         }
     }
 }
 
 struct ColumnsDistributionView_Previews: PreviewProvider {
-    @State static var columnsDistribution: ColumnsDistribution? = ColumnsDistribution.defaultDistribution
-    
     static var previews: some View {
-        ColumnsDistributionView()
+        ColumnsDistributionView(viewModel: ColumnsDistributionViewModel())
     }
 }
