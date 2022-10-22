@@ -15,7 +15,7 @@ struct ColumnsDistributionView: View {
             NavigationView {
                 VStack {
                     NavigationLink(isActive: $isShowingDetailView) {
-                        if let distribution = viewModel.getDistribution() {
+                        if let distribution = viewModel.distribution {
                             ScannerView(columnsDistribution: distribution)
                                 .navigationBarHidden(true)
                         }
@@ -26,6 +26,7 @@ struct ColumnsDistributionView: View {
                     columnsList
                     
                     SaveBottomBar {
+                        viewModel.saveCurrentDistribution()
                         isShowingDetailView = true
                     } cancelAction: {
                         presentationMode.wrappedValue.dismiss()
