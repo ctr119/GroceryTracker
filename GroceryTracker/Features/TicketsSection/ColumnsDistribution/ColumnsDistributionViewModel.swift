@@ -2,7 +2,8 @@ import Foundation
 import SwiftUI
 
 class ColumnsDistributionViewModel: ObservableObject {
-    @Published var distribution: ColumnsDistribution? = nil
+    @Published var shouldOpenScanner = false
+    private(set) var distribution: ColumnsDistribution? = nil
     
     var columns: [ColumnsDistribution.Column.Kind] = [
         .name, .units, .singlePrice, .totalPrice
@@ -24,5 +25,7 @@ class ColumnsDistributionViewModel: ObservableObject {
                                            unitsPosition: unitsPosition,
                                            singlePricePosition: singlePricePosition,
                                            totalPricePosition: totalPricePosition)
+        
+        shouldOpenScanner = true
     }
 }

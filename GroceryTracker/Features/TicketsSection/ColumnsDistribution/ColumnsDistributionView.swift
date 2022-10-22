@@ -3,7 +3,6 @@ import SwiftUI
 struct ColumnsDistributionView: View {
     @Environment(\.presentationMode) var presentationMode
     
-    @State private var isShowingDetailView = false
     @ObservedObject private var viewModel: ColumnsDistributionViewModel
     
     init(viewModel: ColumnsDistributionViewModel) {
@@ -14,7 +13,7 @@ struct ColumnsDistributionView: View {
         VStack {
             NavigationView {
                 VStack {
-                    NavigationLink(isActive: $isShowingDetailView) {
+                    NavigationLink(isActive: $viewModel.shouldOpenScanner) {
                         if let distribution = viewModel.distribution {
                             ScannerView(columnsDistribution: distribution)
                                 .navigationBarHidden(true)
@@ -27,7 +26,6 @@ struct ColumnsDistributionView: View {
                     
                     SaveBottomBar {
                         viewModel.saveCurrentDistribution()
-                        isShowingDetailView = true
                     } cancelAction: {
                         presentationMode.wrappedValue.dismiss()
                     }
