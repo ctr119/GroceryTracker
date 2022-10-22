@@ -13,7 +13,6 @@ struct TicketAnalyser: Analyser {
     // it must belong to the current value.
     private let observationBaselineThreshold = 0.04
     
-    // TODO: Make use of 'columnsDistribution'
     let columnsDistribution: ColumnsDistribution
     
     func analyse(observations: [VNRecognizedTextObservation]) -> TextPage {
