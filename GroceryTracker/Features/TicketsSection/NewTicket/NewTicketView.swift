@@ -59,7 +59,6 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!,
-                                                    modelForDismissal: $model))
+        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!))
     }
 }

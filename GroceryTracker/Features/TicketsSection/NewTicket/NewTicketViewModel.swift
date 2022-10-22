@@ -2,13 +2,11 @@ import SwiftUI
 
 class NewTicketViewModel: ObservableObject {
     @Published var rows: [TextPage.Row] = []
-    @Binding var modelForDismissal: ScannedTicketModel?
     
     private var ticketModel: ScannedTicketModel
     
-    init(ticketModel: ScannedTicketModel, modelForDismissal: Binding<ScannedTicketModel?>) {
+    init(ticketModel: ScannedTicketModel) {
         self.ticketModel = ticketModel
-        self._modelForDismissal = modelForDismissal
     }
     
     func onAppear() {
@@ -16,10 +14,10 @@ class NewTicketViewModel: ObservableObject {
     }
     
     func saveTicket(groceryName: String) {
-        modelForDismissal = nil
+        // TODO: Save on Disk
     }
     
     func cancelTicket() {
-        modelForDismissal = nil
+        // TODO: Dismiss
     }
 }

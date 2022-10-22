@@ -2,9 +2,6 @@ import SwiftUI
 import VisionKit
 
 struct ScannerView: UIViewControllerRepresentable {
-    @Environment(\.presentationMode) var presentationMode
-    
-    @Binding var scannedTicketModel: ScannedTicketModel?
     let columnsDistribution: ColumnsDistribution
     
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
@@ -17,8 +14,7 @@ struct ScannerView: UIViewControllerRepresentable {
     
     func makeCoordinator() -> Coordinator {
         let ticketAnalyser = TicketAnalyser(columnsDistribution: columnsDistribution)
-        let viewModel = ScannerViewModel(scannedTicketModel: $scannedTicketModel,
-                                         textRecogniser: TextRecogniserImplementation(analyser: ticketAnalyser))
+        let viewModel = ScannerViewModel(textRecogniser: TextRecogniserImplementation(analyser: ticketAnalyser))
         
         return Coordinator(viewModel: viewModel, parent: self)
     }
@@ -34,11 +30,22 @@ struct ScannerView: UIViewControllerRepresentable {
         }
         
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            controller.dismiss(animated: true) {
-                DispatchQueue.global(qos: .userInitiated).async {
-                    self.viewModel.recogniseText(from: scan.getImages())
+            DispatchQueue.global(qos: .userInitiated).async {
+                let scannedTicketModel = self.viewModel.recogniseText(from: scan.getImages())
+                
+                DispatchQueue.main.async {
+                    let viewModel = NewTicketViewModel(ticketModel: scannedTicketModel)
+                    let rootView = NewTicketView(viewModel: viewModel)
+                        .navigationBarHidden(true)
+                    
+                    let hostingController = UIHostingController(rootView: rootView)
+                    controller.navigationController?.pushViewController(hostingController, animated: true)
                 }
             }
+        }
+        
+        func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
+            controller.navigationController?.popViewController(animated: true)
         }
     }
 }
