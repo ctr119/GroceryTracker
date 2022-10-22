@@ -48,6 +48,15 @@ struct NewTicketView: View {
     }
 }
 
+extension NewTicketView {
+    enum DI {
+        static func inject(ticketModel: ScannedTicketModel) -> NewTicketView {
+            let viewModel = NewTicketViewModel(ticketModel: ticketModel)
+            return NewTicketView(viewModel: viewModel)
+        }
+    }
+}
+
 struct NewTicketView_Previews: PreviewProvider {
     @State static var model: ScannedTicketModel? = ScannedTicketModel(id: UUID(),
                                                                            pages: [getPage()])

@@ -34,8 +34,7 @@ struct ScannerView: UIViewControllerRepresentable {
                 let scannedTicketModel = self.viewModel.recogniseText(from: scan.getImages())
                 
                 DispatchQueue.main.async {
-                    let viewModel = NewTicketViewModel(ticketModel: scannedTicketModel)
-                    let rootView = NewTicketView(viewModel: viewModel)
+                    let rootView = NewTicketView.DI.inject(ticketModel: scannedTicketModel)
                         .navigationBarHidden(true)
                     
                     let hostingController = UIHostingController(rootView: rootView)
