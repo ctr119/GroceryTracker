@@ -15,7 +15,7 @@ struct ContentView: View {
             FoodSectionView()
                 .tag(1)
                 .tabItem {
-                    Label("FOOD", systemImage: "magnifyingglass")
+                    Label("FOOD", systemImage: "applelogo")
                 }
             
             TicketsSectionView()
