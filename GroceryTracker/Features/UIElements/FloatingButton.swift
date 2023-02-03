@@ -3,10 +3,10 @@ import SwiftUI
 struct FloatingButton: View {
     enum Style {
         case basic
-        case custom(configuration: Configuration)
+        case custom(configuration: FBConfiguration)
     }
     
-    struct Configuration {
+    struct FBConfiguration {
         var width: CGFloat = 55
         var height: CGFloat? = nil
         var fontSize: CGFloat? = nil
@@ -25,15 +25,15 @@ struct FloatingButton: View {
     private let backgroundColor: Color
     private let tintColor: Color
     
-    private let buttonsAction: () -> Void
+    private let didTapAction: () -> Void
     
-    init(text: String, style: FloatingButton.Style, action: @escaping () -> Void) {
+    init(text: String, style: FloatingButton.Style, didTapAction: @escaping () -> Void) {
         self.text = text
         
-        var config: Configuration
+        var config: FBConfiguration
         switch style {
         case .basic:
-            config = Configuration()
+            config = FBConfiguration()
             
         case .custom(let configuration):
             config = configuration
@@ -48,7 +48,7 @@ struct FloatingButton: View {
         backgroundColor = config.background
         tintColor = config.tint
         
-        buttonsAction = action
+        self.didTapAction = didTapAction
     }
     
     var body: some View {
@@ -58,7 +58,7 @@ struct FloatingButton: View {
             HStack {
                 Spacer()
                 
-                Button(action: buttonsAction) {
+                Button(action: didTapAction) {
                     Text(text)
                         .font(.system(size: buttonFontSize))
                         .frame(width: buttonWidth,
@@ -77,7 +77,7 @@ struct FloatingButton: View {
         let buttonBackgroundColor: Color
         let buttonCornerRadius: CGFloat
         
-        func makeBody(configuration: FloatingButtonStyle.Configuration) -> some View {
+        func makeBody(configuration: Configuration) -> some View {
             configuration.label
                 .background(configuration.isPressed ? buttonBackgroundColor.opacity(0.6) : buttonBackgroundColor)
                 .cornerRadius(buttonCornerRadius)
@@ -92,8 +92,8 @@ struct FloatingButton: View {
 
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButton(text: "+", style: .basic, action: {
-            
+        FloatingButton(text: "+", style: .basic, didTapAction: {
+            // Here go the action
         })
     }
 }
