@@ -18,19 +18,7 @@ struct NewTicketView: View {
             
             Divider()
             
-            ScrollView {
-                VStack {
-                    ForEach(0..<viewModel.rows.count, id: \.self) { rowIndex in
-                        let binding = Binding {
-                            viewModel.rows[rowIndex]
-                        } set: { newValue in
-                            viewModel.rows[rowIndex] = newValue
-                        }
-                        TicketRowView(row: binding)
-                    }
-                }
-                .padding()
-            }
+            itemList
             
             Divider()
             
@@ -44,6 +32,22 @@ struct NewTicketView: View {
         .background(Color.Custom.lightgray)
         .onAppear {
             viewModel.onAppear()
+        }
+    }
+    
+    private var itemList: some View {
+        ScrollView {
+            VStack {
+                ForEach(0..<viewModel.rows.count, id: \.self) { rowIndex in
+                    let binding = Binding {
+                        viewModel.rows[rowIndex]
+                    } set: { newValue in
+                        viewModel.rows[rowIndex] = newValue
+                    }
+                    TicketRowView(row: binding)
+                }
+            }
+            .padding()
         }
     }
 }
