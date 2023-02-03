@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct ColumnsDistributionView: View {
     @Environment(\.presentationMode) var presentationMode

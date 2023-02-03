@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct FoodSectionView: View {
     @State private var searchText = ""

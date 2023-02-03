@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct TicketRowView: View {
     @Binding var row: TextPage.Row

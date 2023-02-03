@@ -1,4 +1,5 @@
 import SwiftUI
+import UIComponents
 
 struct TicketsSectionView: View {    
     @State private var shouldRequestColumnDistribution = false
