@@ -70,7 +70,6 @@
 		3E17D7D128F95636006BF749 /* TicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketRowView.swift; sourceTree = "<group>"; };
 		3E17D7D328F9A474006BF749 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionView.swift; sourceTree = "<group>"; };
-		3E2C205C298DC5A700487124 /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = UIComponents; path = "../../../Repos/ios-app/Packages/UIComponents"; sourceTree = "<group>"; };
 		3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionViewModel.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
@@ -93,6 +92,7 @@
 		3E933DF3275EA1BF006A60AC /* TicketAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketAnalyser.swift; sourceTree = "<group>"; };
 		3E933DF5275EA1D1006A60AC /* Analyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyser.swift; sourceTree = "<group>"; };
 		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		3EAB33EB298DCC690062263A /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComponents; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,7 +158,7 @@
 		3E2C205B298DC57800487124 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				3E2C205C298DC5A700487124 /* UIComponents */,
+				3EAB33EB298DCC690062263A /* UIComponents */,
 			);
 			path = Packages;
 			sourceTree = "<group>";
