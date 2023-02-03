@@ -39,7 +39,7 @@
 		3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF5275EA1D1006A60AC /* Analyser.swift */; };
 		3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DFA275FF4B1006A60AC /* StringExtension.swift */; };
 		3E9CEBDC277EF46E000FFD4F /* SaveBottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */; };
-		3EA0FB34277A5CBD00F16834 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */; };
+		3EA0FB34277A5CBD00F16834 /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA0FB33277A5CBD00F16834 /* MaterialTextField.swift */; };
 		3ECF8DFB27655542006077BC /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* ScannerViewModel.swift */; };
 		3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFD2767F514006077BC /* NewTicketView.swift */; };
 /* End PBXBuildFile section */
@@ -97,7 +97,7 @@
 		3E933DF5275EA1D1006A60AC /* Analyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyser.swift; sourceTree = "<group>"; };
 		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveBottomBar.swift; sourceTree = "<group>"; };
-		3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		3EA0FB33277A5CBD00F16834 /* MaterialTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -259,7 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				3E17D7D328F9A474006BF749 /* Color+Custom.swift */,
-				3EA0FB33277A5CBD00F16834 /* CustomTextField.swift */,
+				3EA0FB33277A5CBD00F16834 /* MaterialTextField.swift */,
 				3E15665627468D24008D9FCE /* FloatingButton.swift */,
 				3E9CEBDB277EF46E000FFD4F /* SaveBottomBar.swift */,
 				3E526E2A2744DE2700826E60 /* SearchBarView.swift */,
@@ -461,7 +461,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EA0FB34277A5CBD00F16834 /* CustomTextField.swift in Sources */,
+				3EA0FB34277A5CBD00F16834 /* MaterialTextField.swift in Sources */,
 				3E17D7D428F9A474006BF749 /* Color+Custom.swift in Sources */,
 				3E095D8C277923E8000AF87E /* ScannedTicketModel.swift in Sources */,
 				3E526E222744258900826E60 /* FoodSectionView.swift in Sources */,

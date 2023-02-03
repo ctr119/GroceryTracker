@@ -5,26 +5,26 @@ struct TicketRowView: View {
     
     var body: some View {
         VStack {
-            CustomTextField(placeHolder: "Name",
+            MaterialTextField(placeHolder: "Name",
                             value: $row.name,
                             label: "Name",
                             lineColor: .blue,
                             lineHeight: 1)
             
             HStack {
-                CustomTextField(placeHolder: "Units",
+                MaterialTextField(placeHolder: "Units",
                                 value: $row.units,
                                 label: "Units",
                                 lineColor: .blue,
                                 lineHeight: 1)
                 
-                CustomTextField(placeHolder: "Price",
+                MaterialTextField(placeHolder: "Price",
                                 value: $row.singlePrice,
                                 label: "Price",
                                 lineColor: .blue,
                                 lineHeight: 1)
                 
-                CustomTextField(placeHolder: "Total",
+                MaterialTextField(placeHolder: "Total",
                                 value: $row.totalPrice,
                                 label: "Total",
                                 lineColor: .blue,

@@ -10,7 +10,7 @@ struct NewTicketView: View {
     
     var body: some View {
         VStack {
-            CustomTextField(placeHolder: "Grocery's Name",
+            MaterialTextField(placeHolder: "Grocery's Name",
                             value: $groceryName,
                             textColor: .white,
                             lineColor: .blue,
