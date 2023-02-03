@@ -35,7 +35,6 @@
 		3E526E3C274517D900826E60 /* FoodGroceryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526E3B274517D900826E60 /* FoodGroceryRowView.swift */; };
 		3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF3275EA1BF006A60AC /* TicketAnalyser.swift */; };
 		3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DF5275EA1D1006A60AC /* Analyser.swift */; };
-		3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E933DFA275FF4B1006A60AC /* StringExtension.swift */; };
 		3EAB33E8298DC70A0062263A /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 3EAB33E7298DC70A0062263A /* UIComponents */; };
 		3EAB33EA298DC7CC0062263A /* UIComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 3EAB33E9298DC7CC0062263A /* UIComponents */; };
 		3ECF8DFB27655542006077BC /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* ScannerViewModel.swift */; };
@@ -91,7 +90,6 @@
 		3E526E3B274517D900826E60 /* FoodGroceryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodGroceryRowView.swift; sourceTree = "<group>"; };
 		3E933DF3275EA1BF006A60AC /* TicketAnalyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketAnalyser.swift; sourceTree = "<group>"; };
 		3E933DF5275EA1D1006A60AC /* Analyser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyser.swift; sourceTree = "<group>"; };
-		3E933DFA275FF4B1006A60AC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		3EAB33EB298DCC690062263A /* UIComponents */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = UIComponents; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
@@ -201,6 +199,7 @@
 				3ECF8DF9276551F9006077BC /* Domain */,
 				3E526E20274414EA00826E60 /* Features */,
 				3E526DFA2741412300826E60 /* Preview Content */,
+				3E526E292744DC7300826E60 /* Resources */,
 			);
 			path = GroceryTracker;
 			sourceTree = "<group>";
@@ -244,10 +243,8 @@
 		3E526E20274414EA00826E60 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				3E933DF9275FF4A3006A60AC /* Extensions */,
 				3E526E1F274414CC00826E60 /* FoodSection */,
 				3E15665327467A9C008D9FCE /* TicketsSection */,
-				3E526E292744DC7300826E60 /* UIElements */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -269,12 +266,12 @@
 			path = Rows;
 			sourceTree = "<group>";
 		};
-		3E526E292744DC7300826E60 /* UIElements */ = {
+		3E526E292744DC7300826E60 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				3E17D7D328F9A474006BF749 /* Color+Custom.swift */,
 			);
-			path = UIElements;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		3E526E322745071200826E60 /* Details */ = {
@@ -313,14 +310,6 @@
 				3E933DF3275EA1BF006A60AC /* TicketAnalyser.swift */,
 			);
 			path = Analysers;
-			sourceTree = "<group>";
-		};
-		3E933DF9275FF4A3006A60AC /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				3E933DFA275FF4B1006A60AC /* StringExtension.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		3ECF8DF9276551F9006077BC /* Domain */ = {
@@ -499,7 +488,6 @@
 				3E095D8827752BD7000AF87E /* TextPage.swift in Sources */,
 				3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */,
 				3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */,
-				3E933DFB275FF4B1006A60AC /* StringExtension.swift in Sources */,
 				3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,
 				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,
