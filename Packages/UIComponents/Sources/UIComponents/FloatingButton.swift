@@ -7,12 +7,26 @@ public struct FloatingButton: View {
     }
     
     public struct FBConfiguration {
-        public var width: CGFloat = 55
-        public var height: CGFloat? = nil
-        public var fontSize: CGFloat? = nil
-        public var cornerRadius: CGFloat? = nil
-        public var background: Color = .blue
-        public var tint: Color = .white
+        public var width: CGFloat
+        public var height: CGFloat?
+        public var fontSize: CGFloat?
+        public var cornerRadius: CGFloat?
+        public var background: Color
+        public var tint: Color
+        
+        public init(width: CGFloat = 55,
+                    height: CGFloat? = nil,
+                    fontSize: CGFloat? = nil,
+                    cornerRadius: CGFloat? = nil,
+                    background: Color = .blue,
+                    tint: Color = .white) {
+            self.width = width
+            self.height = height
+            self.fontSize = fontSize
+            self.cornerRadius = cornerRadius
+            self.background = background
+            self.tint = tint
+        }
     }
     
     private let text: String
@@ -41,7 +55,7 @@ public struct FloatingButton: View {
         
         buttonWidth = config.width
         
-        buttonHeight = config.height ?? buttonWidth - 7
+        buttonHeight = config.height ?? buttonWidth
         buttonFontSize = config.fontSize ?? buttonWidth / 2
         buttonCornerRadius = config.cornerRadius ?? buttonWidth / 2
         
@@ -65,7 +79,6 @@ public struct FloatingButton: View {
                                height: buttonHeight,
                                alignment: .center)
                         .foregroundColor(tintColor)
-                        .padding(.bottom, 7)
                 }
                 .buttonStyle(FloatingButtonStyle(buttonBackgroundColor: backgroundColor,
                                                  buttonCornerRadius: buttonCornerRadius))
@@ -92,8 +105,32 @@ public struct FloatingButton: View {
 
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingButton(text: "+", style: .basic, didTapAction: {
-            // Here go the action
-        })
+        VStack {
+            FloatingButton(text: "+", style: .basic, didTapAction: {
+                // Here go the action
+            })
+            
+            FloatingButton(text: "-",
+                           style: .custom(configuration: .init(width: 80,
+                                                               height: 80,
+                                                               fontSize: 60,
+                                                               cornerRadius: 10,
+                                                               background: .red,
+                                                               tint: .white)),
+                           didTapAction: {
+                // Here go the action
+            })
+            
+            FloatingButton(text: "CONTINUE",
+                           style: .custom(configuration: .init(width: 180,
+                                                               height: 60,
+                                                               fontSize: 18,
+                                                               cornerRadius: 10,
+                                                               background: .black,
+                                                               tint: .white)),
+                           didTapAction: {
+                // Here go the action
+            })
+        }
     }
 }

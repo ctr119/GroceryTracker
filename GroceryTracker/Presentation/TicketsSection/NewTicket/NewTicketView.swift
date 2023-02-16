@@ -28,9 +28,10 @@ struct NewTicketView: View {
             } cancelAction: {
                 viewModel.cancelTicket()
             }
-            .background(Color.white)
         }
-        .background(Color.Custom.lightgray)
+        .background(LinearGradient(colors: DesignSystem.Gradient.primary.colors,
+                                   startPoint: .top,
+                                   endPoint: .bottom))
         .onAppear {
             viewModel.onAppear()
         }

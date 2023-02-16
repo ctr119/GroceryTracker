@@ -10,7 +10,11 @@ struct TicketsSectionView: View {
             // TODO: Load tickets from Disk
             Text("Empty")
             
-            FloatingButton(text: "+", style: .basic) {
+            FloatingButton(text: "+",
+                           style: .custom(configuration: FloatingButton.FBConfiguration(
+                            background: DesignSystem.ColorScheme.Element.primary.color,
+                            tint: DesignSystem.ColorScheme.Semantic.accent.color
+                           ))) {
                 shouldRequestColumnDistribution = true
             }
         }

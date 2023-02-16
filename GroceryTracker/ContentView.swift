@@ -1,29 +1,37 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var selectedByDefault = 2
+    enum TabIndex {
+        case stats, food, tickets
+    }
+    @State private var selectedByDefault = TabIndex.food
     
     var body: some View {
         TabView(selection: $selectedByDefault) {
-            Text("Hello, Stats!")
-                .padding()
-                .tag(0)
-                .tabItem {
-                    Label("STATS", systemImage: "chart.bar")
-                }
-            
-            FoodSectionView()
-                .tag(1)
-                .tabItem {
-                    Label("FOOD", systemImage: "applelogo")
-                }
-            
-            TicketsSectionView()
-                .tag(2)
-                .tabItem {
-                    Label("MY TICKETS", systemImage: "menucard")
-                }
+            Group {
+                Text("Hello, Stats!")
+                    .tabItem {
+                        Label("STATS", systemImage: "chart.bar")
+                    }
+                    .tag(TabIndex.stats)
+                
+                FoodSectionView()
+                    .tabItem {
+                        Label("FOOD", systemImage: "applelogo")
+                    }
+                    .tag(TabIndex.food)
+                
+                TicketsSectionView()
+                    .tabItem {
+                        Label("MY TICKETS", systemImage: "menucard")
+                    }
+                    .tag(TabIndex.tickets)
+            }
+            .toolbarBackground(.visible, for: .tabBar)
+            .toolbarBackground(DesignSystem.ColorScheme.Surface.primary.uiColor.color,
+                               for: .tabBar)
         }
+        .tint(DesignSystem.ColorScheme.Semantic.accent.color)
     }
 }
 
