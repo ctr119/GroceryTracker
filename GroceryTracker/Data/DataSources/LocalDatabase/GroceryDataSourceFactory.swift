@@ -4,7 +4,7 @@ import Foundation
 enum GroceryDataSourceFactory {
     static func make() -> GroceryDataSource {
         let dbSchemeModelName = "GroceryModel"
-        guard let modelUrl = Bundle().url(forResource: dbSchemeModelName, withExtension: "momd"),
+        guard let modelUrl = Bundle.main.url(forResource: dbSchemeModelName, withExtension: "momd"),
               let model = NSManagedObjectModel(contentsOf: modelUrl) else {
             fatalError("Unable to create object model")
         }
