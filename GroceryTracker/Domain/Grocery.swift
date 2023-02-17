@@ -1,6 +1,6 @@
 import Foundation
 
-struct FoodModel: Identifiable {
+struct Grocery: Identifiable, Hashable {
     let id: UUID
     let name: String
 }

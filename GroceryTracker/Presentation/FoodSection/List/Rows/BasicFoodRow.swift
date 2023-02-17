@@ -5,12 +5,12 @@ struct BasicFoodRow: View {
     
     var body: some View {
         Text(model.name)
-            .padding()
+            .padding(10)
     }
 }
 
 struct BasicFoodRow_Previews: PreviewProvider {
     static var previews: some View {
-        BasicFoodRow(model: FoodModel(id: 0, name: "Tomato"))
+        BasicFoodRow(model: FoodModel(id: UUID(), name: "Tomato"))
     }
 }

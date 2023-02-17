@@ -1,35 +1,50 @@
 import SwiftUI
 
 struct FoodListView: View {
-    var searchText: String
+    @ObservedObject private var viewModel: FoodListViewModel
     
-    var data: [FoodModel] = [
-        FoodModel(id: 0, name: "Tomato"),
-        FoodModel(id: 1, name: "Lettuce"),
-        FoodModel(id: 2, name: "Potato")
-    ]
+    init(viewModel: FoodListViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
-        List(getData()) { foodModel in
+        List(viewModel.foodListModel) { foodModel in
             NavigationLink(destination: FoodDetailsView(food: foodModel)) {
                 BasicFoodRow(model: foodModel)
             }
         }
         .navigationBarHidden(true)
         .navigationBarTitleDisplayMode(.inline)
+        .task {
+            await viewModel.onViewLoads()
+        }
     }
-        
-    private func getData() -> [FoodModel] {
-        if searchText.isEmpty {
-            return data
-        } else {
-            return data.filter { $0.name.lowercased().contains(searchText.lowercased())  }
+}
+
+extension FoodListView {
+    enum DI {
+        static func inject(searchText: Binding<String>) -> FoodListView {
+            FoodListView(viewModel: FoodListViewModel(searchText: searchText,
+                                                      getFoodListUseCase: GetFoodListUseCaseImplementation(foodRepository: FoodRepositoryImplementation(dataSource: GroceryDataSourceFactory.make()))))
         }
     }
 }
 
 struct FoodListView_Previews: PreviewProvider {
+    @State static var seartchText: String = ""
+    
     static var previews: some View {
-        FoodListView(searchText: "")
+        FoodListView(viewModel: FoodListViewModel(searchText: $seartchText,
+                                                  getFoodListUseCase: GetFoodListUseCaseMock()))
+    }
+}
+
+private struct GetFoodListUseCaseMock: GetFoodListUseCase {
+    func callAsFunction() async throws -> [Food] {
+        [
+            Food(id: UUID(), name: "Tomato"),
+            Food(id: UUID(), name: "Lettuce"),
+            Food(id: UUID(), name: "Potato")
+        ]
     }
 }

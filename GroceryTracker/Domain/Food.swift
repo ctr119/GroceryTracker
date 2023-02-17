@@ -1,6 +1,6 @@
 import Foundation
 
-struct FoodModel: Identifiable {
+struct Food {
     let id: UUID
     let name: String
 }

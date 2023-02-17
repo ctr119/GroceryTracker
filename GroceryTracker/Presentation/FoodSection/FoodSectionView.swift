@@ -7,7 +7,7 @@ struct FoodSectionView: View {
     var body: some View {
         NavigationView {
             VStack {
-                FoodListView(searchText: searchText)
+                FoodListView.DI.inject(searchText: $searchText)
                 
                 SearchBarView(text: $searchText)
             }
