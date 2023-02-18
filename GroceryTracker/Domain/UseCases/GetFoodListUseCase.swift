@@ -12,6 +12,12 @@ struct GetFoodListUseCaseImplementation: GetFoodListUseCase {
     }
     
     func callAsFunction() async throws -> [Food] {
-        try await foodRepository.getFoodList()
+        let food = try await foodRepository.getFoodList()
+        
+        if food.isEmpty {
+            throw DomainError.noFoodFound
+        }
+        
+        return food
     }
 }

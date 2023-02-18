@@ -3,6 +3,7 @@ import SwiftUI
 
 class FoodListViewModel: ObservableObject {
     @Published var foodListModel: [FoodModel] = []
+    @Published var shouldShowEmptyScreen: Bool = false
     @Binding private var searchText: String
     
     private let getFoodListUseCase: GetFoodListUseCase
@@ -24,8 +25,12 @@ class FoodListViewModel: ObservableObject {
             }
             
             foodListModel = foodList
-        } catch {
-            print("MUAC MUAC MUAC")
+        } catch let error {
+            guard let domainError = error as? DomainError else { return }
+            switch domainError {
+            case .noFoodFound:
+                shouldShowEmptyScreen = true
+            }
         }
     }
 }

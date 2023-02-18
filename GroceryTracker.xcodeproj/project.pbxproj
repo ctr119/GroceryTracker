@@ -27,6 +27,8 @@
 		3E51BC13299EF02200FCD034 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC12299EF02200FCD034 /* Sale.swift */; };
 		3E51BC15299F66EB00FCD034 /* FoodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC14299F66EB00FCD034 /* FoodListViewModel.swift */; };
 		3E51BC18299FED9B00FCD034 /* GetFoodListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */; };
+		3E51BC1A29A037FC00FCD034 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC1929A037FC00FCD034 /* DomainError.swift */; };
+		3E51BC1D29A03A6700FCD034 /* EmptyErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC1C29A03A6700FCD034 /* EmptyErrorView.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -95,6 +97,8 @@
 		3E51BC12299EF02200FCD034 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
 		3E51BC14299F66EB00FCD034 /* FoodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewModel.swift; sourceTree = "<group>"; };
 		3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListUseCase.swift; sourceTree = "<group>"; };
+		3E51BC1929A037FC00FCD034 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
+		3E51BC1C29A03A6700FCD034 /* EmptyErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyErrorView.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +220,14 @@
 			path = UseCases;
 			sourceTree = "<group>";
 		};
+		3E51BC1B29A03A4200FCD034 /* ErrorScreens */ = {
+			isa = PBXGroup;
+			children = (
+				3E51BC1C29A03A6700FCD034 /* EmptyErrorView.swift */,
+			);
+			path = ErrorScreens;
+			sourceTree = "<group>";
+		};
 		3E526DE82741412200826E60 = {
 			isa = PBXGroup;
 			children = (
@@ -292,6 +304,7 @@
 		3E526E20274414EA00826E60 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				3E51BC1B29A03A4200FCD034 /* ErrorScreens */,
 				3E526E1F274414CC00826E60 /* FoodSection */,
 				3E15665327467A9C008D9FCE /* TicketsSection */,
 			);
@@ -374,6 +387,7 @@
 		3ECF8DF9276551F9006077BC /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				3E51BC1929A037FC00FCD034 /* DomainError.swift */,
 				3E51BC09299EE06C00FCD034 /* Food.swift */,
 				3E51BC10299EEE6C00FCD034 /* Grocery.swift */,
 				3E51BC12299EF02200FCD034 /* Sale.swift */,
@@ -610,6 +624,8 @@
 				3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,
 				3E526E262744261400826E60 /* BasicFoodRow.swift in Sources */,
+				3E51BC1A29A037FC00FCD034 /* DomainError.swift in Sources */,
+				3E51BC1D29A03A6700FCD034 /* EmptyErrorView.swift in Sources */,
 				3EAB33EF298F1CCF0062263A /* GroceryModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

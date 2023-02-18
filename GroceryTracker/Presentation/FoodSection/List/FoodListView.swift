@@ -8,15 +8,22 @@ struct FoodListView: View {
     }
     
     var body: some View {
-        List(viewModel.foodListModel) { foodModel in
-            NavigationLink(destination: FoodDetailsView(food: foodModel)) {
-                BasicFoodRow(model: foodModel)
+        if viewModel.shouldShowEmptyScreen {
+            VStack {
+                EmptyErrorView(message: "It looks like you do not have any food to show.\n\nScan a grocery ticket or introduce that information manually so the products appear here.")
             }
-        }
-        .navigationBarHidden(true)
-        .navigationBarTitleDisplayMode(.inline)
-        .task {
-            await viewModel.onViewLoads()
+            
+        } else {
+            List(viewModel.foodListModel) { foodModel in
+                NavigationLink(destination: FoodDetailsView(food: foodModel)) {
+                    BasicFoodRow(model: foodModel)
+                }
+            }
+            .navigationBarHidden(true)
+            .navigationBarTitleDisplayMode(.inline)
+            .task {
+                await viewModel.onViewLoads()
+            }
         }
     }
 }
@@ -34,8 +41,14 @@ struct FoodListView_Previews: PreviewProvider {
     @State static var seartchText: String = ""
     
     static var previews: some View {
-        FoodListView(viewModel: FoodListViewModel(searchText: $seartchText,
-                                                  getFoodListUseCase: GetFoodListUseCaseMock()))
+        Group {
+            FoodListView(viewModel: FoodListViewModel(searchText: $seartchText,
+                                                      getFoodListUseCase: GetFoodListUseCaseMock()))
+            
+            FoodListView(viewModel: FoodListViewModel(searchText: $seartchText,
+                                                      getFoodListUseCase: CouldNotGetFoodListUseCaseMock()))
+            .previewDisplayName("No food found")
+        }
     }
 }
 
@@ -46,5 +59,11 @@ private struct GetFoodListUseCaseMock: GetFoodListUseCase {
             Food(id: UUID(), name: "Lettuce"),
             Food(id: UUID(), name: "Potato")
         ]
+    }
+}
+
+private struct CouldNotGetFoodListUseCaseMock: GetFoodListUseCase {
+    func callAsFunction() async throws -> [Food] {
+        throw DomainError.noFoodFound
     }
 }
