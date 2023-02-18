@@ -11,32 +11,37 @@ struct EmptyErrorView: View {
     
     var body: some View {
         VStack {
-            Spacer()
-            
-            VStack(spacing: 25) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .resizable()
-                    .frame(maxWidth: 120, maxHeight: 100)
-                
-                Text(message)
-                    .font(.title2)
-                    .multilineTextAlignment(.center)
-            }
+            GeometryReader { geometry in
+                HStack {
+                    Spacer()
+                    VStack {
+                        Spacer()
                         
-            if let buttonConfig = buttonConfig {
-                getActionButton(config: buttonConfig)
+                        VStack(spacing: 25) {
+                            getErrorImage(geometry: geometry)
+                            
+                            Text(message)
+                                .font(.title2)
+                                .multilineTextAlignment(.center)
+                        }
+                                    
+                        if let buttonConfig = buttonConfig {
+                            getActionButton(config: buttonConfig)
+                        }
+                        
+                        Spacer()
+                    }
+                    Spacer()
+                }
             }
-            
-            Spacer()
         }
         .foregroundColor(DesignSystem.ColorScheme.Element.secondary.color)
         .padding()
     }
     
-    // TODO: Continue by adding Geometry Reader
     private func getErrorImage(geometry: GeometryProxy) -> some View {
         let imageWidth = geometry.size.width / 3
-        let imageHeight = geometry.size.height / 6.8
+        let imageHeight = geometry.size.height / 6
         
         return Image(systemName: "exclamationmark.triangle.fill")
             .resizable()
