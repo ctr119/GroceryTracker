@@ -46,7 +46,7 @@ struct EmptyErrorView: View {
         return Image(systemName: "exclamationmark.triangle.fill")
             .resizable()
             .frame(width: imageWidth, height: imageHeight)
-            .frame(maxWidth: 120, maxHeight: 100)
+            .frame(maxWidth: 150, maxHeight: 120)
     }
     
     private func getActionButton(config: CTAButtonConfig) -> some View {
