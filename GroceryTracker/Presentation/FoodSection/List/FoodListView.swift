@@ -9,9 +9,11 @@ struct FoodListView: View {
     
     var body: some View {
         if viewModel.shouldShowEmptyScreen {
-            VStack {
-                EmptyErrorView(message: "It looks like you do not have any food to show.\n\nScan a grocery ticket or introduce that information manually so the products appear here.")
-            }
+            EmptyErrorView(message: "It looks like you do not have any food to show",
+                           buttonConfig: .init(text: "Scan a ticket",
+                                               action: {
+                print("Change tab programmatically")
+            }))
             
         } else {
             List(viewModel.foodListModel) { foodModel in

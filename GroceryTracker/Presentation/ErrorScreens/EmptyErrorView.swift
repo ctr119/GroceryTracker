@@ -10,9 +10,10 @@ struct EmptyErrorView: View {
     var buttonConfig: CTAButtonConfig? = nil
     
     var body: some View {
-        ZStack {
+        VStack {
+            Spacer()
+            
             VStack(spacing: 25) {
-                Spacer()
                 Image(systemName: "exclamationmark.triangle.fill")
                     .resizable()
                     .frame(maxWidth: 120, maxHeight: 100)
@@ -20,12 +21,13 @@ struct EmptyErrorView: View {
                 Text(message)
                     .font(.title2)
                     .multilineTextAlignment(.center)
-                Spacer()
             }
-            
+                        
             if let buttonConfig = buttonConfig {
                 getActionButton(config: buttonConfig)
             }
+            
+            Spacer()
         }
         .foregroundColor(DesignSystem.ColorScheme.Element.secondary.color)
         .padding()
@@ -44,7 +46,6 @@ struct EmptyErrorView: View {
     
     private func getActionButton(config: CTAButtonConfig) -> some View {
         VStack {
-            Spacer()
             Button {
                 config.action()
             } label: {
@@ -55,7 +56,7 @@ struct EmptyErrorView: View {
             .background(DesignSystem.ColorScheme.Element.secondary.color)
             .foregroundColor(DesignSystem.ColorScheme.Semantic.accent.color)
             .clipShape(Capsule())
-            .padding(.bottom, 100)
+            .padding(.top, 30)
         }
     }
 }
