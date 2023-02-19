@@ -2,6 +2,7 @@ import SwiftUI
 
 struct FoodListView: View {
     @ObservedObject private var viewModel: FoodListViewModel
+    @State private var tabIndex: ContentView.TabIndex.Wrapper?
     
     init(viewModel: FoodListViewModel) {
         self.viewModel = viewModel
@@ -12,8 +13,10 @@ struct FoodListView: View {
             EmptyErrorView(message: "It looks like you do not have any food to show",
                            buttonConfig: .init(text: "Scan a ticket",
                                                action: {
-                print("Change tab programmatically")
+                tabIndex = .init(tabIndex: .tickets)
             }))
+            .preference(key: ContentView.TabPreferenceKey.self,
+                        value: tabIndex)
             
         } else {
             List(viewModel.foodListModel) { foodModel in

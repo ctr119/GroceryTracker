@@ -12,7 +12,7 @@ struct TicketsSectionView: View {
             
             FloatingButton(text: "+",
                            style: .custom(configuration: FloatingButton.FBConfiguration(
-                            background: DesignSystem.ColorScheme.Element.primary.color,
+                            background: DesignSystem.ColorScheme.Element.secondary.color,
                             tint: DesignSystem.ColorScheme.Semantic.accent.color
                            ))) {
                 shouldRequestColumnDistribution = true

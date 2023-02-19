@@ -1,10 +1,29 @@
 import SwiftUI
 
 struct ContentView: View {
-    enum TabIndex {
-        case stats, food, tickets
+    struct TabPreferenceKey: PreferenceKey {
+        static var defaultValue: ContentView.TabIndex.Wrapper?
+        
+        static func reduce(value: inout ContentView.TabIndex.Wrapper?, nextValue: () -> ContentView.TabIndex.Wrapper?) {
+            // left empty
+        }
     }
-    @State private var selectedByDefault = TabIndex.food
+    
+    enum TabIndex {
+        case stats
+        case food
+        case tickets
+        
+        struct Wrapper: Equatable, Identifiable {
+            let id: UUID = UUID()
+            let tabIndex: TabIndex
+            
+            static func == (lhs: Wrapper, rhs: Wrapper) -> Bool {
+                lhs.id == rhs.id
+            }
+        }
+    }
+    @State private var selectedByDefault: TabIndex = .food
     
     var body: some View {
         TabView(selection: $selectedByDefault) {
@@ -32,6 +51,10 @@ struct ContentView: View {
                                for: .tabBar)
         }
         .tint(DesignSystem.ColorScheme.Semantic.accent.color)
+        .onPreferenceChange(TabPreferenceKey.self) { value in
+            guard let wrapper = value else { return }
+            selectedByDefault = wrapper.tabIndex
+        }
     }
 }
 
