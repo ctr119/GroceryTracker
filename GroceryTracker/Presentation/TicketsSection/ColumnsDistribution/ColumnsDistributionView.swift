@@ -53,7 +53,7 @@ struct ColumnsDistributionView: View {
                     viewModel.columns.move(fromOffsets: source, toOffset: destination)
                 }
             } footer: {
-                Text("Distribute them according to your ticket by \"Drag & Drop\". The one on top will be the first.")
+                Text("Distribute them according to your ticket. The one on top will be the one starting from the letf.")
             }
         }
         .navigationTitle("Ticket Columns")
