@@ -2,13 +2,7 @@ import Foundation
 import VisionKit
 import Vision
 
-struct TicketAnalyserSimplification: Analyser {
-    
-    private struct TextItem {
-        let text: String
-        let minX: CGFloat
-    }
-    
+struct BaselineAnalyser: Analyser {
     // The current observation's baseline is within 4% of the previous observation's baseline,
     // it must belong to the current value.
     private let observationBaselineThreshold = 0.04
@@ -20,14 +14,13 @@ struct TicketAnalyserSimplification: Analyser {
         
         for obs in observations {
             guard let candidate = obs.topCandidates(maxRecognitionCandidates).first else { continue }
-            
-            let textItem = TextItem(text: candidate.string, minX: obs.boundingBox.minX)
+            let text = candidate.string
             
             if let previous = previousObservation {
                 let belongsToSameBaseline = abs(obs.boundingBox.minY - previous.boundingBox.minY) < observationBaselineThreshold
                 
                 if belongsToSameBaseline {
-                    currentRow += " " + textItem.text
+                    currentRow += " " + text
                 } else {
                     if let row = buildRow(from: currentRow) {
                         page.add(row: row)
@@ -37,7 +30,7 @@ struct TicketAnalyserSimplification: Analyser {
             }
             
             if currentRow.isEmpty {
-                currentRow = textItem.text
+                currentRow = text
             }
             
             previousObservation = obs

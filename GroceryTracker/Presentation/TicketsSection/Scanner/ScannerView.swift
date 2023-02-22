@@ -13,9 +13,8 @@ struct ScannerView: UIViewControllerRepresentable {
     func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
-//        let ticketAnalyser = TicketAnalyser(columnsDistribution: columnsDistribution)
-        let ticketAnalyser = TicketAnalyserSimplification()
-        let viewModel = ScannerViewModel(textRecogniser: TextRecogniserImplementation(analyser: ticketAnalyser))
+        let baselineAnalyser = BaselineAnalyser()
+        let viewModel = ScannerViewModel(textRecogniser: TextRecogniserImplementation(analyser: baselineAnalyser))
         
         return Coordinator(viewModel: viewModel, parent: self)
     }
