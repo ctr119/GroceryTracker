@@ -13,6 +13,10 @@ class TextPage: Identifiable {
     
     private(set) var rows: [Row] = []
     
+    func add(row: Row) {
+        rows.append(row)
+    }
+    
     func addRow(_ row: [String], distribution: ColumnsDistribution) {
         let newRow = Row(name: extractValue(from: row, position: distribution.nameColumn.position) ?? "",
                          units: extractValue(from: row, position: distribution.unitsColumn.position) ?? "",

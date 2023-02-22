@@ -29,6 +29,7 @@
 		3E51BC18299FED9B00FCD034 /* GetFoodListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */; };
 		3E51BC1A29A037FC00FCD034 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC1929A037FC00FCD034 /* DomainError.swift */; };
 		3E51BC1D29A03A6700FCD034 /* EmptyErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC1C29A03A6700FCD034 /* EmptyErrorView.swift */; };
+		3E51BC2129A4A7D900FCD034 /* TicketAnalyserSimplification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC2029A4A7D900FCD034 /* TicketAnalyserSimplification.swift */; };
 		3E526DF52741412200826E60 /* GroceryTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF42741412200826E60 /* GroceryTrackerApp.swift */; };
 		3E526DF72741412200826E60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E526DF62741412200826E60 /* ContentView.swift */; };
 		3E526DF92741412300826E60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E526DF82741412300826E60 /* Assets.xcassets */; };
@@ -99,6 +100,7 @@
 		3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListUseCase.swift; sourceTree = "<group>"; };
 		3E51BC1929A037FC00FCD034 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
 		3E51BC1C29A03A6700FCD034 /* EmptyErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyErrorView.swift; sourceTree = "<group>"; };
+		3E51BC2029A4A7D900FCD034 /* TicketAnalyserSimplification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketAnalyserSimplification.swift; sourceTree = "<group>"; };
 		3E526DF12741412200826E60 /* GroceryTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E526DF42741412200826E60 /* GroceryTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryTrackerApp.swift; sourceTree = "<group>"; };
 		3E526DF62741412200826E60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 			children = (
 				3E933DF5275EA1D1006A60AC /* Analyser.swift */,
 				3E933DF3275EA1BF006A60AC /* TicketAnalyser.swift */,
+				3E51BC2029A4A7D900FCD034 /* TicketAnalyserSimplification.swift */,
 			);
 			path = Analysers;
 			sourceTree = "<group>";
@@ -595,6 +598,7 @@
 				3E51BC11299EEE6C00FCD034 /* Grocery.swift in Sources */,
 				3E51BC0A299EE06C00FCD034 /* Food.swift in Sources */,
 				3E933DF4275EA1BF006A60AC /* TicketAnalyser.swift in Sources */,
+				3E51BC2129A4A7D900FCD034 /* TicketAnalyserSimplification.swift in Sources */,
 				3E51BC05299EDEE400FCD034 /* GroceryDBO.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E5AF29E2995BCD1007B107E /* PersistentContainer.swift in Sources */,

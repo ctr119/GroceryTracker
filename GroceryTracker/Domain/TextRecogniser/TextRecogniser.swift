@@ -19,7 +19,11 @@ struct TextRecogniserImplementation: TextRecogniser {
         let recogniseTextRequest = VNRecognizeTextRequest { request, error in
             guard error == nil, let observations = request.results as? [VNRecognizedTextObservation] else { return }
             
-            let resultsPage = analyser.analyse(observations: observations)
+            let topToBottomObservations = observations.sorted { lhs, rhs in
+                lhs.boundingBox.minY > rhs.boundingBox.minY
+            }
+            
+            let resultsPage = analyser.analyse(observations: topToBottomObservations)
             pages.append(resultsPage)
         }
         recogniseTextRequest.recognitionLevel = .accurate
