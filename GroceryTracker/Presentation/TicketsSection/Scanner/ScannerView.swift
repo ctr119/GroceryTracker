@@ -8,7 +8,7 @@ struct ScannerView: UIViewControllerRepresentable {
         documentViewController.delegate = context.coordinator
         
         let navigationController = UINavigationController(rootViewController: documentViewController)
-        navigationController.setNavigationBarHidden(true, animated: false)
+        navigationController.delegate = context.coordinator
         
         return navigationController
     }
@@ -22,7 +22,7 @@ struct ScannerView: UIViewControllerRepresentable {
         return Coordinator(viewModel: viewModel, parent: self)
     }
     
-    class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate {
+    class Coordinator: NSObject, VNDocumentCameraViewControllerDelegate, UINavigationControllerDelegate {
         private let viewModel: ScannerViewModel
         private let parent: ScannerView
         
@@ -32,12 +32,16 @@ struct ScannerView: UIViewControllerRepresentable {
             self.parent = parent
         }
         
+        // MARK: - VNDocumentCameraViewControllerDelegate
+        
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
             DispatchQueue.global(qos: .userInitiated).async {
                 let scannedTicketModel = self.viewModel.recogniseText(from: scan.getImages())
                 
                 DispatchQueue.main.async {
                     let rootView = NewTicketView.DI.inject(ticketModel: scannedTicketModel)
+                        .toolbar(.visible, for: .navigationBar)
+                    
                     let hostingController = UIHostingController(rootView: rootView)
                     controller.navigationController?.pushViewController(hostingController, animated: true)
                 }
@@ -46,6 +50,14 @@ struct ScannerView: UIViewControllerRepresentable {
         
         func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
             controller.dismiss(animated: true)
+        }
+        
+        // MARK: - UINavigationControllerDelegate
+        
+        func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+            if viewController is VNDocumentCameraViewController, viewController.navigationController === navigationController {
+                navigationController.setNavigationBarHidden(true, animated: animated)
+            }
         }
     }
 }

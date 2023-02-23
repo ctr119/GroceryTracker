@@ -22,6 +22,7 @@ struct TicketsSectionView: View {
             shouldOpenScanner = false
         }) {
             ScannerView()
+                .edgesIgnoringSafeArea(.bottom)
         }
     }
 }

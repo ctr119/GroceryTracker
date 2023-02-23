@@ -4,31 +4,33 @@ import UIComponents
 struct TicketRowView: View {
     @Binding var row: TextPage.Row
     
+    private let textFieldLineColor = DesignSystem.ColorScheme.Element.primary.color
+    
     var body: some View {
         VStack {
             MaterialTextField(placeHolder: "Name",
                             value: $row.name,
                             label: "Name",
-                            lineColor: .blue,
+                            lineColor: textFieldLineColor,
                             lineHeight: 1)
             
             HStack {
+                MaterialTextField(placeHolder: "Price",
+                                  value: $row.singlePrice,
+                                  label: "Price",
+                                  lineColor: textFieldLineColor,
+                                  lineHeight: 1)
+                
                 MaterialTextField(placeHolder: "Units",
                                 value: $row.units,
                                 label: "Units",
-                                lineColor: .blue,
-                                lineHeight: 1)
-                
-                MaterialTextField(placeHolder: "Price",
-                                value: $row.singlePrice,
-                                label: "Price",
-                                lineColor: .blue,
+                                lineColor: textFieldLineColor,
                                 lineHeight: 1)
                 
                 MaterialTextField(placeHolder: "Total",
                                 value: $row.totalPrice,
                                 label: "Total",
-                                lineColor: .blue,
+                                lineColor: textFieldLineColor,
                                 lineHeight: 1)
             }
         }

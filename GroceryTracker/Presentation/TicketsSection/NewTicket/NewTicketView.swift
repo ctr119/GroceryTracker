@@ -12,10 +12,10 @@ struct NewTicketView: View {
     var body: some View {
         VStack {
             MaterialTextField(placeHolder: "Grocery's Name",
-                            value: $groceryName,
-                            textColor: .white,
-                            lineColor: .blue,
-                            lineHeight: 1)
+                              value: $groceryName,
+                              textColor: .white,
+                              lineColor: DesignSystem.ColorScheme.Semantic.accent.color,
+                              lineHeight: 1)
             
             Divider()
             
@@ -29,9 +29,7 @@ struct NewTicketView: View {
                 viewModel.cancelTicket()
             }
         }
-        .background(LinearGradient(colors: DesignSystem.Gradient.primary.colors,
-                                   startPoint: .top,
-                                   endPoint: .bottom))
+        .background(DesignSystem.ColorScheme.Element.secondary.color)
         .onAppear {
             viewModel.onAppear()
         }
