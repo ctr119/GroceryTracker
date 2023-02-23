@@ -54,8 +54,8 @@ struct NewTicketView: View {
 
 extension NewTicketView {
     enum DI {
-        static func inject(ticketModel: ScannedTicketModel) -> NewTicketView {
-            let viewModel = NewTicketViewModel(ticketModel: ticketModel)
+        static func inject(ticketModel: ScannedTicketModel, didCancel: @escaping () -> Void) -> NewTicketView {
+            let viewModel = NewTicketViewModel(ticketModel: ticketModel, didCancel: didCancel)
             return NewTicketView(viewModel: viewModel)
         }
     }
@@ -72,6 +72,6 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!))
+        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!, didCancel: {}))
     }
 }
