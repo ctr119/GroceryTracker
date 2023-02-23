@@ -2,15 +2,18 @@ import SwiftUI
 import VisionKit
 
 struct ScannerView: UIViewControllerRepresentable {
-    let columnsDistribution: ColumnsDistribution
     
-    func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
+    func makeUIViewController(context: Context) -> UINavigationController {
         let documentViewController = VNDocumentCameraViewController()
         documentViewController.delegate = context.coordinator
-        return documentViewController
+        
+        let navigationController = UINavigationController(rootViewController: documentViewController)
+        navigationController.setNavigationBarHidden(true, animated: false)
+        
+        return navigationController
     }
     
-    func updateUIViewController(_ uiViewController: VNDocumentCameraViewController, context: Context) {}
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {}
     
     func makeCoordinator() -> Coordinator {
         let baselineAnalyser = BaselineAnalyser()
@@ -35,8 +38,6 @@ struct ScannerView: UIViewControllerRepresentable {
                 
                 DispatchQueue.main.async {
                     let rootView = NewTicketView.DI.inject(ticketModel: scannedTicketModel)
-                        .navigationBarHidden(true)
-                    
                     let hostingController = UIHostingController(rootView: rootView)
                     controller.navigationController?.pushViewController(hostingController, animated: true)
                 }
@@ -44,7 +45,7 @@ struct ScannerView: UIViewControllerRepresentable {
         }
         
         func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
-            controller.navigationController?.popViewController(animated: true)
+            controller.dismiss(animated: true)
         }
     }
 }

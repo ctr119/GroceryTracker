@@ -2,7 +2,7 @@ import SwiftUI
 import UIComponents
 
 struct TicketsSectionView: View {    
-    @State private var shouldRequestColumnDistribution = false
+    @State private var shouldOpenScanner = false
     @State private var scannedTicketModel: ScannedTicketModel?
     
     var body: some View {
@@ -15,14 +15,13 @@ struct TicketsSectionView: View {
                             background: DesignSystem.ColorScheme.Element.secondary.color,
                             tint: DesignSystem.ColorScheme.Semantic.accent.color
                            ))) {
-                shouldRequestColumnDistribution = true
+                shouldOpenScanner = true
             }
         }
-        .sheet(isPresented: $shouldRequestColumnDistribution,
-               onDismiss: {
-            shouldRequestColumnDistribution = false
+        .sheet(isPresented: $shouldOpenScanner, onDismiss: {
+            shouldOpenScanner = false
         }) {
-            ColumnsDistributionView.DI.inject()
+            ScannerView()
         }
     }
 }

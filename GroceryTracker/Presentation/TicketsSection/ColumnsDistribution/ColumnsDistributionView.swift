@@ -15,10 +15,8 @@ struct ColumnsDistributionView: View {
             NavigationView {
                 VStack {
                     NavigationLink(isActive: $viewModel.shouldOpenScanner) {
-                        if let distribution = viewModel.distribution {
-                            ScannerView(columnsDistribution: distribution)
-                                .navigationBarHidden(true)
-                        }
+                        ScannerView()
+                            .navigationBarHidden(true)
                     } label: {
                         EmptyView()
                     }

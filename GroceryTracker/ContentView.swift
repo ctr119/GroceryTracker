@@ -23,7 +23,7 @@ struct ContentView: View {
             }
         }
     }
-    @State private var selectedByDefault: TabIndex = .food
+    @State private var selectedByDefault: TabIndex = .tickets
     
     var body: some View {
         TabView(selection: $selectedByDefault) {
