@@ -2,7 +2,9 @@ import SwiftUI
 import UIComponents
 
 struct NewTicketView: View {
+    // TODO: Get rid of this state and use Grocery.name instead
     @State private var groceryName: String = ""
+    @State private var selectedGrocery: Grocery?
     @ObservedObject private var viewModel: NewTicketViewModel
     
     init(viewModel: NewTicketViewModel) {
@@ -11,11 +13,7 @@ struct NewTicketView: View {
     
     var body: some View {
         VStack {
-            MaterialTextField(placeHolder: "Grocery's Name",
-                              value: $groceryName,
-                              textColor: .white,
-                              lineColor: DesignSystem.ColorScheme.Semantic.accent.color,
-                              lineHeight: 1)
+            groceryPicker
             
             Divider()
             
@@ -36,6 +34,35 @@ struct NewTicketView: View {
         }
     }
     
+    private var groceryPicker: some View {
+        VStack {
+            HStack {
+                Text("Choose a grocery")
+                    .foregroundColor(.white)
+                
+                Picker("", selection: $selectedGrocery) {
+                    ForEach(viewModel.groceries, id: \.id) { grocery in
+                        Text(grocery.name)
+                            .tag(grocery as Grocery?) // Needed for the selected one to get updated
+                        /*
+                         The type associated with the 'tag' of the entries in the Picker
+                         must be identical to the type used for storing the selection.
+                         https://stackoverflow.com/questions/59400474/swiftui-picker-with-selection-as-struct
+                         */
+                    }
+                }
+            }
+            
+            if selectedGrocery == viewModel.auxiliarGrocery {
+                MaterialTextField(placeHolder: "Grocery's Name",
+                                  value: $groceryName,
+                                  textColor: .white,
+                                  lineColor: DesignSystem.ColorScheme.Semantic.accent.color,
+                                  lineHeight: 1)
+            }
+        }
+    }
+    
     private var itemList: some View {
         ScrollView {
             VStack {
@@ -53,7 +80,12 @@ struct NewTicketView: View {
 extension NewTicketView {
     enum DI {
         static func inject(ticketModel: ScannedTicketModel, cancelAction: @escaping () -> Void) -> NewTicketView {
-            let viewModel = NewTicketViewModel(ticketModel: ticketModel, cancelAction: cancelAction)
+            let groceryRepository = GroceryRepositoryImplementation()
+            let getGroceriesUseCase = GetGroceriesUseCaseImplementation(groceryRepository: groceryRepository)
+            
+            let viewModel = NewTicketViewModel(getGroceriesUseCase: getGroceriesUseCase,
+                                               ticketModel: ticketModel,
+                                               cancelAction: cancelAction)
             return NewTicketView(viewModel: viewModel)
         }
     }
@@ -70,6 +102,16 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!, cancelAction: {}))
+        NewTicketView(viewModel: NewTicketViewModel(getGroceriesUseCase: GetGroceriesUseCaseMock(),
+                                                    ticketModel: model!,
+                                                    cancelAction: {}))
     }
+}
+
+private struct GetGroceriesUseCaseMock: GetGroceriesUseCase {
+    func callAsFunction() -> [Grocery] {[
+        .init(id: UUID(), name: "Carrefour"),
+        .init(id: UUID(), name: "Lidl"),
+        .init(id: UUID(), name: "Mercadona")
+    ]}
 }
