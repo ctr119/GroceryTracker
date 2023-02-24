@@ -3,16 +3,17 @@ import UIComponents
 
 struct TicketRowView: View {
     @Binding var row: TextPage.Row
+    let didCancel: () -> Void
     
     private let textFieldLineColor = DesignSystem.ColorScheme.Element.primary.color
     
     var body: some View {
         VStack {
             MaterialTextField(placeHolder: "Name",
-                            value: $row.name,
-                            label: "Name",
-                            lineColor: textFieldLineColor,
-                            lineHeight: 1)
+                              value: $row.name,
+                              label: "Name",
+                              lineColor: textFieldLineColor,
+                              lineHeight: 1)
             
             HStack {
                 MaterialTextField(placeHolder: "Price",
@@ -33,10 +34,32 @@ struct TicketRowView: View {
                                 lineColor: textFieldLineColor,
                                 lineHeight: 1)
             }
+            
+            Divider()
+            
+            buttonsStack
+                .padding(12)
         }
-        .padding()
         .background(Color.white)
         .cornerRadius(10)
+    }
+    
+    private var buttonsStack: some View {
+        HStack {
+            Spacer()
+            
+            Button(role: .destructive) {
+                didCancel()
+            } label: {
+                Label {
+                    Text("Delete item")
+                } icon: {
+                    Image(systemName: "trash")
+                }
+            }
+            .buttonStyle(.bordered)
+            .tint(nil)
+        }
     }
 }
 
@@ -50,7 +73,7 @@ struct TicketRowView_Previews: PreviewProvider {
         ZStack {
             Color.gray
             
-            TicketRowView(row: $row)
+            TicketRowView(row: $row, didCancel: {})
         }
         .ignoresSafeArea()
     }

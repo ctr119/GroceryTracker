@@ -28,6 +28,7 @@ struct NewTicketView: View {
             } cancelAction: {
                 viewModel.cancelTicket()
             }
+            .background(DesignSystem.ColorScheme.Surface.primary.color.opacity(0.5))
         }
         .background(DesignSystem.ColorScheme.Element.secondary.color)
         .onAppear {
@@ -44,7 +45,9 @@ struct NewTicketView: View {
                     } set: { newValue in
                         viewModel.rows[rowIndex] = newValue
                     }
-                    TicketRowView(row: binding)
+                    TicketRowView(row: binding) {
+                        viewModel.removeItem(index: rowIndex)
+                    }
                 }
             }
             .padding()

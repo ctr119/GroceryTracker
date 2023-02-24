@@ -22,4 +22,9 @@ class NewTicketViewModel: ObservableObject {
     func cancelTicket() {
         didCancel()
     }
+    
+    func removeItem(index: Int) {
+        guard index < rows.count else { return }
+        rows.remove(at: index)
+    }
 }
