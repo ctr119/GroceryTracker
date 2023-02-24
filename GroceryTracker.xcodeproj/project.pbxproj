@@ -54,6 +54,7 @@
 		3EB650F029A9029E006DFF05 /* GroceryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB650EF29A9029E006DFF05 /* GroceryRepository.swift */; };
 		3ECF8DFB27655542006077BC /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFA27655542006077BC /* ScannerViewModel.swift */; };
 		3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECF8DFD2767F514006077BC /* NewTicketView.swift */; };
+		3ED1D53A29A979C0009C6DE2 /* SaveTicketUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED1D53929A979C0009C6DE2 /* SaveTicketUseCase.swift */; };
 		3ED68E562994D34C00A4194E /* FoodDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED68E552994D34C00A4194E /* FoodDBO.swift */; };
 		3ED68E592994D3C200A4194E /* ToDBObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED68E582994D3C200A4194E /* ToDBObject.swift */; };
 		3ED68E5B2994D3CE00A4194E /* ToNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED68E5A2994D3CE00A4194E /* ToNSManagedObject.swift */; };
@@ -128,6 +129,7 @@
 		3EB650EF29A9029E006DFF05 /* GroceryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryRepository.swift; sourceTree = "<group>"; };
 		3ECF8DFA27655542006077BC /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
 		3ECF8DFD2767F514006077BC /* NewTicketView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTicketView.swift; sourceTree = "<group>"; };
+		3ED1D53929A979C0009C6DE2 /* SaveTicketUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTicketUseCase.swift; sourceTree = "<group>"; };
 		3ED68E552994D34C00A4194E /* FoodDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDBO.swift; sourceTree = "<group>"; };
 		3ED68E582994D3C200A4194E /* ToDBObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDBObject.swift; sourceTree = "<group>"; };
 		3ED68E5A2994D3CE00A4194E /* ToNSManagedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToNSManagedObject.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			children = (
 				3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */,
 				3EB650ED29A9024D006DFF05 /* GetGroceriesUseCase.swift */,
+				3ED1D53929A979C0009C6DE2 /* SaveTicketUseCase.swift */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				3E51BC11299EEE6C00FCD034 /* Grocery.swift in Sources */,
 				3E51BC0A299EE06C00FCD034 /* Food.swift in Sources */,
 				3E51BC2129A4A7D900FCD034 /* BaselineAnalyser.swift in Sources */,
+				3ED1D53A29A979C0009C6DE2 /* SaveTicketUseCase.swift in Sources */,
 				3E51BC05299EDEE400FCD034 /* GroceryDBO.swift in Sources */,
 				3E526DF72741412200826E60 /* ContentView.swift in Sources */,
 				3E5AF29E2995BCD1007B107E /* PersistentContainer.swift in Sources */,

@@ -3,6 +3,7 @@ import CoreData
 
 protocol GroceryDataSource {
     func getFoodList() async throws -> [FoodDBO]
+    func createGrocery(dbo: GroceryDBO) async throws
     func getGroceries(_ ids: [UUID]?) async throws -> [GroceryDBO]
     func getSales(for productId: UUID) async throws -> [SaleDBO]
 }
@@ -18,6 +19,10 @@ class GroceryDataSourceImplementation: GroceryDataSource {
         let request = FoodEntity.fetchRequest()
         
         return try await container.fetch(request: request).compactMap { $0 }
+    }
+    
+    func createGrocery(dbo: GroceryDBO) async throws {
+        try await container.saveContext(dbObject: dbo)
     }
     
     func getGroceries(_ ids: [UUID]? = nil) async throws -> [GroceryDBO] {
