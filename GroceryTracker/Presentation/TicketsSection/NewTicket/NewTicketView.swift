@@ -61,7 +61,8 @@ struct NewTicketView: View {
                 MaterialTextField(placeHolder: "Grocery's Name",
                                   value: $groceryName,
                                   textColor: .white,
-                                  lineColor: DesignSystem.ColorScheme.Semantic.accent.color,
+                                  placeholderColor: .white,
+                                  lineColor: .white,
                                   lineHeight: 1)
             }
         }
