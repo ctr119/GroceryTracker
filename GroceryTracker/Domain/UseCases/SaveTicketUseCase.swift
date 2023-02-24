@@ -14,6 +14,7 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
         self.groceryRepository = groceryRepository
     }
     
+    // TODO: Change [TextPage.Row] for [Food : (Price, Int)] being the Int the quantity
     func callAsFunction(grocery: Grocery, items: [TextPage.Row]) async {
         await groceryRepository.createGrocery(grocery)
     }

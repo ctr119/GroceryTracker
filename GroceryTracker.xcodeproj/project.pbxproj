@@ -21,10 +21,10 @@
 		3E51BC05299EDEE400FCD034 /* GroceryDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC04299EDEE400FCD034 /* GroceryDBO.swift */; };
 		3E51BC07299EDFAD00FCD034 /* TicketDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC06299EDFAD00FCD034 /* TicketDBO.swift */; };
 		3E51BC0A299EE06C00FCD034 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC09299EE06C00FCD034 /* Food.swift */; };
-		3E51BC0C299EE7BB00FCD034 /* SaleDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC0B299EE7BB00FCD034 /* SaleDBO.swift */; };
+		3E51BC0C299EE7BB00FCD034 /* PriceDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC0B299EE7BB00FCD034 /* PriceDBO.swift */; };
 		3E51BC0F299EEB4500FCD034 /* FoodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC0E299EEB4500FCD034 /* FoodRepository.swift */; };
 		3E51BC11299EEE6C00FCD034 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC10299EEE6C00FCD034 /* Grocery.swift */; };
-		3E51BC13299EF02200FCD034 /* Sale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC12299EF02200FCD034 /* Sale.swift */; };
+		3E51BC13299EF02200FCD034 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC12299EF02200FCD034 /* Price.swift */; };
 		3E51BC15299F66EB00FCD034 /* FoodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC14299F66EB00FCD034 /* FoodListViewModel.swift */; };
 		3E51BC18299FED9B00FCD034 /* GetFoodListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */; };
 		3E51BC1A29A037FC00FCD034 /* DomainError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC1929A037FC00FCD034 /* DomainError.swift */; };
@@ -94,10 +94,10 @@
 		3E51BC04299EDEE400FCD034 /* GroceryDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDBO.swift; sourceTree = "<group>"; };
 		3E51BC06299EDFAD00FCD034 /* TicketDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDBO.swift; sourceTree = "<group>"; };
 		3E51BC09299EE06C00FCD034 /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
-		3E51BC0B299EE7BB00FCD034 /* SaleDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaleDBO.swift; sourceTree = "<group>"; };
+		3E51BC0B299EE7BB00FCD034 /* PriceDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceDBO.swift; sourceTree = "<group>"; };
 		3E51BC0E299EEB4500FCD034 /* FoodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodRepository.swift; sourceTree = "<group>"; };
 		3E51BC10299EEE6C00FCD034 /* Grocery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grocery.swift; sourceTree = "<group>"; };
-		3E51BC12299EF02200FCD034 /* Sale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sale.swift; sourceTree = "<group>"; };
+		3E51BC12299EF02200FCD034 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
 		3E51BC14299F66EB00FCD034 /* FoodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodListViewModel.swift; sourceTree = "<group>"; };
 		3E51BC17299FED9B00FCD034 /* GetFoodListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFoodListUseCase.swift; sourceTree = "<group>"; };
 		3E51BC1929A037FC00FCD034 /* DomainError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainError.swift; sourceTree = "<group>"; };
@@ -399,7 +399,7 @@
 				3E51BC1929A037FC00FCD034 /* DomainError.swift */,
 				3E51BC09299EE06C00FCD034 /* Food.swift */,
 				3E51BC10299EEE6C00FCD034 /* Grocery.swift */,
-				3E51BC12299EF02200FCD034 /* Sale.swift */,
+				3E51BC12299EF02200FCD034 /* Price.swift */,
 				3E933DF1275E0C9F006A60AC /* TextRecogniser */,
 				3E51BC16299FED7B00FCD034 /* UseCases */,
 			);
@@ -441,7 +441,7 @@
 			children = (
 				3ED68E552994D34C00A4194E /* FoodDBO.swift */,
 				3E51BC04299EDEE400FCD034 /* GroceryDBO.swift */,
-				3E51BC0B299EE7BB00FCD034 /* SaleDBO.swift */,
+				3E51BC0B299EE7BB00FCD034 /* PriceDBO.swift */,
 				3E51BC06299EDFAD00FCD034 /* TicketDBO.swift */,
 				3ED68E572994D3B000A4194E /* Protocols */,
 			);
@@ -612,7 +612,7 @@
 				3E51BC0F299EEB4500FCD034 /* FoodRepository.swift in Sources */,
 				3E15665A27470869008D9FCE /* ScannerView.swift in Sources */,
 				3ED68E5B2994D3CE00A4194E /* ToNSManagedObject.swift in Sources */,
-				3E51BC0C299EE7BB00FCD034 /* SaleDBO.swift in Sources */,
+				3E51BC0C299EE7BB00FCD034 /* PriceDBO.swift in Sources */,
 				3E095D8A2777BE9D000AF87E /* NewTicketViewModel.swift in Sources */,
 				3ECF8DFB27655542006077BC /* ScannerViewModel.swift in Sources */,
 				3E17D7D628F9C5CF006BF749 /* ColumnsDistributionView.swift in Sources */,
@@ -625,7 +625,7 @@
 				3E15665C2747C13C008D9FCE /* TextRecogniser.swift in Sources */,
 				3EB650F029A9029E006DFF05 /* GroceryRepository.swift in Sources */,
 				3ED68E562994D34C00A4194E /* FoodDBO.swift in Sources */,
-				3E51BC13299EF02200FCD034 /* Sale.swift in Sources */,
+				3E51BC13299EF02200FCD034 /* Price.swift in Sources */,
 				3E345526290486410082F304 /* ColumnsDistributionViewModel.swift in Sources */,
 				3E526E342745072300826E60 /* FoodDetailsView.swift in Sources */,
 				3E095D8827752BD7000AF87E /* TextPage.swift in Sources */,

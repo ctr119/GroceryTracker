@@ -1,32 +1,32 @@
 import CoreData
 import Foundation
 
-struct SaleDBO: ToNSManagedObject {
+struct PriceDBO: ToNSManagedObject {
     let fid: UUID
     let gid: UUID
-    let price: Double
+    let amount: Double
     let unit: String
     
     func toNSManagedObject(context: NSManagedObjectContext) -> NSManagedObject {
-        let saleEntity = SaleEntity(context: context)
+        let saleEntity = PriceEntity(context: context)
         saleEntity.fid = fid
         saleEntity.gid = gid
-        saleEntity.price = price
+        saleEntity.amount = amount
         saleEntity.unit = unit
         
         return saleEntity
     }
 }
 
-extension SaleEntity: ToDBObject {
-    func toDBObject() -> SaleDBO? {
+extension PriceEntity: ToDBObject {
+    func toDBObject() -> PriceDBO? {
         guard let fid = fid,
                 let gid = gid,
                 let unit = unit else { return nil }
         
-        return SaleDBO(fid: fid,
-                       gid: gid,
-                       price: price,
-                       unit: unit)
+        return PriceDBO(fid: fid,
+                        gid: gid,
+                        amount: amount,
+                        unit: unit)
     }
 }

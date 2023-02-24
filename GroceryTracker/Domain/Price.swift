@@ -1,6 +1,6 @@
 import Foundation
 
-struct Sale {
-    let price: Double
+struct Price {
+    let amount: Double
     let unit: String
 }
