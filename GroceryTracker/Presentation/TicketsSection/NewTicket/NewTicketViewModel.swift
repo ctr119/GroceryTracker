@@ -4,11 +4,11 @@ class NewTicketViewModel: ObservableObject {
     @Published var rows: [TextPage.Row] = []
     
     private var ticketModel: ScannedTicketModel
-    private let didCancel: () -> Void
+    private let cancelAction: () -> Void
     
-    init(ticketModel: ScannedTicketModel, didCancel: @escaping () -> Void) {
+    init(ticketModel: ScannedTicketModel, cancelAction: @escaping () -> Void) {
         self.ticketModel = ticketModel
-        self.didCancel = didCancel
+        self.cancelAction = cancelAction
     }
     
     func onAppear() {
@@ -20,7 +20,7 @@ class NewTicketViewModel: ObservableObject {
     }
     
     func cancelTicket() {
-        didCancel()
+        cancelAction()
     }
     
     func remove(row: TextPage.Row) {

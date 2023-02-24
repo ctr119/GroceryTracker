@@ -39,7 +39,7 @@ struct ScannerView: UIViewControllerRepresentable {
                 let scannedTicketModel = self.viewModel.recogniseText(from: scan.getImages())
                 
                 DispatchQueue.main.async {
-                    let rootView = NewTicketView.DI.inject(ticketModel: scannedTicketModel, didCancel: {
+                    let rootView = NewTicketView.DI.inject(ticketModel: scannedTicketModel, cancelAction: {
                         controller.navigationController?.dismiss(animated: true)
                     }).toolbar(.visible, for: .navigationBar)
                     
