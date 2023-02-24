@@ -2,9 +2,13 @@ import SwiftUI
 import UIComponents
 
 struct NewTicketView: View {
-    // TODO: Get rid of this state and use Grocery.name instead
+    struct GroceryModel: Identifiable, Hashable {
+        let id: UUID
+        let name: String
+    }
+    
     @State private var groceryName: String = ""
-    @State private var selectedGrocery: Grocery?
+    @State private var selectedGrocery: GroceryModel?
     @ObservedObject private var viewModel: NewTicketViewModel
     
     init(viewModel: NewTicketViewModel) {
@@ -43,7 +47,7 @@ struct NewTicketView: View {
                 Picker("", selection: $selectedGrocery) {
                     ForEach(viewModel.groceries, id: \.id) { grocery in
                         Text(grocery.name)
-                            .tag(grocery as Grocery?) // Needed for the selected one to get updated
+                            .tag(grocery as GroceryModel?) // Needed for the selected one to get updated
                         /*
                          The type associated with the 'tag' of the entries in the Picker
                          must be identical to the type used for storing the selection.
