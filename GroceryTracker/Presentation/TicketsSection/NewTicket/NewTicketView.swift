@@ -39,14 +39,9 @@ struct NewTicketView: View {
     private var itemList: some View {
         ScrollView {
             VStack {
-                ForEach(0..<viewModel.rows.count, id: \.self) { rowIndex in
-                    let binding = Binding {
-                        viewModel.rows[rowIndex]
-                    } set: { newValue in
-                        viewModel.rows[rowIndex] = newValue
-                    }
-                    TicketRowView(row: binding) {
-                        viewModel.removeItem(index: rowIndex)
+                ForEach($viewModel.rows, id: \.self) { row in
+                    TicketRowView(row: row) {
+                        viewModel.remove(row: row.wrappedValue)
                     }
                 }
             }

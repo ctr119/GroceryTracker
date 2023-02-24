@@ -3,7 +3,7 @@ import UIComponents
 
 struct TicketRowView: View {
     @Binding var row: TextPage.Row
-    let didCancel: () -> Void
+    let removeAction: () -> Void
     
     private let textFieldLineColor = DesignSystem.ColorScheme.Element.primary.color
     
@@ -23,16 +23,16 @@ struct TicketRowView: View {
                                   lineHeight: 1)
                 
                 MaterialTextField(placeHolder: "Units",
-                                value: $row.units,
-                                label: "Units",
-                                lineColor: textFieldLineColor,
-                                lineHeight: 1)
+                                  value: $row.units,
+                                  label: "Units",
+                                  lineColor: textFieldLineColor,
+                                  lineHeight: 1)
                 
                 MaterialTextField(placeHolder: "Total",
-                                value: $row.totalPrice,
-                                label: "Total",
-                                lineColor: textFieldLineColor,
-                                lineHeight: 1)
+                                  value: $row.totalPrice,
+                                  label: "Total",
+                                  lineColor: textFieldLineColor,
+                                  lineHeight: 1)
             }
             
             Divider()
@@ -49,7 +49,7 @@ struct TicketRowView: View {
             Spacer()
             
             Button(role: .destructive) {
-                didCancel()
+                removeAction()
             } label: {
                 Label {
                     Text("Delete item")
@@ -73,7 +73,7 @@ struct TicketRowView_Previews: PreviewProvider {
         ZStack {
             Color.gray
             
-            TicketRowView(row: $row, didCancel: {})
+            TicketRowView(row: $row, removeAction: {})
         }
         .ignoresSafeArea()
     }

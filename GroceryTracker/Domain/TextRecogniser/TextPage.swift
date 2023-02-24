@@ -1,12 +1,19 @@
 import Foundation
 
 class TextPage: Identifiable {
-    struct Row: Identifiable {
+    struct Row: Identifiable, Hashable, Equatable {
         var id = UUID()
         var name: String
         var units: String
         var singlePrice: String
         var totalPrice: String
+        
+        static func == (lhs: Row, rhs: Row) -> Bool {
+            return lhs.name == rhs.name
+                && lhs.units == rhs.units
+                && lhs.singlePrice == rhs.singlePrice
+                && lhs.totalPrice == rhs.totalPrice
+        }
     }
     
     let id = UUID()

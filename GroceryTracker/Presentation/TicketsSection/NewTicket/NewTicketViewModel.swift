@@ -23,8 +23,9 @@ class NewTicketViewModel: ObservableObject {
         didCancel()
     }
     
-    func removeItem(index: Int) {
-        guard index < rows.count else { return }
+    func remove(row: TextPage.Row) {
+        guard let index = rows.firstIndex(where: { $0 == row }),
+              index < rows.count else { return }
         rows.remove(at: index)
     }
 }
