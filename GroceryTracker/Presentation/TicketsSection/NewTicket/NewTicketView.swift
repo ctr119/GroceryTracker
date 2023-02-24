@@ -26,7 +26,7 @@ struct NewTicketView: View {
             Divider()
             
             SaveBottomBar {
-                viewModel.saveTicket(groceryName: groceryName)
+                viewModel.saveTicket(for: selectedGrocery, or: groceryName)
             } cancelAction: {
                 viewModel.cancelTicket()
             }

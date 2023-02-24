@@ -31,8 +31,18 @@ class NewTicketViewModel: ObservableObject {
         }
     }
     
-    func saveTicket(groceryName: String) {
-        // TODO: Save on Disk
+    func saveTicket(for groceryModel: NewTicketView.GroceryModel?, or groceryName: String) {
+        let getGrocery: () -> Grocery? = {
+            if let model = groceryModel, model != self.auxiliarGrocery {
+                return Grocery(id: model.id, name: model.name)
+            } else if !groceryName.isEmpty {
+                return Grocery(id: UUID(), name: groceryName)
+            }
+            return nil
+        }
+        
+        let grocery = getGrocery()
+        // TODO: call use case
     }
     
     func cancelTicket() {
