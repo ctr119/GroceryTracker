@@ -3,7 +3,7 @@ import SwiftUI
 class NewTicketViewModel: ObservableObject {
     @Published var rows: [TextPage.Row] = []
     var groceries: [NewTicketView.GroceryModel] = []
-    let auxiliarGrocery = NewTicketView.GroceryModel(id: UUID(), name: "Add a new one...")
+    let auxiliarGrocery = NewTicketView.GroceryModel(id: UUID(), name: "Add a new grocery")
     
     private let getGroceriesUseCase: GetGroceriesUseCase
     private var ticketModel: ScannedTicketModel
@@ -17,15 +17,18 @@ class NewTicketViewModel: ObservableObject {
         self.cancelAction = cancelAction
     }
     
-    func onAppear() {
-        loadGroceries()
-        rows = ticketModel.pages.flatMap { $0.rows }
-    }
-    
-    private func loadGroceries() {
-        groceries = getGroceriesUseCase().map {
-            .init(id: $0.id, name: $0.name)
-        } + [auxiliarGrocery]
+    func onAppear() async {
+        do {
+            groceries = try await getGroceriesUseCase().map {
+                .init(id: $0.id, name: $0.name)
+            } + [auxiliarGrocery]
+            
+            await MainActor.run {
+                rows = ticketModel.pages.flatMap { $0.rows }
+            }
+        } catch {
+            // exceptions
+        }
     }
     
     func saveTicket(groceryName: String) {

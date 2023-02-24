@@ -3,7 +3,7 @@ import CoreData
 
 protocol GroceryDataSource {
     func getFoodList() async throws -> [FoodDBO]
-    func getGroceries(_ ids: [UUID]) async throws -> [GroceryDBO]
+    func getGroceries(_ ids: [UUID]?) async throws -> [GroceryDBO]
     func getSales(for productId: UUID) async throws -> [SaleDBO]
 }
 
@@ -20,11 +20,13 @@ class GroceryDataSourceImplementation: GroceryDataSource {
         return try await container.fetch(request: request).compactMap { $0 }
     }
     
-    func getGroceries(_ ids: [UUID]) async throws -> [GroceryDBO] {
+    func getGroceries(_ ids: [UUID]? = nil) async throws -> [GroceryDBO] {
         let request = GroceryEntity.fetchRequest()
-        request.predicate = NSPredicate(
-            format: "gid IN %@", ids
-        )
+        if let ids = ids {
+            request.predicate = NSPredicate(
+                format: "gid IN %@", ids
+            )
+        }
         
         return try await container.fetch(request: request).compactMap { $0 }
     }

@@ -33,17 +33,14 @@ struct NewTicketView: View {
             .background(DesignSystem.ColorScheme.Surface.primary.color.opacity(0.5))
         }
         .background(DesignSystem.ColorScheme.Element.secondary.color)
-        .onAppear {
-            viewModel.onAppear()
+        .task {
+            await viewModel.onAppear()
         }
     }
     
     private var groceryPicker: some View {
         VStack {
             HStack {
-                Text("Choose a grocery")
-                    .foregroundColor(.white)
-                
                 Picker("", selection: $selectedGrocery) {
                     ForEach(viewModel.groceries, id: \.id) { grocery in
                         Text(grocery.name)
@@ -54,6 +51,9 @@ struct NewTicketView: View {
                          https://stackoverflow.com/questions/59400474/swiftui-picker-with-selection-as-struct
                          */
                     }
+                }
+                .onAppear {
+                    selectedGrocery = viewModel.auxiliarGrocery
                 }
             }
             
@@ -84,7 +84,8 @@ struct NewTicketView: View {
 extension NewTicketView {
     enum DI {
         static func inject(ticketModel: ScannedTicketModel, cancelAction: @escaping () -> Void) -> NewTicketView {
-            let groceryRepository = GroceryRepositoryImplementation()
+            let groceryDataSource = GroceryDataSourceFactory.make()
+            let groceryRepository = GroceryRepositoryImplementation(dataSource: groceryDataSource)
             let getGroceriesUseCase = GetGroceriesUseCaseImplementation(groceryRepository: groceryRepository)
             
             let viewModel = NewTicketViewModel(getGroceriesUseCase: getGroceriesUseCase,

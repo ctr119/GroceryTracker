@@ -1,7 +1,7 @@
 import Foundation
 
 protocol GetGroceriesUseCase {
-    func callAsFunction() -> [Grocery]
+    func callAsFunction() async throws -> [Grocery]
 }
 
 struct GetGroceriesUseCaseImplementation: GetGroceriesUseCase {
@@ -11,9 +11,7 @@ struct GetGroceriesUseCaseImplementation: GetGroceriesUseCase {
         self.groceryRepository = groceryRepository
     }
     
-    func callAsFunction() -> [Grocery] {[
-        .init(id: UUID(), name: "Carrefour"),
-        .init(id: UUID(), name: "Lidl"),
-        .init(id: UUID(), name: "Mercadona")
-    ]}
+    func callAsFunction() async throws -> [Grocery] {
+        try await groceryRepository.getGroceries()
+    }
 }
