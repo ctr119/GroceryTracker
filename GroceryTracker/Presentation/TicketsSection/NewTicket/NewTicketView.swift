@@ -26,7 +26,9 @@ struct NewTicketView: View {
             Divider()
             
             SaveBottomBar {
-                viewModel.saveTicket(for: selectedGrocery, or: groceryName)
+                Task {
+                    await viewModel.saveTicket(for: selectedGrocery, or: groceryName)
+                }
             } cancelAction: {
                 viewModel.cancelTicket()
             }
@@ -87,10 +89,15 @@ extension NewTicketView {
         static func inject(ticketModel: ScannedTicketModel, cancelAction: @escaping () -> Void) -> NewTicketView {
             let groceryDataSource = GroceryDataSourceFactory.make()
             let groceryRepository = GroceryRepositoryImplementation(dataSource: groceryDataSource)
-            let getGroceriesUseCase = GetGroceriesUseCaseImplementation(groceryRepository: groceryRepository)
+            let foodRepository = FoodRepositoryImplementation(dataSource: groceryDataSource)
             
-            let viewModel = NewTicketViewModel(getGroceriesUseCase: getGroceriesUseCase,
-                                               ticketModel: ticketModel,
+            let getGroceriesUseCase = GetGroceriesUseCaseImplementation(groceryRepository: groceryRepository)
+            let saveTicketUseCase = SaveTicketUseCaseImplementation(foodRepository: foodRepository,
+                                                                    groceryRepository: groceryRepository)
+            
+            let viewModel = NewTicketViewModel(ticketModel: ticketModel,
+                                               getGroceriesUseCase: getGroceriesUseCase,
+                                               saveTicketUseCase: saveTicketUseCase,
                                                cancelAction: cancelAction)
             return NewTicketView(viewModel: viewModel)
         }

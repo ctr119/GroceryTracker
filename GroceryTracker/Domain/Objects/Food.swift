@@ -1,6 +1,6 @@
 import Foundation
 
-struct Food {
+struct Food: Hashable {
     let id: UUID
     let name: String
 }

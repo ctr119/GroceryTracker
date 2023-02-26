@@ -1,7 +1,7 @@
 import Foundation
 
 protocol SaveTicketUseCase {
-    func callAsFunction(grocery: Grocery, items: [TextPage.Row]) async
+    func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async
 }
 
 struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
@@ -14,8 +14,15 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
         self.groceryRepository = groceryRepository
     }
     
-    // TODO: Change [TextPage.Row] for [Food : (Price, Int)] being the Int the quantity
-    func callAsFunction(grocery: Grocery, items: [TextPage.Row]) async {
+    func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async {
         await groceryRepository.createGrocery(grocery)
+        
+        // TODO: Create a ticket record (return the ID)
+        
+        // TODO: Get the Food ID if it exists, or create the food if needed (return the ID)
+        
+        // TODO: Establish a PRICE relationship between the product and the grocery
+        
+        // TODO: Establish a PURCHASE relationship between the price and the ticket
     }
 }
