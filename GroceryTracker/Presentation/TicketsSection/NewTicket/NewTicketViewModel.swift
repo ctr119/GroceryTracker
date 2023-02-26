@@ -44,7 +44,7 @@ class NewTicketViewModel: ObservableObject {
             return nil
         }
         
-        guard let grocery = getGrocery() else { return }
+        guard let grocery = getGrocery(), !rows.isEmpty else { return }
         
         let foodDictionary: [String: (Price, Int)] = rows.reduce(into: [:]) { partialResult, row in
             guard let priceAmount = Double(row.singlePrice),
