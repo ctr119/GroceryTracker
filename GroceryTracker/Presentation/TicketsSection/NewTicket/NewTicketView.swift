@@ -115,8 +115,9 @@ struct NewTicketView_Previews: PreviewProvider {
     }
     
     static var previews: some View {
-        NewTicketView(viewModel: NewTicketViewModel(getGroceriesUseCase: GetGroceriesUseCaseMock(),
-                                                    ticketModel: model!,
+        NewTicketView(viewModel: NewTicketViewModel(ticketModel: model!,
+                                                    getGroceriesUseCase: GetGroceriesUseCaseMock(),
+                                                    saveTicketUseCase: SaveTicketUseCaseMock(),
                                                     cancelAction: {}))
     }
 }
@@ -127,4 +128,10 @@ private struct GetGroceriesUseCaseMock: GetGroceriesUseCase {
         .init(id: UUID(), name: "Lidl"),
         .init(id: UUID(), name: "Mercadona")
     ]}
+}
+
+private struct SaveTicketUseCaseMock: SaveTicketUseCase {
+    func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async {
+        // empty
+    }
 }

@@ -2,7 +2,8 @@ import Foundation
 import CoreData
 
 protocol GroceryDataSource {
-    func getFoodList() async throws -> [FoodDBO]
+    func createFood(_ foodList: [FoodDBO]) async throws
+    func getFoodList(_ names: [String]?) async throws -> [FoodDBO]
     func createGrocery(dbo: GroceryDBO) async throws
     func getGroceries(_ ids: [UUID]?) async throws -> [GroceryDBO]
     func getPrices(for foodId: UUID) async throws -> [PriceDBO]
@@ -15,14 +16,23 @@ class GroceryDataSourceImplementation: GroceryDataSource {
         self.container = container
     }
     
-    func getFoodList() async throws -> [FoodDBO] {
+    func createFood(_ foodList: [FoodDBO]) async throws {
+        try await container.saveContext(dbObjects: foodList)
+    }
+    
+    func getFoodList(_ names: [String]? = nil) async throws -> [FoodDBO] {
         let request = FoodEntity.fetchRequest()
+        if let names = names {
+            request.predicate = NSPredicate(
+                format: "name IN %@", names
+            )
+        }
         
         return try await container.fetch(request: request).compactMap { $0 }
     }
     
     func createGrocery(dbo: GroceryDBO) async throws {
-        try await container.saveContext(dbObject: dbo)
+        try await container.saveContext(dbObjects: [dbo])
     }
     
     func getGroceries(_ ids: [UUID]? = nil) async throws -> [GroceryDBO] {
