@@ -17,6 +17,7 @@
 		3E17D7D228F95636006BF749 /* TicketRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D128F95636006BF749 /* TicketRowView.swift */; };
 		3E17D7D428F9A474006BF749 /* Color+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D328F9A474006BF749 /* Color+Custom.swift */; };
 		3E17D7D628F9C5CF006BF749 /* ColumnsDistributionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */; };
+		3E22A30929B011DF000E3A93 /* PriceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E22A30829B011DF000E3A93 /* PriceRepository.swift */; };
 		3E345526290486410082F304 /* ColumnsDistributionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */; };
 		3E51BC05299EDEE400FCD034 /* GroceryDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC04299EDEE400FCD034 /* GroceryDBO.swift */; };
 		3E51BC07299EDFAD00FCD034 /* TicketDBO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E51BC06299EDFAD00FCD034 /* TicketDBO.swift */; };
@@ -90,6 +91,7 @@
 		3E17D7D128F95636006BF749 /* TicketRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketRowView.swift; sourceTree = "<group>"; };
 		3E17D7D328F9A474006BF749 /* Color+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Custom.swift"; sourceTree = "<group>"; };
 		3E17D7D528F9C5CF006BF749 /* ColumnsDistributionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionView.swift; sourceTree = "<group>"; };
+		3E22A30829B011DF000E3A93 /* PriceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceRepository.swift; sourceTree = "<group>"; };
 		3E345525290486410082F304 /* ColumnsDistributionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnsDistributionViewModel.swift; sourceTree = "<group>"; };
 		3E51BC04299EDEE400FCD034 /* GroceryDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroceryDBO.swift; sourceTree = "<group>"; };
 		3E51BC06299EDFAD00FCD034 /* TicketDBO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicketDBO.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			children = (
 				3E51BC0E299EEB4500FCD034 /* FoodRepository.swift */,
 				3EB650EF29A9029E006DFF05 /* GroceryRepository.swift */,
+				3E22A30829B011DF000E3A93 /* PriceRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				3E51BC18299FED9B00FCD034 /* GetFoodListUseCase.swift in Sources */,
 				3ECF8DFE2767F514006077BC /* NewTicketView.swift in Sources */,
 				3ED68E5F2994D66000A4194E /* GroceryDataSourceFactory.swift in Sources */,
+				3E22A30929B011DF000E3A93 /* PriceRepository.swift in Sources */,
 				3E933DF6275EA1D1006A60AC /* Analyser.swift in Sources */,
 				3E17D7CA28F8B49A006BF749 /* ColumnsDistribution.swift in Sources */,
 				3E15665527467B29008D9FCE /* TicketsSectionView.swift in Sources */,

@@ -3,7 +3,7 @@ import Foundation
 protocol FoodRepository {
     func createFood(names: [String]) async throws -> [Food]
     func getFoodList() async throws -> [Food]
-    func getFoodPrices(_ id: UUID) async throws -> [Grocery: Price]
+    func getFoodPrices(_ id: UUID) async throws -> [Grocery: Price] // TODO: Move method to PriceRepository
 }
 
 struct FoodRepositoryImplementation: FoodRepository {

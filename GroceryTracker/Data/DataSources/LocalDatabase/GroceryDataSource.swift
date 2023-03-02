@@ -7,6 +7,7 @@ protocol GroceryDataSource {
     func createGrocery(dbo: GroceryDBO) async throws
     func getGroceries(_ ids: [UUID]?) async throws -> [GroceryDBO]
     func getPrices(for foodId: UUID) async throws -> [PriceDBO]
+    func registerPrices(_ prices: [PriceDBO]) async throws
 }
 
 class GroceryDataSourceImplementation: GroceryDataSource {
@@ -53,5 +54,9 @@ class GroceryDataSourceImplementation: GroceryDataSource {
         )
         
         return try await container.fetch(request: request).compactMap { $0 }
+    }
+    
+    func registerPrices(_ prices: [PriceDBO]) async throws {
+        try await container.saveContext(dbObjects: prices)
     }
 }
