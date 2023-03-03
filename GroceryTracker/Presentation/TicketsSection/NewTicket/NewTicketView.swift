@@ -90,10 +90,12 @@ extension NewTicketView {
             let groceryDataSource = GroceryDataSourceFactory.make()
             let groceryRepository = GroceryRepositoryImplementation(dataSource: groceryDataSource)
             let foodRepository = FoodRepositoryImplementation(dataSource: groceryDataSource)
+            let priceRepository = PriceRepositoryImplementation(dataSource: groceryDataSource)
             
             let getGroceriesUseCase = GetGroceriesUseCaseImplementation(groceryRepository: groceryRepository)
             let saveTicketUseCase = SaveTicketUseCaseImplementation(foodRepository: foodRepository,
-                                                                    groceryRepository: groceryRepository)
+                                                                    groceryRepository: groceryRepository,
+                                                                    priceRepository: priceRepository)
             
             let viewModel = NewTicketViewModel(ticketModel: ticketModel,
                                                getGroceriesUseCase: getGroceriesUseCase,

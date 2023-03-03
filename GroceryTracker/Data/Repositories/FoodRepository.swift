@@ -40,7 +40,7 @@ struct FoodRepositoryImplementation: FoodRepository {
         let prices = try await dataSource.getPrices(for: id)
         
         let groceryIds = prices.map { $0.gid }
-        let groceries = try await dataSource.getGroceries(groceryIds)
+        let groceries = try await dataSource.getGroceries(byIds: groceryIds, byNames: nil)
                 
         return groceries.reduce(into: [:]) { partialResult, groceryDBO in
             guard let saleDbo = prices.first(where: { saleDBO in
