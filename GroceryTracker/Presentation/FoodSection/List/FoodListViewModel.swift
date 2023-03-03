@@ -30,6 +30,9 @@ class FoodListViewModel: ObservableObject {
             switch domainError {
             case .noFoodFound:
                 shouldShowEmptyScreen = true
+            
+            default:
+                break
             }
         }
     }
