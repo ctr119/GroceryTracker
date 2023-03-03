@@ -8,6 +8,8 @@ protocol GroceryDataSource {
     func getGroceries(byIds ids: [UUID]?, byNames names: [String]?) async throws -> [GroceryDBO]
     func getPrices(for foodId: UUID) async throws -> [PriceDBO]
     func registerPrices(_ prices: [PriceDBO]) async throws
+    func createTicket() async throws -> UUID
+    func storePurchases(_ purchases: [PurchaseDBO]) async throws
 }
 
 class GroceryDataSourceImplementation: GroceryDataSource {
@@ -83,5 +85,17 @@ class GroceryDataSourceImplementation: GroceryDataSource {
     
     func registerPrices(_ prices: [PriceDBO]) async throws {
         try await container.saveContext(dbObjects: prices)
+    }
+    
+    func createTicket() async throws -> UUID {
+        let ticketDbo = TicketDBO(tid: UUID(), date: Date.now)
+        
+        try await container.saveContext(dbObjects: [ticketDbo])
+        
+        return ticketDbo.tid
+    }
+    
+    func storePurchases(_ purchases: [PurchaseDBO]) async throws {
+        try await container.saveContext(dbObjects: purchases)
     }
 }

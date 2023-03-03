@@ -8,13 +8,16 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
     private let foodRepository: FoodRepository
     private let groceryRepository: GroceryRepository
     private let priceRepository: PriceRepository
+    private let purchaseRepository: PurchaseRepository
     
     init(foodRepository: FoodRepository,
          groceryRepository: GroceryRepository,
-         priceRepository: PriceRepository) {
+         priceRepository: PriceRepository,
+         purchaseRepository: PurchaseRepository) {
         self.foodRepository = foodRepository
         self.groceryRepository = groceryRepository
         self.priceRepository = priceRepository
+        self.purchaseRepository = purchaseRepository
     }
     
     func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async {
@@ -37,14 +40,21 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
             let food = try await foodRepository.createFood(names: foodNames) // <--- TODO: Final Check
             guard foodNames.count == food.count else { return } // We could throw an error here
             
-            let foodPrices: [Food: Price] = food.reduce(into: [:]) { partialResult, foodItem in
+            var foodPrices: [Food: Price] = [:]
+            var foodQuantities: [Food: Int] = [:]
+            
+            food.forEach { foodItem in
                 if let dictValue = foodDictionary[foodItem.name] {
                     let price = dictValue.0
-                    partialResult[foodItem] = price
+                    let quantity = dictValue.1
+                    foodPrices[foodItem] = price
+                    foodQuantities[foodItem] = quantity
                 }
             }
             
             try await priceRepository.registerPrices(in: grocery, foodPrices: foodPrices) // <--- TODO: Final Check
+            try await purchaseRepository.createTicket(of: grocery, items: foodQuantities)
+            
         } catch {
             switch error {
             case DomainError.emptyFoodNameList:
@@ -53,17 +63,11 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
             case DomainError.foodNotCreated:
                 return
                 
+            case DomainError.ticketNotCreated:
+                return
+                
             default: break
             }
         }
-        
-        // TODO: Create a PURCHASE repository
-            // It will manage stuff like PURCHASES and TICKETS
-            // Ticket creation
-            // Price assignment
-        
-        // TODO: Create a ticket record (return the ID)
-        
-        // TODO: Establish a PURCHASE relationship between the price and the ticket
     }
 }

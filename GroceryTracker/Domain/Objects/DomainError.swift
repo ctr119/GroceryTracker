@@ -6,4 +6,5 @@ enum DomainError: Error {
     case emptyFoodNameList
     case foodNotCreated
     case noFoodFound
+    case ticketNotCreated
 }
