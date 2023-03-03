@@ -1,7 +1,7 @@
 import Foundation
 
 protocol GroceryRepository {
-    func createGrocery(_ grocery: Grocery) async
+    func createGrocery(_ grocery: Grocery) async throws
     func getGroceries() async throws -> [Grocery]
 }
 
@@ -12,15 +12,19 @@ struct GroceryRepositoryImplementation: GroceryRepository {
         self.dataSource = dataSource
     }
     
-    func createGrocery(_ grocery: Grocery) async {
+    func createGrocery(_ grocery: Grocery) async throws {
         do {
-            let exists = try await dataSource.getGroceries(byIds: nil, byNames: [grocery.name]).count > 0
-            if !exists {
-                let groceryDbo = GroceryDBO(gid: grocery.id, name: grocery.name)
-                try await dataSource.createGrocery(dbo: groceryDbo)
-            }
+            let groceryDbo = GroceryDBO(gid: grocery.id, name: grocery.name)
+            try await dataSource.createGrocery(dbo: groceryDbo)
+            
         } catch {
-            // Do not do anything
+            switch error {
+            case DataError.alreadyExistingGrocery:
+                throw DomainError.existingGrocery
+            
+            default:
+                throw DomainError.groceryNotCreated
+            }
         }
     }
     

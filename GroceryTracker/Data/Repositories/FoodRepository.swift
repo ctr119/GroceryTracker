@@ -14,19 +14,16 @@ struct FoodRepositoryImplementation: FoodRepository {
     }
     
     func createFood(names: [String]) async throws -> [Food] {
-        guard !names.isEmpty else { return [] }
+        guard !names.isEmpty else {
+            throw DomainError.emptyFoodNameList
+        }
         
-        let existingFood = try await dataSource.getFoodList(names)
-        let existingFoodNames = existingFood.map { $0.name }
-        
-        let nonExistingFood = names
-            .filter { !existingFoodNames.contains($0) }
-            .map { FoodDBO(fid: UUID(), name: $0) }
-        
-        try await dataSource.createFood(nonExistingFood)
-        
-        return (existingFood + nonExistingFood).map {
-            Food(id: $0.fid, name: $0.name)
+        do {
+            return try await dataSource.createFood(names).map {
+                Food(id: $0.fid, name: $0.name)
+            }
+        } catch {
+            throw DomainError.foodNotCreated
         }
     }
     

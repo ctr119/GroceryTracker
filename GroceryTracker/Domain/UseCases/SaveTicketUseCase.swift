@@ -18,9 +18,19 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
     }
     
     func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async {
-        await groceryRepository.createGrocery(grocery)
         
         // TODO: Final Check: creating objects with the same information as in the DB (instead of fetching them first), updates them properly in the DB
+        
+        do {
+            try await groceryRepository.createGrocery(grocery)
+        } catch {
+            switch error {
+            case DomainError.groceryNotCreated:
+                return
+            default:
+                break
+            }
+        }
         
         do {
             let foodNames = foodDictionary.map { $0.key }
@@ -36,7 +46,15 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
             
             try await priceRepository.registerPrices(in: grocery, foodPrices: foodPrices) // <--- TODO: Final Check
         } catch {
-            
+            switch error {
+            case DomainError.emptyFoodNameList:
+                return
+                
+            case DomainError.foodNotCreated:
+                return
+                
+            default: break
+            }
         }
         
         // TODO: Create a PURCHASE repository

@@ -2,7 +2,7 @@ import Foundation
 import CoreData
 
 protocol GroceryDataSource {
-    func createFood(_ foodList: [FoodDBO]) async throws
+    func createFood(_ names: [String]) async throws -> [FoodDBO]
     func getFoodList(_ names: [String]?) async throws -> [FoodDBO]
     func createGrocery(dbo: GroceryDBO) async throws
     func getGroceries(byIds ids: [UUID]?, byNames names: [String]?) async throws -> [GroceryDBO]
@@ -17,8 +17,17 @@ class GroceryDataSourceImplementation: GroceryDataSource {
         self.container = container
     }
     
-    func createFood(_ foodList: [FoodDBO]) async throws {
-        try await container.saveContext(dbObjects: foodList)
+    func createFood(_ names: [String]) async throws -> [FoodDBO] {
+        let existingFood = try await getFoodList(names)
+        let existingFoodNames = existingFood.map { $0.name }
+        
+        let nonExistingFood = names
+            .filter { !existingFoodNames.contains($0) }
+            .map { FoodDBO(fid: UUID(), name: $0) }
+        
+        try await container.saveContext(dbObjects: nonExistingFood)
+        
+        return existingFood + nonExistingFood
     }
     
     func getFoodList(_ names: [String]? = nil) async throws -> [FoodDBO] {
@@ -33,6 +42,10 @@ class GroceryDataSourceImplementation: GroceryDataSource {
     }
     
     func createGrocery(dbo: GroceryDBO) async throws {
+        if try await getGroceries(byIds: nil, byNames: [dbo.name]).count > 0 {
+            throw DataError.alreadyExistingGrocery
+        }
+        
         try await container.saveContext(dbObjects: [dbo])
     }
     
