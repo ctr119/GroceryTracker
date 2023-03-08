@@ -7,25 +7,38 @@ public struct FloatingButton: View {
     }
     
     public struct FBConfiguration {
+        public struct Border {
+            public let color: Color
+            public let lineWidth: CGFloat
+            
+            public init(color: Color, lineWidth: CGFloat) {
+                self.color = color
+                self.lineWidth = lineWidth
+            }
+        }
+        
         public var width: CGFloat
         public var height: CGFloat?
         public var fontSize: CGFloat?
         public var cornerRadius: CGFloat?
         public var background: Color
         public var tint: Color
+        public let border: Border?
         
         public init(width: CGFloat = 55,
                     height: CGFloat? = nil,
                     fontSize: CGFloat? = nil,
                     cornerRadius: CGFloat? = nil,
                     background: Color = .blue,
-                    tint: Color = .white) {
+                    tint: Color = .white,
+                    border: Border? = nil) {
             self.width = width
             self.height = height
             self.fontSize = fontSize
             self.cornerRadius = cornerRadius
             self.background = background
             self.tint = tint
+            self.border = border
         }
     }
     
@@ -38,6 +51,8 @@ public struct FloatingButton: View {
     
     private let backgroundColor: Color
     private let tintColor: Color
+    
+    private let border: FBConfiguration.Border?
     
     private let didTapAction: () -> Void
     
@@ -62,6 +77,8 @@ public struct FloatingButton: View {
         backgroundColor = config.background
         tintColor = config.tint
         
+        border = config.border
+        
         self.didTapAction = didTapAction
     }
     
@@ -81,7 +98,8 @@ public struct FloatingButton: View {
                         .foregroundColor(tintColor)
                 }
                 .buttonStyle(FloatingButtonStyle(buttonBackgroundColor: backgroundColor,
-                                                 buttonCornerRadius: buttonCornerRadius))
+                                                 buttonCornerRadius: buttonCornerRadius,
+                                                 border: border))
             }
         }
     }
@@ -89,16 +107,20 @@ public struct FloatingButton: View {
     private struct FloatingButtonStyle: ButtonStyle {
         let buttonBackgroundColor: Color
         let buttonCornerRadius: CGFloat
+        let border: FBConfiguration.Border?
         
         func makeBody(configuration: Configuration) -> some View {
             configuration.label
                 .background(configuration.isPressed ? buttonBackgroundColor.opacity(0.6) : buttonBackgroundColor)
                 .cornerRadius(buttonCornerRadius)
-                .padding()
                 .shadow(color: .black.opacity(0.3),
-                        radius: 3,
-                        x: 3,
-                        y: 3)
+                        radius: 3, x: 3, y: 3)
+                .overlay(
+                    RoundedRectangle(cornerRadius: buttonCornerRadius)
+                        .stroke(border?.color ?? .clear,
+                                lineWidth: border?.lineWidth ?? 0)
+                )
+                .padding()
         }
     }
 }
@@ -117,6 +139,17 @@ struct FloatingButton_Previews: PreviewProvider {
                                                                cornerRadius: 10,
                                                                background: .red,
                                                                tint: .white)),
+                           didTapAction: {
+                // Here go the action
+            })
+            
+            FloatingButton(text: "-",
+                           style: .custom(configuration: .init(width: 80,
+                                                               height: 80,
+                                                               background: .red,
+                                                               tint: .white,
+                                                               border: .init(color: .blue,
+                                                                             lineWidth: 2))),
                            didTapAction: {
                 // Here go the action
             })
