@@ -42,7 +42,7 @@ public struct FloatingButton: View {
         }
     }
     
-    private let text: String
+    private let iconName: String
     
     private let buttonWidth: CGFloat
     private let buttonHeight: CGFloat
@@ -56,8 +56,11 @@ public struct FloatingButton: View {
     
     private let didTapAction: () -> Void
     
-    public init(text: String, style: FloatingButton.Style, didTapAction: @escaping () -> Void) {
-        self.text = text
+    public init(iconName: String,
+                style: FloatingButton.Style,
+                didTapAction: @escaping () -> Void) {
+        
+        self.iconName = iconName
         
         var config: FBConfiguration
         switch style {
@@ -71,7 +74,7 @@ public struct FloatingButton: View {
         buttonWidth = config.width
         
         buttonHeight = config.height ?? buttonWidth
-        buttonFontSize = config.fontSize ?? buttonWidth / 2
+        buttonFontSize = config.fontSize ?? buttonWidth / 2.5
         buttonCornerRadius = config.cornerRadius ?? buttonWidth / 2
         
         backgroundColor = config.background
@@ -90,18 +93,22 @@ public struct FloatingButton: View {
                 Spacer()
                 
                 Button(action: didTapAction) {
-                    Text(text)
-                        .font(.system(size: buttonFontSize))
-                        .frame(width: buttonWidth,
-                               height: buttonHeight,
-                               alignment: .center)
-                        .foregroundColor(tintColor)
+                    buttonLayout
                 }
                 .buttonStyle(FloatingButtonStyle(buttonBackgroundColor: backgroundColor,
                                                  buttonCornerRadius: buttonCornerRadius,
                                                  border: border))
             }
         }
+    }
+    
+    private var buttonLayout: some View {
+        Image(systemName: iconName)
+            .font(.system(size: buttonFontSize))
+            .frame(width: buttonWidth,
+                   height: buttonHeight,
+                   alignment: .center)
+            .foregroundColor(tintColor)
     }
     
     private struct FloatingButtonStyle: ButtonStyle {
@@ -128,14 +135,14 @@ public struct FloatingButton: View {
 struct FloatingButton_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
-            FloatingButton(text: "+", style: .basic, didTapAction: {
+            FloatingButton(iconName: "plus", style: .basic, didTapAction: {
                 // Here go the action
             })
             
-            FloatingButton(text: "-",
+            FloatingButton(iconName: "plus",
                            style: .custom(configuration: .init(width: 80,
                                                                height: 80,
-                                                               fontSize: 60,
+                                                               fontSize: 70,
                                                                cornerRadius: 10,
                                                                background: .red,
                                                                tint: .white)),
@@ -143,9 +150,10 @@ struct FloatingButton_Previews: PreviewProvider {
                 // Here go the action
             })
             
-            FloatingButton(text: "-",
+            FloatingButton(iconName: "plus",
                            style: .custom(configuration: .init(width: 80,
                                                                height: 80,
+                                                               cornerRadius: 25,
                                                                background: .red,
                                                                tint: .white,
                                                                border: .init(color: .blue,
@@ -154,12 +162,11 @@ struct FloatingButton_Previews: PreviewProvider {
                 // Here go the action
             })
             
-            FloatingButton(text: "CONTINUE",
-                           style: .custom(configuration: .init(width: 180,
-                                                               height: 60,
-                                                               fontSize: 18,
+            FloatingButton(iconName: "plus",
+                           style: .custom(configuration: .init(width: 80,
+                                                               height: 80,
                                                                cornerRadius: 10,
-                                                               background: .black,
+                                                               background: .red,
                                                                tint: .white)),
                            didTapAction: {
                 // Here go the action

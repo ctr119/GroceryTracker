@@ -16,9 +16,12 @@ struct PurchaseRepositoryImplementation: PurchaseRepository {
             let ticketId = try await dataSource.createTicket()
             
             let purchases = foodQuantities.map {
-                PurchaseDBO(tid: ticketId, gid: grocery.id, fid: $0.key.id, quantity: $0.value)
+                let food = $0.key
+                let quantity = $0.value
+                
+                return PurchaseDBO(tid: ticketId, gid: grocery.id, fid: food.id, quantity: quantity)
             }
-            try await dataSource.storePurchases(purchases)
+            try await dataSource.associatePurchases(purchases)
         } catch {
             throw DomainError.ticketNotCreated
         }

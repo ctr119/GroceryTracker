@@ -23,6 +23,7 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
     func callAsFunction(grocery: Grocery, foodDictionary: [String : (Price, Int)]) async {
         
         // TODO: Final Check: creating objects with the same information as in the DB (instead of fetching them first), updates them properly in the DB
+        // ANSWER: No, CoreData uses the references. When creating multiple objects with the same info, that does not update the DB because the object's reference is different. So, we always have to retrieve the information first, update, and then save it.
         
         do {
             try await groceryRepository.createGrocery(grocery)
@@ -37,7 +38,7 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
         
         do {
             let foodNames = foodDictionary.map { $0.key }
-            let food = try await foodRepository.createFood(names: foodNames) // <--- TODO: Final Check
+            let food = try await foodRepository.createFood(names: foodNames)
             guard foodNames.count == food.count else { return } // We could throw an error here
             
             var foodPrices: [Food: Price] = [:]
@@ -52,7 +53,7 @@ struct SaveTicketUseCaseImplementation: SaveTicketUseCase {
                 }
             }
             
-            try await priceRepository.registerPrices(in: grocery, foodPrices: foodPrices) // <--- TODO: Final Check
+            try await priceRepository.registerPrices(in: grocery, foodPrices: foodPrices)
             try await purchaseRepository.createTicket(of: grocery, items: foodQuantities)
             
         } catch {

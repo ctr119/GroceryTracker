@@ -2,7 +2,8 @@ import CoreData
 
 protocol PersistentContainer {
     func fetch<E, R>(request: NSFetchRequest<E>) async throws -> [R] where E: NSManagedObject, E: ToDBObject, R == E.ObjectType
-    func saveContext<T>(dbObjects: [T]) async throws where T: ToNSManagedObject
+    func saveInContext<T>(dbObjects: [T]) async throws where T: ToNSManagedObject
+    func runBlock(_ block: @escaping (NSManagedObjectContext) -> Void) async throws
 }
 
 class PersistentContainerImplementation: PersistentContainer {
@@ -28,7 +29,7 @@ class PersistentContainerImplementation: PersistentContainer {
         }
     }
     
-    func saveContext<T>(dbObjects: [T]) async throws where T: ToNSManagedObject {
+    func saveInContext<T>(dbObjects: [T]) async throws where T: ToNSManagedObject {
         try await withCheckedThrowingContinuation { (continuation: CheckedContinuation<Void, Error>) in
             self.container.viewContext.perform {
                 do {
@@ -41,6 +42,13 @@ class PersistentContainerImplementation: PersistentContainer {
                     continuation.resume(throwing: error)
                 }
             }
+        }
+    }
+    
+    func runBlock(_ block: @escaping (NSManagedObjectContext) -> Void) async throws {
+        try await container.viewContext.perform {
+            block(self.container.viewContext)
+            try self.container.viewContext.save()
         }
     }
 }

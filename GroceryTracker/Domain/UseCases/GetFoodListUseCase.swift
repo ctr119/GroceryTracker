@@ -18,6 +18,8 @@ struct GetFoodListUseCaseImplementation: GetFoodListUseCase {
             throw DomainError.noFoodFound
         }
         
+        let pricesPerGrocery = try await foodRepository.getFoodPrices(food[0].id)
+        
         return food
     }
 }

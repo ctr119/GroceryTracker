@@ -9,7 +9,7 @@ protocol GroceryDataSource {
     func getPrices(for foodId: UUID) async throws -> [PriceDBO]
     func registerPrices(_ prices: [PriceDBO]) async throws
     func createTicket() async throws -> UUID
-    func storePurchases(_ purchases: [PurchaseDBO]) async throws
+    func associatePurchases(_ purchases: [PurchaseDBO]) async throws
 }
 
 class GroceryDataSourceImplementation: GroceryDataSource {
@@ -27,7 +27,7 @@ class GroceryDataSourceImplementation: GroceryDataSource {
             .filter { !existingFoodNames.contains($0) }
             .map { FoodDBO(fid: UUID(), name: $0) }
         
-        try await container.saveContext(dbObjects: nonExistingFood)
+        try await container.saveInContext(dbObjects: nonExistingFood)
         
         return existingFood + nonExistingFood
     }
@@ -48,7 +48,7 @@ class GroceryDataSourceImplementation: GroceryDataSource {
             throw DataError.alreadyExistingGrocery
         }
         
-        try await container.saveContext(dbObjects: [dbo])
+        try await container.saveInContext(dbObjects: [dbo])
     }
     
     func getGroceries(byIds ids: [UUID]? = nil, byNames names: [String]? = nil) async throws -> [GroceryDBO] {
@@ -84,18 +84,54 @@ class GroceryDataSourceImplementation: GroceryDataSource {
     }
     
     func registerPrices(_ prices: [PriceDBO]) async throws {
-        try await container.saveContext(dbObjects: prices)
+        var foodIds: [UUID] = []
+        var groceryIds: [UUID] = []
+        prices.forEach {
+            foodIds.append($0.fid)
+            groceryIds.append($0.gid)
+        }
+        
+        let existingPricesRequest = PriceEntity.fetchRequest()
+        existingPricesRequest.predicate = NSPredicate(
+            format: "fid IN %@ AND gid IN %@", foodIds, groceryIds
+        )
+        let existingPrices = try await container.fetch(request: existingPricesRequest).compactMap { $0 }
+        
+        try await container.runBlock({ context in
+            // update existing prices
+            for existingPrice in existingPrices where prices.contains(where: {
+                $0.fid == existingPrice.fid
+                && $0.gid == existingPrice.gid
+                && $0.amount != existingPrice.amount }) {
+                
+                guard var priceToUpdate = existingPrice.toNSManagedObject(context: context) as? PriceEntity,
+                      let newPrice = prices.first(where: { $0.fid == existingPrice.fid && $0.gid == existingPrice.gid }) else { continue }
+                
+                priceToUpdate.amount = newPrice.amount
+            }
+            
+            // create new prices
+            let newPrices = prices.filter { newPrice in
+                !existingPrices.contains { existingPrice in
+                    newPrice.fid == existingPrice.fid
+                    && newPrice.gid == existingPrice.gid
+                }
+            }
+            newPrices.forEach {
+                _ = $0.toNSManagedObject(context: context)
+            }
+        })
     }
     
     func createTicket() async throws -> UUID {
-        let ticketDbo = TicketDBO(tid: UUID(), date: Date.now)
+        let ticket = TicketDBO(tid: UUID(), date: Date.now)
         
-        try await container.saveContext(dbObjects: [ticketDbo])
+        try await container.saveInContext(dbObjects: [ticket])
         
-        return ticketDbo.tid
+        return ticket.tid
     }
     
-    func storePurchases(_ purchases: [PurchaseDBO]) async throws {
-        try await container.saveContext(dbObjects: purchases)
+    func associatePurchases(_ purchases: [PurchaseDBO]) async throws {
+        try await container.saveInContext(dbObjects: purchases)
     }
 }

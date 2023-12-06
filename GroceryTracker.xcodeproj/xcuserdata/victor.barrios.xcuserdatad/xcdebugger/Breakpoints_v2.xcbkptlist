@@ -3,4 +3,634 @@
    uuid = "84697E81-5CEE-4997-BD4C-E3E5AEC494E7"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D7B719D1-F712-4E77-8579-AC40D640B584"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "callAsFunction()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "90C209EC-1626-45ED-8611-6D13A85E28FA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "callAsFunction()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "90C209EC-1626-45ED-8611-6D13A85E28FA - 50583c2bf76dbd1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for GroceryTracker.GetFoodListUseCaseImplementation.callAsFunction() async throws -&gt; Swift.Array&lt;GroceryTracker.Food&gt;"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "90C209EC-1626-45ED-8611-6D13A85E28FA - dca22483806add5a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for GroceryTracker.GetFoodListUseCaseImplementation.callAsFunction() async throws -&gt; Swift.Array&lt;GroceryTracker.Food&gt;"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "90C209EC-1626-45ED-8611-6D13A85E28FA - c75d468f5144f911"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for GroceryTracker.GetFoodListUseCaseImplementation.callAsFunction() async throws -&gt; Swift.Array&lt;GroceryTracker.Food&gt;"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "96">
+               </Location>
+               <Location
+                  uuid = "90C209EC-1626-45ED-8611-6D13A85E28FA - 76a390e0b3a23513"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for GroceryTracker.GetFoodListUseCaseImplementation.callAsFunction() async throws -&gt; Swift.Array&lt;GroceryTracker.Food&gt;"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/GetFoodListUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "380B6911-712C-4C78-A77B-A697F26A1893"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F50C6887-2CDB-4C46-B64C-44549DA23866"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "callAsFunction(grocery:foodDictionary:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F50C6887-2CDB-4C46-B64C-44549DA23866 - e8d54a8d6b042148"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "F50C6887-2CDB-4C46-B64C-44549DA23866 - 4598c4fa0f8242f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "F50C6887-2CDB-4C46-B64C-44549DA23866 - 4df2e31a1560326b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EB89BAD-A7D8-4548-AFB6-5A69D73EA18E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "callAsFunction(grocery:foodDictionary:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8EB89BAD-A7D8-4548-AFB6-5A69D73EA18E - 996dcb1fc806e7ba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "8EB89BAD-A7D8-4548-AFB6-5A69D73EA18E - 3b09f9bc5b26e463"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "8EB89BAD-A7D8-4548-AFB6-5A69D73EA18E - 4df2e31a156030d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(10) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  uuid = "8EB89BAD-A7D8-4548-AFB6-5A69D73EA18E - 48dcb572e9925396"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(11) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "41"
+                  endingLineNumber = "41"
+                  offsetFromSymbolStart = "80">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EFC03FE3-5BCB-449D-829A-BEDF00D3277B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "callAsFunction(grocery:foodDictionary:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EFC03FE3-5BCB-449D-829A-BEDF00D3277B - 46064baea908ad4b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "568">
+               </Location>
+               <Location
+                  uuid = "EFC03FE3-5BCB-449D-829A-BEDF00D3277B - ae7a1f7eb4490e22"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "EFC03FE3-5BCB-449D-829A-BEDF00D3277B - 749eb4311609690d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "EFC03FE3-5BCB-449D-829A-BEDF00D3277B - 47c69f4b4dc5f066"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(12) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "14919C13-A9E5-473B-ACD7-8D6AF39E2C24"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "callAsFunction(grocery:foodDictionary:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "14919C13-A9E5-473B-ACD7-8D6AF39E2C24 - 749eb4311609692e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "144">
+               </Location>
+               <Location
+                  uuid = "14919C13-A9E5-473B-ACD7-8D6AF39E2C24 - 5eb3c3081edaa17"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(8) await resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "14919C13-A9E5-473B-ACD7-8D6AF39E2C24 - 25373543f70b14ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(9) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "14919C13-A9E5-473B-ACD7-8D6AF39E2C24 - 42a160a020771f04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(13) suspend resume partial function for GroceryTracker.SaveTicketUseCaseImplementation.callAsFunction(grocery: GroceryTracker.Grocery, foodDictionary: Swift.Dictionary&lt;Swift.String, (GroceryTracker.Price, Swift.Int)&gt;) async -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Domain/UseCases/SaveTicketUseCase.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2AFCC133-7EDA-4EAE-8E99-9698AC1C6E7A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF - 82d1ca5a40cf9850"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF - 6cd96802d9a47076"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) await resume partial function for GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF - 8c229d07aa96dc5e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF - 8d0f7023957d105c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "100"
+                  endingLineNumber = "100"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "58AD620D-ADE0-4D30-BA43-8C10ACECF6FF - 3b617f57d438761f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.NSManagedObjectContext) -&gt; () in GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "508">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "94898EA2-DA60-4916-A97F-ECB40590C7DF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "94898EA2-DA60-4916-A97F-ECB40590C7DF - 3b617f57d438761f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.NSManagedObjectContext) -&gt; () in GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "102"
+                  endingLineNumber = "102"
+                  offsetFromSymbolStart = "508">
+               </Location>
+               <Location
+                  uuid = "94898EA2-DA60-4916-A97F-ECB40590C7DF - 678dc910010bd13a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (GroceryTracker.PriceDBO) -&gt; Swift.Bool in closure #3 (__C.NSManagedObjectContext) -&gt; () in GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "103"
+                  endingLineNumber = "103"
+                  offsetFromSymbolStart = "404">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D95E215-C2F8-4F35-9196-A45158301F1A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B508BDB-A7A8-4CE3-8930-868B0E9F6A80"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "registerPrices(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0B508BDB-A7A8-4CE3-8930-868B0E9F6A80 - 3b617f57d43874ab"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (__C.NSManagedObjectContext) -&gt; () in GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "114"
+                  endingLineNumber = "114"
+                  offsetFromSymbolStart = "680">
+               </Location>
+               <Location
+                  uuid = "0B508BDB-A7A8-4CE3-8930-868B0E9F6A80 - 6e4b9854667a6748"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #3 (GroceryTracker.PriceDBO) -&gt; Swift.Bool in closure #3 (__C.NSManagedObjectContext) -&gt; () in GroceryTracker.GroceryDataSourceImplementation.registerPrices(Swift.Array&lt;GroceryTracker.PriceDBO&gt;) async throws -&gt; ()"
+                  moduleName = "GroceryTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victor.barrios/Documents/Pets/GroceryTracker/GroceryTracker/Data/DataSources/LocalDatabase/GroceryDataSource.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -10,7 +10,7 @@ struct TicketsSectionView: View {
             // TODO: Load tickets from Disk
             Text("Empty")
             
-            FloatingButton(text: "+",
+            FloatingButton(iconName: "plus",
                            style: .custom(configuration: FloatingButton.FBConfiguration(
                             background: DesignSystem.ColorScheme.Element.secondary.color,
                             tint: DesignSystem.ColorScheme.Semantic.accent.color
